@@ -78,6 +78,7 @@
     <AndroidResource Include="Resources\values\Dimens.xml" />
     <AndroidResource Include="Resources\menu\Main.xml" />
     <AndroidResource Include="Resources\values\Styles.xml" />
+    <AndroidResource Include="Resources\layout\list_item_forecast.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
