@@ -26,6 +26,7 @@ namespace Sunshine
 		
 		public static void UpdateIdValues()
 		{
+			global::ModernHttpClient.Resource.String.library_name = global::Sunshine.Resource.String.library_name;
 		}
 		
 		public partial class Animation
@@ -1478,7 +1479,10 @@ namespace Sunshine
 			public const int action_mode_close_button = 2131492899;
 			
 			// aapt resource value: 0x7f0c0060
-			public const int action_settings = 2131492960;
+			public const int action_refresh = 2131492960;
+			
+			// aapt resource value: 0x7f0c0061
+			public const int action_settings = 2131492961;
 			
 			// aapt resource value: 0x7f0c0024
 			public const int activity_chooser_view_content = 2131492900;
@@ -1898,7 +1902,10 @@ namespace Sunshine
 		{
 			
 			// aapt resource value: 0x7f0d0000
-			public const int Main = 2131558400;
+			public const int forecastfragment = 2131558400;
+			
+			// aapt resource value: 0x7f0d0001
+			public const int Main = 2131558401;
 			
 			static Menu()
 			{
@@ -1986,14 +1993,20 @@ namespace Sunshine
 			// aapt resource value: 0x7f060012
 			public const int abc_toolbar_collapse_description = 2131099666;
 			
+			// aapt resource value: 0x7f060018
+			public const int action_refresh = 2131099672;
+			
+			// aapt resource value: 0x7f060017
+			public const int action_settings = 2131099671;
+			
 			// aapt resource value: 0x7f060016
-			public const int action_settings = 2131099670;
+			public const int app_name = 2131099670;
 			
 			// aapt resource value: 0x7f060015
-			public const int app_name = 2131099669;
+			public const int hello_world = 2131099669;
 			
 			// aapt resource value: 0x7f060014
-			public const int hello_world = 2131099668;
+			public const int library_name = 2131099668;
 			
 			// aapt resource value: 0x7f060013
 			public const int status_bar_notification_info_overflow = 2131099667;
