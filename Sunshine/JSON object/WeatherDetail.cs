@@ -8,8 +8,8 @@ namespace Sunshine.JSONobject
         [JsonProperty(PropertyName = "main")]
         public string Main { get; set;}
 
-//        [JsonProperty(PropertyName = "description")]
-//        public string Description { get; set;}
+        [JsonProperty(PropertyName = "description")]
+        public string Description { get; set;}
 
     }
 }

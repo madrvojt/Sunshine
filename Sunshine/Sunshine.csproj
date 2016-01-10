@@ -83,6 +83,9 @@
     <Compile Include="JSON object\Temperature.cs" />
     <Compile Include="JSON object\WeatherDaysList.cs" />
     <Compile Include="JSON object\WeatherDetail.cs" />
+    <Compile Include="DetailActivity.cs" />
+    <Compile Include="SettingsActivity.cs" />
+    <Compile Include="DetailFragment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -104,6 +107,12 @@
     <AndroidResource Include="Resources\values\Styles.xml" />
     <AndroidResource Include="Resources\layout\list_item_forecast.axml" />
     <AndroidResource Include="Resources\menu\forecastfragment.xml" />
+    <AndroidResource Include="Resources\layout\activity_detail.axml" />
+    <AndroidResource Include="Resources\layout\fragment_detail.axml" />
+    <AndroidResource Include="Resources\menu\Detail.xml" />
+    <AndroidResource Include="Resources\xml\pref_general.xml" />
+    <AndroidResource Include="Resources\values\Arrays.xml" />
+    <AndroidResource Include="Resources\menu\detailfragment.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
@@ -111,6 +120,7 @@
     <Folder Include="Resources\mipmap-xxxhdpi\" />
     <Folder Include="Resources\menu\" />
     <Folder Include="JSON object\" />
+    <Folder Include="Resources\xml\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Insights.1.11.3\build\MonoAndroid10\Xamarin.Insights.targets" Condition="Exists('..\packages\Xamarin.Insights.1.11.3\build\MonoAndroid10\Xamarin.Insights.targets')" />
