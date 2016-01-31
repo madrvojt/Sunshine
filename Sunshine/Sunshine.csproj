@@ -86,6 +86,8 @@
     <Compile Include="DetailActivity.cs" />
     <Compile Include="SettingsActivity.cs" />
     <Compile Include="DetailFragment.cs" />
+    <Compile Include="Data\WeatherContract.cs" />
+    <Compile Include="Data\WeatherDbHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -121,6 +123,7 @@
     <Folder Include="Resources\menu\" />
     <Folder Include="JSON object\" />
     <Folder Include="Resources\xml\" />
+    <Folder Include="Data\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Insights.1.11.3\build\MonoAndroid10\Xamarin.Insights.targets" Condition="Exists('..\packages\Xamarin.Insights.1.11.3\build\MonoAndroid10\Xamarin.Insights.targets')" />

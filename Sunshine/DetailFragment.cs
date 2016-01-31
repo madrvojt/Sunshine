@@ -1,7 +1,4 @@
-﻿
-using System;
-
-using Android.Content;
+﻿using Android.Content;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
@@ -15,7 +12,6 @@ namespace Sunshine
 {
     public class DetailFragment : Fragment
     {
-
         const string ForecastShareHashtag = " #SunshineApp";
         string _forecastString;
         const string SourceContext = "MyNamespace.MyClass";
@@ -89,7 +85,6 @@ namespace Sunshine
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
-
             int id = item.ItemId;
 
             switch (id)
