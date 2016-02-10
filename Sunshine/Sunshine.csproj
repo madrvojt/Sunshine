@@ -88,6 +88,10 @@
     <Compile Include="DetailFragment.cs" />
     <Compile Include="Data\WeatherContract.cs" />
     <Compile Include="Data\WeatherDbHelper.cs" />
+    <Compile Include="Data\WeatherProvider.cs" />
+    <Compile Include="FetchWeatherTask.cs" />
+    <Compile Include="JSON object\City.cs" />
+    <Compile Include="JSON object\Coord.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

@@ -56,6 +56,10 @@
     <Compile Include="Tests\TestPractice.cs" />
     <Compile Include="Tests\TestUtilities.cs" />
     <Compile Include="Tests\TestContentObserver.cs" />
+    <Compile Include="Tests\TestUriMatcher.cs" />
+    <Compile Include="Tests\TestProvider.cs" />
+    <Compile Include="Tests\TestWeatherContract.cs" />
+    <Compile Include="Tests\TestFetchWeatherTask.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

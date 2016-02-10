@@ -11,17 +11,20 @@ namespace Sunshine.Tests.Tests
 {
     public class TestUtilities
     {
-        const String TestLocation = "99705";
+        public const string TestLocation = "99705";
         // December 20th, 2014
-        const long TestDate = 1419033600L;
+        public static long TestDate = DateTime.Now.Ticks;
 
-        static void ValidateCursor(String error, ICursor valueCursor, ContentValues expectedValues)
+        public static void ValidateCursor(String error, ICursor valueCursor, ContentValues expectedValues)
         {
             Assert.True(valueCursor.MoveToFirst(), "Empty cursor returned. " + error);
             ValidateCurrentRecord(error, valueCursor, expectedValues);
             valueCursor.Close();
         }
 
+        /// <summary>
+        /// Validates the current records
+        /// </summary>
         public static void ValidateCurrentRecord(String error, ICursor valueCursor, ContentValues expectedValues)
         {
             var keySet = expectedValues.KeySet();
@@ -88,7 +91,7 @@ namespace Sunshine.Tests.Tests
         /// Students: You can uncomment this function once you have finished creating the
         /// LocationEntry part of the WeatherContract as well as the WeatherDbHelper.
         /// </description>
-        static long InsertNorthPoleLocationValues(Context context)
+        public static long InsertNorthPoleLocationValues(Context context)
         {
             // insert our test records into the database
             var dbHelper = new WeatherDbHelper(context);

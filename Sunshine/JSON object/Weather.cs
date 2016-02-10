@@ -10,7 +10,10 @@ namespace Sunshine.JSONobject
         public string Message { get ; set; }
 
         [JsonProperty(PropertyName = "list")]
-        public List<WeatherDaysList> WeatherDaysList { get ; set ;}
+        public List<WeatherDaysList> WeatherDaysList { get ; set ; }
+
+        [JsonProperty(PropertyName = "city")]
+        public City City { get ; set ; }
     }
 }
 

@@ -7,7 +7,7 @@ namespace Sunshine.Data
     {
         // Manages a local database for weather data.
         // If you change the database schema, you must increment the database version.
-        const int DatabaseVersion = 4;
+        const int DatabaseVersion = 5;
         public const string Database = "weather.db";
 
         public WeatherDbHelper(Context context)

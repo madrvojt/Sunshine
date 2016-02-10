@@ -1,6 +1,7 @@
 ﻿using System;
 using Android.Database;
 using Android.OS;
+using System.Threading.Tasks;
 
 namespace Sunshine.Tests.Tests
 {
@@ -9,14 +10,14 @@ namespace Sunshine.Tests.Tests
         readonly HandlerThread _hT;
         bool _contentChanged;
 
-        static TestContentObserver GetTestContentObserver()
+        public static TestContentObserver GetTestContentObserver()
         {
             var ht = new HandlerThread("ContentObserverThread");
             ht.Start();
             return new TestContentObserver(ht);
         }
 
-        private TestContentObserver(HandlerThread ht)
+        TestContentObserver(HandlerThread ht)
             : base(new Handler(ht.Looper))
         {
             _hT = ht;
@@ -42,17 +43,12 @@ namespace Sunshine.Tests.Tests
             _contentChanged = true;
         }
 
-        public void WaitForNotificationOrFail()
+        public async void WaitForNotificationOrFail()
         {
-            // Note: The PollingCheck class is taken from the Android CTS (Compatibility Test Suite).
-            // It's useful to look at the Android CTS source for ideas on how to test your Android
-            // applications.  The reason that PollingCheck works is that, by default, the JUnit
-            // testing framework is not running on the main Android application thread.
-            new PollingCheck(5000)
-            {
-                Check = _contentChanged
-
-            }.Run();
+            // Note: The PollingCheck class is change to classic delay
+            await Task.Delay(5000);
+            if (!_contentChanged)
+                throw new InvalidOperationException();
 
             _hT.Quit();
         }

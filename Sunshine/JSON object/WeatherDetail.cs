@@ -6,11 +6,13 @@ namespace Sunshine.JSONobject
     public class WeatherDetail
     {
         [JsonProperty(PropertyName = "main")]
-        public string Main { get; set;}
+        public string Main { get; set; }
 
         [JsonProperty(PropertyName = "description")]
-        public string Description { get; set;}
+        public string Description { get; set; }
 
+        [JsonProperty(PropertyName = "id")]
+        public int Id { get; set; }
     }
 }
 
