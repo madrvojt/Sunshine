@@ -354,7 +354,7 @@ namespace Sunshine.Data
             {
                 case Weather:
 
-                    // db.BeginTransaction();
+                    db.BeginTransaction();
                     int returnCount = 0;
                         
                     try
@@ -369,7 +369,7 @@ namespace Sunshine.Data
                             }
                         }
 
-                        // db.SetTransactionSuccessful();
+                        db.SetTransactionSuccessful();
                     }
                     catch (System.Exception e)
                     {
@@ -377,7 +377,7 @@ namespace Sunshine.Data
                     }
                     finally
                     {
-                        // db.EndTransaction();
+                        db.EndTransaction();
                     }
                     Context.ContentResolver.NotifyChange(uri, null);
                     return returnCount;

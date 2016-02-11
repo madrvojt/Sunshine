@@ -1,9 +1,6 @@
 ﻿using System;
-using Android.OS;
-using Android.Widget;
 using Android.Content;
 using Newtonsoft.Json;
-using Android.Preferences;
 using Serilog;
 using Serilog.Core;
 using Serilog.Events;
@@ -12,7 +9,6 @@ using System.Net.Http;
 using Sunshine.Data;
 using Sunshine.JSONobject;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using ModernHttpClient;
 using Android.Database;
@@ -21,8 +17,6 @@ namespace Sunshine
 {
     public class FetchWeatherTask
     {
-
-        // private final String LOG_TAG = FetchWeatherTask.class.getSimpleName();
 
         private readonly Context _context;
         const string SourceContext = "MyNamespace.MyClass";
@@ -37,60 +31,6 @@ namespace Sunshine
         }
 
         // private boolean DEBUG = true;
-
-        /// <summary>
-        /// The date/time conversion code is going to be moved outside the asynctask later,
-        /// so for convenience we're breaking it out into its own method now.
-        /// </summary>
-        /// <returns>The readable date string.</returns>
-        /// <param name="time">Time.</param>
-        string GetReadableDateString(long time)
-        {
-            // Because the API returns a unix timestamp (measured in seconds),
-            // it must be converted to milliseconds in order to be converted to valid date.
-
-            var dateTime = new DateTime(time);
-            return dateTime.ToString("D");
-        }
-
-        /// <summary>
-        /// Prepare the weather high/lows for presentation.
-        /// </summary>
-        /// <returns>The parse temperature</returns>
-        string FormatHighLows(double high, double low)
-        {
-
-            // Data is fetched in Celsius by default.
-            // If user prefers to see in Fahrenheit, convert the values here.
-            // We do this rather than fetching in Fahrenheit so that the user can
-            // change this option without us having to re-fetch the data once
-            // we start storing the values in a database.
-
-            ISharedPreferences sharedPreferences =
-                PreferenceManager.GetDefaultSharedPreferences(_context);
-
-            string unitType = sharedPreferences.GetString(
-                                  _context.GetString(Resource.String.pref_units_key),
-                                  _context.GetString(Resource.String.pref_units_metric));
-
-            if (unitType.Equals(_context.GetString(Resource.String.pref_units_imperial)))
-            {
-                high = (high * 1.8) + 32;
-                low = (low * 1.8) + 32;
-            }
-            else if (!unitType.Equals(_context.GetString(Resource.String.pref_units_metric)))
-            {
-                _log.ForContext<ForecastFragment>().Debug("Unit type not found {0}", unitType);                  
-            }
-
-            // For presentation, assume the user doesn't care about tenths of a degree.
-            var roundedHigh = (long)Math.Round(high, 0);
-            var roundedLow = (long)Math.Round(low, 0);
-
-            String highLowStr = roundedHigh + "/" + roundedLow;
-            return highLowStr;
-        }
-
 
         /// <summary>
         /// Helper method to handle insertion of a new location in the weather database.
@@ -136,36 +76,6 @@ namespace Sunshine
         }
 
 
-        /// <summary>
-        /// Converts the content values to UX format.
-        /// </summary>
-        /// <returns>The content values to UX format.</returns>
-        /// <param name="contentValue">Content value.</param>
-        /// <description>
-        /// Students: This code will allow the FetchWeatherTask to continue to return the strings that
-        /// the UX expects so that we can continue to test the application even once we begin using
-        /// the database.
-        /// </description>        
-        string[] ConvertContentValuesToUXFormat(IEnumerable<ContentValues> contentValue)
-        {
-            // return strings to keep UI functional for now
-            String[] resultStrs = new String[contentValue.Count()];
-            for (int i = 0; i < contentValue.Count(); i++)
-            {
-                var weatherValues = contentValue.ElementAt(i);
-
-                string highAndLow = FormatHighLows(
-                                        weatherValues.GetAsDouble(WeatherContract.Weather.ColumnMaximumTemp),
-                                        weatherValues.GetAsDouble(WeatherContract.Weather.ColumnMinimumTemp));
-
-                resultStrs[i] = GetReadableDateString(
-                    weatherValues.GetAsLong(WeatherContract.Weather.ColumnDate)) +
-                " - " + weatherValues.GetAsString(WeatherContract.Weather.ColumnShortDescription) +
-                " - " + highAndLow;
-            }
-            return resultStrs;
-        }
-
 
         /// <summary>
         /// Take the String representing the complete forecast in JSON Format and
@@ -173,7 +83,7 @@ namespace Sunshine
         /// Fortunately parsing is easy:  constructor takes the JSON string and converts it
         /// into an Object hierarchy for us.
         /// </summary>
-        string[] GetWeatherDataFromJson(string forecastJsonStr, string locationSetting)
+        void GetWeatherDataFromJson(string forecastJsonStr, string locationSetting)
         {
             try
             {
@@ -184,7 +94,7 @@ namespace Sunshine
                 // Insert the new weather information into the database
                 var contentValuesList = new List<ContentValues>(jsonResult.WeatherDaysList.Count);
                               
-                var timeNow = DateTime.Now;
+                var timeNow = DateTime.UtcNow;
 
 
                 for (int i = 0; i < jsonResult.WeatherDaysList.Count; i++)
@@ -230,45 +140,22 @@ namespace Sunshine
 
                 }                
 
+                int inserted = 0;
+
                 // add to database
                 if (contentValuesList.Count > 0)
                 {
-                    _context.ContentResolver.BulkInsert(WeatherContract.Weather.ContentUri, contentValuesList.ToArray());
+                    inserted = _context.ContentResolver.BulkInsert(WeatherContract.Weather.ContentUri, contentValuesList.ToArray());
                 }
 
-                // Sort order:  Ascending, by date.
-                const string sortOrder = WeatherContract.Weather.ColumnDate + " ASC";
-                var weatherForLocationUri = WeatherContract.Weather.BuildWeatherLocationWithStartDate(locationSetting, timeNow.Ticks);
-
-
-                var cursor = _context.ContentResolver.Query(weatherForLocationUri,
-                                 null, null, null, sortOrder);
-                
-                contentValuesList = new List<ContentValues>(cursor.Count);
-                            
-                while (cursor.MoveToNext())
-                {
-                    var cv = new ContentValues();
-                    DatabaseUtils.CursorRowToContentValues(cursor, cv);
-                    contentValuesList.Add(cv);
-                }
-
-                _log.ForContext<ForecastFragment>().Debug($"FetchWeatherTask Complete {contentValuesList.Count} Inserted");
-
-                string[] resultStrs = ConvertContentValuesToUXFormat(contentValuesList);
-                return resultStrs;
+                _log.ForContext<ForecastFragment>().Debug($"FetchWeatherTask Complete {inserted} Inserted");
 
 
             }
             catch (JsonException e)
             {
                 _log.ForContext<ForecastFragment>().Error(e, SourceContext, null);
-
-            
             }
-
-
-            return null;
 
         }
 
@@ -280,15 +167,14 @@ namespace Sunshine
         /// <returns>string array with value</returns>
         /// <param name = "locationQuery"></param>
         /// <param name="postCode">Post code value</param>
-        public Task<string[]> GetDataFromServer(string locationQuery)
+        public Task GetDataFromServer(string locationQuery)
         { 
             return Task.Run(async () =>
                 {
-                    string[] result = null;
                     // If there's no zip code, there's nothing to look up.  Verify size of params.
                     if (string.IsNullOrWhiteSpace(locationQuery))
                     {
-                        return null;
+                        return Task.FromResult(-1);
                     }
                   
                     try
@@ -323,7 +209,7 @@ namespace Sunshine
                         HttpResponseMessage response = await client.GetAsync(builder.Uri);
 
                         var responseJson = await response.Content.ReadAsStringAsync();
-                        result = GetWeatherDataFromJson(responseJson, locationQuery);
+                        GetWeatherDataFromJson(responseJson, locationQuery);
 
                     }
                     catch (Java.Net.UnknownHostException e)
@@ -337,7 +223,7 @@ namespace Sunshine
 
                     }
 
-                    return result;
+                    return Task.FromResult(0);
                 });
         }
 

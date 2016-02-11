@@ -16,7 +16,6 @@
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
     <AssemblyName>Sunshine</AssemblyName>
     <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
-    <XamarinInsightsApiKey>d9551d6ae9697f7784b2616e39f16aab8556e7d0</XamarinInsightsApiKey>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -92,6 +91,8 @@
     <Compile Include="FetchWeatherTask.cs" />
     <Compile Include="JSON object\City.cs" />
     <Compile Include="JSON object\Coord.cs" />
+    <Compile Include="Utility.cs" />
+    <Compile Include="ForecastAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

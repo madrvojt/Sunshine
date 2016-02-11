@@ -35,7 +35,7 @@ namespace Sunshine.Data
         {
             // normalize the start date to the beginning of the (UTC) day                
             var time = new DateTime(startDate);
-            return time.ToUniversalTime().Ticks;
+            return time.Date.Ticks;
         }
 
         /// <summary>

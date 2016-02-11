@@ -14,12 +14,18 @@ namespace Sunshine
     [Activity(MainLauncher = true, Icon = "@mipmap/ic_launcher")]
     public class MainActivity : AppCompatActivity
     {
+
+        const string ForecaseFragmentTag = "FFTAG";
+        string _location;
+
         ILogger _log;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activity_main);
+
+            _location = Utility.GetPreferredLocation(this);
 
             // Logger instance
             var levelSwitch = new LoggingLevelSwitch();
@@ -28,7 +34,7 @@ namespace Sunshine
 
             if (savedInstanceState == null)
             {
-                SupportFragmentManager.BeginTransaction().Add(Resource.Id.container, new ForecastFragment()).Commit();
+                SupportFragmentManager.BeginTransaction().Add(Resource.Id.container, new ForecastFragment(), ForecaseFragmentTag).Commit();
             
             }
         }
@@ -43,6 +49,23 @@ namespace Sunshine
             return true;
         }
 
+
+        protected override void OnResume()
+        {
+            base.OnResume();
+
+            var location = Utility.GetPreferredLocation(this);
+            // update the location in our second pane using the fragment manager
+            if (location != null && !location.Equals(_location))
+            {
+                var forecastFragment = (ForecastFragment)SupportFragmentManager.FindFragmentByTag(ForecaseFragmentTag);
+                if (forecastFragment != null)
+                {
+                    forecastFragment.OnLocationChanged();
+                }
+                _location = location;
+            }
+        }
 
         /// <summary>
         /// Raises the options item selected event.
@@ -85,11 +108,8 @@ namespace Sunshine
         /// </summary>
         void OpenPreferredLocationOnMap()
         {
-            ISharedPreferences sharedPrefs =
-                PreferenceManager.GetDefaultSharedPreferences(this);
-            string location = sharedPrefs.GetString(
-                                  GetString(Resource.String.pref_location_key),
-                                  GetString(Resource.String.pref_location_default));
+           
+            string location = Utility.GetPreferredLocation(this);
            
             // Using the URI scheme for showing a location found on a map.  This super-handy
             // intent can is detailed in the "Common Intents" page of Android's developer site:
