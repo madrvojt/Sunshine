@@ -133,7 +133,7 @@ namespace Sunshine
 
         public void OnLoaderReset(Android.Support.V4.Content.Loader loader)
         {
-            throw new System.NotImplementedException();
+            
         }
 
         Intent CreateShareForecastIntent()

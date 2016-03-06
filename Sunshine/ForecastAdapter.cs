@@ -10,8 +10,6 @@ namespace Sunshine
 {
     public class ForecastAdapter : Android.Support.V4.Widget.CursorAdapter
     {
-      
- 
 
         Context _context;
 
@@ -19,38 +17,6 @@ namespace Sunshine
             : base(context, c, flags)
         {
             _context = context;
-        }
-            
-        // Data is fetched in Celsius by default.
-        // If user prefers to see in Fahrenheit, convert the values here.
-        // We do this rather than fetching in Fahrenheit so that the user can
-        // change this option without us having to re-fetch the data once
-        // we start storing the values in a database.
-        /// <summary>
-        /// Prepare the weather high/lows for presentation.
-        /// </summary>
-        string FormatHighLows(double high, double low)
-        {
-            bool isMetric = Utility.IsMetric(_context);
-            String highLowStr = Utility.FormatTemperature(high, isMetric) + "/" + Utility.FormatTemperature(low, isMetric);
-            return highLowStr;
-        }
-
-
-        /// <summary>
-        /// Converts the cursor row to UX format.
-        /// </summary>
-        /// <returns>The cursor row to UX format.</returns>
-        /// <param name="cursor">Cursor.</param>
-        string ConvertCursorRowToUXFormat(ICursor cursor)
-        {
-            string highAndLow = FormatHighLows(
-                                    cursor.GetDouble(ForecastFragment.ColWeatherMaxTemp),
-                                    cursor.GetDouble(ForecastFragment.ColWeatherMinTemp));
-            
-            return Utility.FormatDate(cursor.GetLong(ForecastFragment.ColWeatherDate)) +
-            " - " + cursor.GetString(ForecastFragment.ColWeatherDesc) +
-            " - " + highAndLow;
         }
 
 
@@ -74,10 +40,42 @@ namespace Sunshine
         /// <param name = "cursor"></param>
         public override void BindView(View view, Context context, ICursor cursor)
         {
+
             // our view is pretty simple here --- just a text view
             // we'll keep the UI functional with a simple (and slow!) binding.
-            var textview = (TextView)view;
-            textview.Text = ConvertCursorRowToUXFormat(cursor);
+
+            // Read weather icon ID from cursor
+            int weatherId = cursor.GetInt(ForecastFragment.ColWeatherId);
+            // Use placeholder image for now
+            var iconView = view.FindViewById<ImageView>(Resource.Id.list_item_icon);
+            iconView.SetImageResource(Resource.Drawable.ic_launcher);
+
+            // TODO Read date from cursor
+            var date = cursor.GetLong(ForecastFragment.ColWeatherDate);
+            var dateView = view.FindViewById<TextView>(Resource.Id.list_item_date_textview);
+            dateView.Text = Utility.GetFriendlyDayString(context, date);
+
+            // TODO Read weather forecast from cursor
+            var description = cursor.GetString(ForecastFragment.ColWeatherDesc);
+            var descritiontView = view.FindViewById<TextView>(Resource.Id.list_item_forecast_textview);
+            descritiontView.Text = description;
+
+            // Read user preference for metric or imperial temperature units
+            bool isMetric = Utility.IsMetric(context);
+
+            // Read high temperature from cursor
+            double high = cursor.GetDouble(ForecastFragment.ColWeatherMaxTemp);
+            var highTempView = view.FindViewById<TextView>(Resource.Id.list_item_high_textview);
+
+            highTempView.Text = Utility.FormatTemperature(high, isMetric);
+
+            // TODO Read low temperature from cursor
+            double low = cursor.GetDouble(ForecastFragment.ColWeatherMinTemp);
+            var lowTempView = view.FindViewById<TextView>(Resource.Id.list_item_low_textview);
+
+            lowTempView.Text = Utility.FormatTemperature(low, isMetric);
+
+
         }
 
     }
