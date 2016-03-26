@@ -62,4 +62,10 @@
 		<xliff:g
 			id="day">%1$s</xliff:g>, <xliff:g
 			id="date">%2$s</xliff:g></string>
+	<!-- Strings for formatting weather-related data -->
+	<!-- Temperature format [CHAR LIMIT=5 -->
+	<string
+		name="format_temperature">
+		<xliff:g
+			id="temp">%1.0f</xliff:g>\u00B0</string>
 </resources>

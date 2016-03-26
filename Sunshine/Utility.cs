@@ -40,9 +40,10 @@ namespace Sunshine
         /// Formats the temperature.
         /// </summary>
         /// <returns>The temperature.</returns>
+        /// <param name = "context"></param>
         /// <param name="temperature">Temperature.</param>
         /// <param name="isMetric">If set to <c>true</c> is metric.</param>
-        public static string FormatTemperature(double temperature, bool isMetric)
+        public static string FormatTemperature(Context context, double temperature, bool isMetric)
         {
             double temp;
             if (!isMetric)
@@ -53,7 +54,7 @@ namespace Sunshine
             {
                 temp = temperature;
             }
-            return temp.ToString("0");
+            return context.GetString(Resource.String.format_temperature, temp);
         }
 
 

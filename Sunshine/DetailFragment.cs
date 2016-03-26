@@ -111,10 +111,10 @@ namespace Sunshine
             
             bool isMetric = Utility.IsMetric(Activity);
 
-            var high = Utility.FormatTemperature(
+            var high = Utility.FormatTemperature(Activity,
                            dataCursor.GetDouble(ColWeatherMaxTemp), isMetric);
             
-            var low = Utility.FormatTemperature(
+            var low = Utility.FormatTemperature(Activity,
                           dataCursor.GetDouble(ColWeatherMinTemp), isMetric);
             
             _forecastString = $"{dateString} - {weatherDescription} - {high}/{low}";

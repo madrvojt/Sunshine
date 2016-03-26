@@ -2069,6 +2069,9 @@ namespace Sunshine
 			// aapt resource value: 0x7f070028
 			public const int format_full_friendly_date = 2131165224;
 			
+			// aapt resource value: 0x7f070029
+			public const int format_temperature = 2131165225;
+			
 			// aapt resource value: 0x7f070015
 			public const int hello_world = 2131165205;
 			
