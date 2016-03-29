@@ -1455,8 +1455,8 @@ namespace Sunshine
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f0d0058
-			public const int action0 = 2131558488;
+			// aapt resource value: 0x7f0d0060
+			public const int action0 = 2131558496;
 			
 			// aapt resource value: 0x7f0d0041
 			public const int action_bar = 2131558465;
@@ -1482,11 +1482,11 @@ namespace Sunshine
 			// aapt resource value: 0x7f0d0042
 			public const int action_context_bar = 2131558466;
 			
-			// aapt resource value: 0x7f0d005c
-			public const int action_divider = 2131558492;
+			// aapt resource value: 0x7f0d0064
+			public const int action_divider = 2131558500;
 			
-			// aapt resource value: 0x7f0d0068
-			public const int action_map = 2131558504;
+			// aapt resource value: 0x7f0d0070
+			public const int action_map = 2131558512;
 			
 			// aapt resource value: 0x7f0d0002
 			public const int action_menu_divider = 2131558402;
@@ -1503,14 +1503,14 @@ namespace Sunshine
 			// aapt resource value: 0x7f0d0023
 			public const int action_mode_close_button = 2131558435;
 			
-			// aapt resource value: 0x7f0d0067
-			public const int action_refresh = 2131558503;
+			// aapt resource value: 0x7f0d006f
+			public const int action_refresh = 2131558511;
 			
-			// aapt resource value: 0x7f0d0065
-			public const int action_settings = 2131558501;
+			// aapt resource value: 0x7f0d006d
+			public const int action_settings = 2131558509;
 			
-			// aapt resource value: 0x7f0d0066
-			public const int action_share = 2131558502;
+			// aapt resource value: 0x7f0d006e
+			public const int action_share = 2131558510;
 			
 			// aapt resource value: 0x7f0d0024
 			public const int activity_chooser_view_content = 2131558436;
@@ -1527,14 +1527,14 @@ namespace Sunshine
 			// aapt resource value: 0x7f0d002b
 			public const int buttonPanel = 2131558443;
 			
-			// aapt resource value: 0x7f0d0059
-			public const int cancel_action = 2131558489;
+			// aapt resource value: 0x7f0d0061
+			public const int cancel_action = 2131558497;
 			
 			// aapt resource value: 0x7f0d0039
 			public const int checkbox = 2131558457;
 			
-			// aapt resource value: 0x7f0d005f
-			public const int chronometer = 2131558495;
+			// aapt resource value: 0x7f0d0067
+			public const int chronometer = 2131558503;
 			
 			// aapt resource value: 0x7f0d001c
 			public const int collapseActionView = 2131558428;
@@ -1557,8 +1557,32 @@ namespace Sunshine
 			// aapt resource value: 0x7f0d0027
 			public const int default_activity_button = 2131558439;
 			
+			// aapt resource value: 0x7f0d0052
+			public const int detail_date_textview = 2131558482;
+			
 			// aapt resource value: 0x7f0d0051
-			public const int detail_text = 2131558481;
+			public const int detail_day_textview = 2131558481;
+			
+			// aapt resource value: 0x7f0d0056
+			public const int detail_forecast_textview = 2131558486;
+			
+			// aapt resource value: 0x7f0d0053
+			public const int detail_high_textview = 2131558483;
+			
+			// aapt resource value: 0x7f0d0057
+			public const int detail_humidity_textview = 2131558487;
+			
+			// aapt resource value: 0x7f0d0055
+			public const int detail_icon = 2131558485;
+			
+			// aapt resource value: 0x7f0d0054
+			public const int detail_low_textview = 2131558484;
+			
+			// aapt resource value: 0x7f0d0059
+			public const int detail_pressure_textview = 2131558489;
+			
+			// aapt resource value: 0x7f0d0058
+			public const int detail_wind_textview = 2131558488;
 			
 			// aapt resource value: 0x7f0d000c
 			public const int disableHome = 2131558412;
@@ -1569,8 +1593,8 @@ namespace Sunshine
 			// aapt resource value: 0x7f0d0019
 			public const int end = 2131558425;
 			
-			// aapt resource value: 0x7f0d0064
-			public const int end_padder = 2131558500;
+			// aapt resource value: 0x7f0d006c
+			public const int end_padder = 2131558508;
 			
 			// aapt resource value: 0x7f0d0025
 			public const int expand_activities_button = 2131558437;
@@ -1593,14 +1617,14 @@ namespace Sunshine
 			// aapt resource value: 0x7f0d0026
 			public const int image = 2131558438;
 			
-			// aapt resource value: 0x7f0d0063
-			public const int info = 2131558499;
+			// aapt resource value: 0x7f0d006b
+			public const int info = 2131558507;
 			
-			// aapt resource value: 0x7f0d005d
-			public const int line1 = 2131558493;
+			// aapt resource value: 0x7f0d0065
+			public const int line1 = 2131558501;
 			
-			// aapt resource value: 0x7f0d0061
-			public const int line3 = 2131558497;
+			// aapt resource value: 0x7f0d0069
+			public const int line3 = 2131558505;
 			
 			// aapt resource value: 0x7f0d0009
 			public const int listMode = 2131558409;
@@ -1608,26 +1632,26 @@ namespace Sunshine
 			// aapt resource value: 0x7f0d0028
 			public const int list_item = 2131558440;
 			
-			// aapt resource value: 0x7f0d0054
-			public const int list_item_date_textview = 2131558484;
+			// aapt resource value: 0x7f0d005c
+			public const int list_item_date_textview = 2131558492;
 			
-			// aapt resource value: 0x7f0d0055
-			public const int list_item_forecast_textview = 2131558485;
+			// aapt resource value: 0x7f0d005d
+			public const int list_item_forecast_textview = 2131558493;
 			
-			// aapt resource value: 0x7f0d0056
-			public const int list_item_high_textview = 2131558486;
-			
-			// aapt resource value: 0x7f0d0053
-			public const int list_item_icon = 2131558483;
-			
-			// aapt resource value: 0x7f0d0057
-			public const int list_item_low_textview = 2131558487;
-			
-			// aapt resource value: 0x7f0d0052
-			public const int listview_forecast = 2131558482;
+			// aapt resource value: 0x7f0d005e
+			public const int list_item_high_textview = 2131558494;
 			
 			// aapt resource value: 0x7f0d005b
-			public const int media_actions = 2131558491;
+			public const int list_item_icon = 2131558491;
+			
+			// aapt resource value: 0x7f0d005f
+			public const int list_item_low_textview = 2131558495;
+			
+			// aapt resource value: 0x7f0d005a
+			public const int listview_forecast = 2131558490;
+			
+			// aapt resource value: 0x7f0d0063
+			public const int media_actions = 2131558499;
 			
 			// aapt resource value: 0x7f0d001a
 			public const int middle = 2131558426;
@@ -1728,8 +1752,8 @@ namespace Sunshine
 			// aapt resource value: 0x7f0d0017
 			public const int src_over = 2131558423;
 			
-			// aapt resource value: 0x7f0d005a
-			public const int status_bar_latest_event_content = 2131558490;
+			// aapt resource value: 0x7f0d0062
+			public const int status_bar_latest_event_content = 2131558498;
 			
 			// aapt resource value: 0x7f0d004c
 			public const int submit_area = 2131558476;
@@ -1737,17 +1761,17 @@ namespace Sunshine
 			// aapt resource value: 0x7f0d000b
 			public const int tabMode = 2131558411;
 			
-			// aapt resource value: 0x7f0d0062
-			public const int text = 2131558498;
+			// aapt resource value: 0x7f0d006a
+			public const int text = 2131558506;
 			
-			// aapt resource value: 0x7f0d0060
-			public const int text2 = 2131558496;
+			// aapt resource value: 0x7f0d0068
+			public const int text2 = 2131558504;
 			
 			// aapt resource value: 0x7f0d0034
 			public const int textSpacerNoButtons = 2131558452;
 			
-			// aapt resource value: 0x7f0d005e
-			public const int time = 2131558494;
+			// aapt resource value: 0x7f0d0066
+			public const int time = 2131558502;
 			
 			// aapt resource value: 0x7f0d002a
 			public const int title = 2131558442;
@@ -2069,8 +2093,20 @@ namespace Sunshine
 			// aapt resource value: 0x7f070028
 			public const int format_full_friendly_date = 2131165224;
 			
+			// aapt resource value: 0x7f07002d
+			public const int format_humidity = 2131165229;
+			
+			// aapt resource value: 0x7f07002c
+			public const int format_pressure = 2131165228;
+			
 			// aapt resource value: 0x7f070029
 			public const int format_temperature = 2131165225;
+			
+			// aapt resource value: 0x7f07002b
+			public const int format_wind_kmh = 2131165227;
+			
+			// aapt resource value: 0x7f07002a
+			public const int format_wind_mph = 2131165226;
 			
 			// aapt resource value: 0x7f070015
 			public const int hello_world = 2131165205;

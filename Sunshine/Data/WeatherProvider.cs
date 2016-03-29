@@ -2,9 +2,7 @@
 using Android.Content;
 using Android.Database.Sqlite;
 using Android.Database;
-using Java.Lang;
 using Android.Annotation;
-using Android.OS;
 using Serilog.Core;
 using Serilog.Events;
 using Serilog;

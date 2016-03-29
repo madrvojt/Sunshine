@@ -32,6 +32,16 @@ namespace Sunshine
                 WeatherContract.Weather.ColumnShortDescription,
                 WeatherContract.Weather.ColumnMaximumTemp,
                 WeatherContract.Weather.ColumnMinimumTemp,
+                WeatherContract.Weather.ColumnHumidity,
+                WeatherContract.Weather.ColumnPressure,
+                WeatherContract.Weather.ColumnWindSpeed,
+                WeatherContract.Weather.ColumnDegrees,
+                WeatherContract.Weather.ColumnWeatherId,
+
+                // This works because the WeatherProvider returns location data joined with
+                // weather data, even though they're stored in two different tables.
+                WeatherContract.Location.ColumnLocationSetting
+
             };
 
         // these constants correspond to the projection defined above, and must change if the
@@ -41,8 +51,22 @@ namespace Sunshine
         const int ColWeatherDesc = 2;
         const int ColWeatherMaxTemp = 3;
         const int ColWeatherMinTemp = 4;
+        const int ColWeatherHuminidy = 5;
+        const int ColWeatherPressure = 6;
+        const int ColWeatherWindSpeed = 7;
+        const int ColWeatherDegrees = 8;
+        const int ColWeatherConditionId = 9;
 
 
+        ImageView _iconView;
+        TextView _friendlyDateView;
+        TextView _dateView;
+        TextView _descriptionView;
+        TextView _highTempView;
+        TextView _lowTempView;
+        TextView _humidityView;
+        TextView _windView;
+        TextView _pressureView;
 
         public DetailFragment()
         {
@@ -62,7 +86,17 @@ namespace Sunshine
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
 
-            return inflater.Inflate(Resource.Layout.fragment_detail, container, false);
+            View rootView = inflater.Inflate(Resource.Layout.fragment_detail, container, false);
+            _iconView = rootView.FindViewById<ImageView>(Resource.Id.detail_icon);
+            _dateView = rootView.FindViewById<TextView>(Resource.Id.detail_date_textview);
+            _friendlyDateView = rootView.FindViewById<TextView>(Resource.Id.detail_day_textview);
+            _descriptionView = rootView.FindViewById<TextView>(Resource.Id.detail_forecast_textview);
+            _highTempView = rootView.FindViewById<TextView>(Resource.Id.detail_high_textview);
+            _lowTempView = rootView.FindViewById<TextView>(Resource.Id.detail_low_textview);
+            _humidityView = rootView.FindViewById<TextView>(Resource.Id.detail_humidity_textview);
+            _windView = rootView.FindViewById<TextView>(Resource.Id.detail_wind_textview);
+            _pressureView = rootView.FindViewById<TextView>(Resource.Id.detail_pressure_textview);
+            return rootView;
         }
 
 
@@ -100,35 +134,70 @@ namespace Sunshine
 
             if (dataCursor == null & !dataCursor.MoveToFirst())
             {
-                return;
+         
+
+                // Read weather condition ID from cursor
+                int weatherId = dataCursor.GetInt(ColWeatherConditionId);
+                // Use placeholder Image
+                _iconView.SetImageResource(Resource.Drawable.ic_launcher);
+
+                // Read date from cursor and update views for day of week and date
+                long date = dataCursor.GetLong(ColWeatherDate);
+                var friendlyDateText = Utility.GetDayName(Activity, date);
+                var dateText = Utility.GetFormattedMonthDay(Activity, date);
+                _friendlyDateView.Text = friendlyDateText;
+                _dateView.Text = dateText;
+
+
+
+                // Read description from cursor and update view
+                var description = dataCursor.GetString(ColWeatherDesc);
+                _descriptionView.Text = description;
+
+                // Read high temperature from cursor and update view
+                var isMetric = Utility.IsMetric(Activity);
+
+                double high = dataCursor.GetDouble(ColWeatherMaxTemp);
+                var highString = Utility.FormatTemperature(Activity, high, isMetric);
+                _highTempView.Text = highString;
+
+
+
+                // Read low temperature from cursor and update view
+                var low = dataCursor.GetDouble(ColWeatherMinTemp);
+                var lowString = Utility.FormatTemperature(Activity, low, isMetric);
+                _lowTempView.Text = lowString;
+
+                // Read humidity from cursor and update view
+                var humidity = dataCursor.GetDouble(ColWeatherHuminidy);
+                _humidityView.Text = Activity.GetString(Resource.String.format_humidity, humidity);
+
+                // Read wind speed and direction from cursor and update view
+                var windSpeedStr = dataCursor.GetFloat(ColWeatherWindSpeed);
+                var windDirStr = dataCursor.GetFloat(ColWeatherDegrees);
+                _windView.Text = Utility.GetFormattedStrings(Activity, windSpeedStr, windDirStr);
+
+
+
+
+                // Read pressure from cursor and update view
+                var pressure = dataCursor.GetFloat(ColWeatherPressure);
+                _pressureView.Text = Activity.GetString(Resource.String.format_pressure, pressure);
+
+                // We still need this for the share intent
+                _forecastString = String.Format("%s - %s - %s/%s", dateText, description, high, low);
+
+
+                // If onCreateOptionsMenu has already happened, we need to update the share intent now.
+                if (_shareActionProvider != null)
+                {
+                    _shareActionProvider.SetShareIntent(CreateShareForecastIntent());
+                }
+        
+        
             }
+        
 
-            var dateString = Utility.FormatDate(
-                                 dataCursor.GetLong(ColWeatherDate));
-            
-            var weatherDescription =
-                dataCursor.GetString(ColWeatherDesc);
-            
-            bool isMetric = Utility.IsMetric(Activity);
-
-            var high = Utility.FormatTemperature(Activity,
-                           dataCursor.GetDouble(ColWeatherMaxTemp), isMetric);
-            
-            var low = Utility.FormatTemperature(Activity,
-                          dataCursor.GetDouble(ColWeatherMinTemp), isMetric);
-            
-            _forecastString = $"{dateString} - {weatherDescription} - {high}/{low}";
-
-            var detailTextView = View.FindViewById<TextView>(Resource.Id.detail_text);
-
-                       
-            detailTextView.Text = _forecastString;
-
-            // If onCreateOptionsMenu has already happened, we need to update the share intent now.
-            if (_shareActionProvider != null)
-            {
-                _shareActionProvider.SetShareIntent(CreateShareForecastIntent());
-            }
         }
 
         public void OnLoaderReset(Android.Support.V4.Content.Loader loader)

@@ -18,6 +18,61 @@ namespace Sunshine
 
         }
 
+
+        public static string GetFormattedStrings(Context context, float windSpeed, float degrees)
+        {
+        
+            int windFormat;
+
+            if (Utility.IsMetric(context))
+            {
+                windFormat = Resource.String.format_wind_kmh;
+            }
+            else
+            {
+                windFormat = Resource.String.format_wind_mph;
+                windSpeed = .621371192237334f * windSpeed;
+            }
+
+
+            string direction = "Unknown";
+            if (degrees >= 337.5 || degrees < 22.5)
+            {
+                direction = "N";
+            }
+            else if (degrees >= 22.5 || degrees < 27.5)
+            {
+                direction = "NE";
+            }
+            else if (degrees >= 67.5 || degrees < 112.5)
+            {
+                direction = "E";
+            }
+            else if (degrees >= 112.5 || degrees < 157.5)
+            {
+                direction = "SE";
+            }
+            else if (degrees >= 157.5 || degrees < 202.5)
+            {
+                direction = "S";
+            }
+            else if (degrees >= 202.5 || degrees < 247.5)
+            {
+                direction = "SW";
+            }
+            else if (degrees >= 247.5 || degrees < 292.5)
+            {
+                direction = "W";
+            }
+            else if (degrees >= 292.5 || degrees < 22.5)
+            {
+                direction = "NW";
+            }
+
+            return string.Format(context.GetString(windFormat), windSpeed, direction);
+        }
+
+
         /// <summary>
         /// Determines if is metric the specified context.
         /// </summary>
