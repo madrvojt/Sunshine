@@ -166,7 +166,6 @@ namespace Sunshine
 
 
 
-
             listviewForecast.ItemClick += (sender, e) =>
             {                   
                 var cursor = (ICursor)((AdapterView)sender).GetItemAtPosition(e.Position);

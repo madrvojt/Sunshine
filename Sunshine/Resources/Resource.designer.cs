@@ -1437,10 +1437,58 @@ namespace Sunshine
 			public const int abc_textfield_search_material = 2130837572;
 			
 			// aapt resource value: 0x7f020045
-			public const int ic_launcher = 2130837573;
+			public const int art_clear = 2130837573;
 			
 			// aapt resource value: 0x7f020046
-			public const int notification_template_icon_bg = 2130837574;
+			public const int art_clouds = 2130837574;
+			
+			// aapt resource value: 0x7f020047
+			public const int art_fog = 2130837575;
+			
+			// aapt resource value: 0x7f020048
+			public const int art_light_clouds = 2130837576;
+			
+			// aapt resource value: 0x7f020049
+			public const int art_light_rain = 2130837577;
+			
+			// aapt resource value: 0x7f02004a
+			public const int art_rain = 2130837578;
+			
+			// aapt resource value: 0x7f02004b
+			public const int art_snow = 2130837579;
+			
+			// aapt resource value: 0x7f02004c
+			public const int art_storm = 2130837580;
+			
+			// aapt resource value: 0x7f02004d
+			public const int ic_clear = 2130837581;
+			
+			// aapt resource value: 0x7f02004e
+			public const int ic_cloudy = 2130837582;
+			
+			// aapt resource value: 0x7f02004f
+			public const int ic_fog = 2130837583;
+			
+			// aapt resource value: 0x7f020050
+			public const int ic_light_clouds = 2130837584;
+			
+			// aapt resource value: 0x7f020051
+			public const int ic_light_rain = 2130837585;
+			
+			// aapt resource value: 0x7f020052
+			public const int ic_logo = 2130837586;
+			
+			// aapt resource value: 0x7f020053
+			public const int ic_rain = 2130837587;
+			
+			// aapt resource value: 0x7f020054
+			public const int ic_snow = 2130837588;
+			
+			// aapt resource value: 0x7f020055
+			public const int ic_storm = 2130837589;
+			
+			// aapt resource value: 0x7f020056
+			public const int notification_template_icon_bg = 2130837590;
 			
 			static Drawable()
 			{

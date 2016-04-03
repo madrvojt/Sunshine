@@ -132,14 +132,16 @@ namespace Sunshine
 
             var dataCursor = (ICursor)data;
 
-            if (dataCursor == null & !dataCursor.MoveToFirst())
+            if (dataCursor != null & dataCursor.MoveToFirst())
             {
          
 
                 // Read weather condition ID from cursor
                 int weatherId = dataCursor.GetInt(ColWeatherConditionId);
                 // Use placeholder Image
-                _iconView.SetImageResource(Resource.Drawable.ic_launcher);
+
+                _iconView.SetImageResource(Utility.GetArtResourceForWeatherCondition(weatherId));
+
 
                 // Read date from cursor and update views for day of week and date
                 long date = dataCursor.GetLong(ColWeatherDate);
@@ -162,7 +164,6 @@ namespace Sunshine
                 _highTempView.Text = highString;
 
 
-
                 // Read low temperature from cursor and update view
                 var low = dataCursor.GetDouble(ColWeatherMinTemp);
                 var lowString = Utility.FormatTemperature(Activity, low, isMetric);
@@ -175,9 +176,8 @@ namespace Sunshine
                 // Read wind speed and direction from cursor and update view
                 var windSpeedStr = dataCursor.GetFloat(ColWeatherWindSpeed);
                 var windDirStr = dataCursor.GetFloat(ColWeatherDegrees);
+
                 _windView.Text = Utility.GetFormattedStrings(Activity, windSpeedStr, windDirStr);
-
-
 
 
                 // Read pressure from cursor and update view
@@ -192,12 +192,8 @@ namespace Sunshine
                 if (_shareActionProvider != null)
                 {
                     _shareActionProvider.SetShareIntent(CreateShareForecastIntent());
-                }
-        
-        
-            }
-        
-
+                }        
+            }        
         }
 
         public void OnLoaderReset(Android.Support.V4.Content.Loader loader)

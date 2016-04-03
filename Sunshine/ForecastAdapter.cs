@@ -86,7 +86,21 @@ namespace Sunshine
         {
             var viewType = GetItemViewType(cursor.Position);
             int layoutId = -1;
-            layoutId = viewType == 0 ? Resource.Layout.list_item_forecast_today : Resource.Layout.list_item_forecast;
+
+            switch (viewType)
+            {
+                case ViewTypeToday:
+                    {
+                        layoutId = Resource.Layout.list_item_forecast_today;
+                        break;
+                    }
+                case ViewTypeFutureDay:
+                    {
+                        layoutId = Resource.Layout.list_item_forecast;
+                        break;
+                    }
+            }
+
 
             var view = LayoutInflater.From(context).Inflate(layoutId, parent, false);
 
@@ -111,13 +125,28 @@ namespace Sunshine
 
             // our view is pretty simple here --- just a text view
             // we'll keep the UI functional with a simple (and slow!) binding.
-
             var viewHolder = (ViewHolder)view.Tag;
 
             // Read weather icon ID from cursor
             int weatherId = cursor.GetInt(ForecastFragment.ColWeatherId);
-            // Use placeholder image for now
-            viewHolder.IconView.SetImageResource(Resource.Drawable.ic_launcher);
+            int viewType = GetItemViewType(cursor.Position);
+            switch (viewType)
+            {
+                case ViewTypeToday:
+                    {
+                        // Get weather icon
+                        viewHolder.IconView.SetImageResource(Utility.GetArtResourceForWeatherCondition(
+                                cursor.GetInt(ForecastFragment.ColWeatherConditionId)));
+                        break;
+                    }
+                case ViewTypeFutureDay:
+                    {
+                        // Get weather icon
+                        viewHolder.IconView.SetImageResource(Utility.GetIconResourceForWeatherCondition(
+                                cursor.GetInt(ForecastFragment.ColWeatherConditionId)));
+                        break;
+                    }
+            }
 
             // TODO Read date from cursor
             var date = cursor.GetLong(ForecastFragment.ColWeatherDate);
@@ -138,7 +167,6 @@ namespace Sunshine
             // TODO Read low temperature from cursor
             double low = cursor.GetDouble(ForecastFragment.ColWeatherMinTemp);
             viewHolder.LowTempView.Text = Utility.FormatTemperature(context, low, isMetric);
-
 
         }
 
