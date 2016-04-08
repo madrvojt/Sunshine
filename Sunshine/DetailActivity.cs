@@ -23,7 +23,7 @@ namespace Sunshine
 
             if (savedInstanceState == null)
             {
-                SupportFragmentManager.BeginTransaction().Add(Resource.Id.container, new DetailFragment()).Commit();
+                SupportFragmentManager.BeginTransaction().Add(Resource.Id.weather_detail_container, new DetailFragment()).Commit();
 
             }
         }
@@ -41,8 +41,10 @@ namespace Sunshine
 
 
         // Call to update the share intent
-        void SetShareIntent(Intent shareIntent) {
-            if (_shareActionProvider != null) {
+        void SetShareIntent(Intent shareIntent)
+        {
+            if (_shareActionProvider != null)
+            {
                 _shareActionProvider.SetShareIntent(shareIntent);
             }
         }

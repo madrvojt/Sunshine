@@ -189,6 +189,7 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_rain.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_snow.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_storm.png" />
+    <AndroidResource Include="Resources\layout-sw600dp\activity_main.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
@@ -202,6 +203,7 @@
     <Folder Include="Resources\drawable-mdpi\" />
     <Folder Include="Resources\drawable-xhdpi\" />
     <Folder Include="Resources\drawable-xxhdpi\" />
+    <Folder Include="Resources\layout-sw600dp\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Insights.1.11.4\build\MonoAndroid10\Xamarin.Insights.targets" Condition="Exists('..\packages\Xamarin.Insights.1.11.4\build\MonoAndroid10\Xamarin.Insights.targets')" />

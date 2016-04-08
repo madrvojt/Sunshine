@@ -15,9 +15,9 @@ namespace Sunshine
     public class MainActivity : AppCompatActivity
     {
 
-        const string ForecaseFragmentTag = "FFTAG";
+        const string DetailFragmentTag = "DFTAG";
         string _location;
-
+        private bool _twoPane;
         ILogger _log;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -32,11 +32,32 @@ namespace Sunshine
             levelSwitch.MinimumLevel = LogEventLevel.Verbose;
             _log = new LoggerConfiguration().MinimumLevel.ControlledBy(levelSwitch).WriteTo.AndroidLog().CreateLogger();
 
-            if (savedInstanceState == null)
+            if (FindViewById(Resource.Id.weather_detail_container) != null)
             {
-                SupportFragmentManager.BeginTransaction().Add(Resource.Id.container, new ForecastFragment(), ForecaseFragmentTag).Commit();
-            
-            }
+
+                // The detail container view will be present only in the large-screen layouts
+                // (res/layout-sw600dp). If this view is present, then the activity should be
+                // in two-pane mode.
+
+               
+                _twoPane = true;
+                // In two-pane mode, show the detail view in this activity by
+                // adding or replacing the detail fragment using a
+                // fragment transaction.
+                if (savedInstanceState == null)
+                {
+                    SupportFragmentManager.BeginTransaction()
+                        .Replace(Resource.Id.weather_detail_container, new DetailFragment(), DetailFragmentTag)
+                                            .Commit();
+                    
+                                    
+                }
+                else
+                {
+                    _twoPane = false;
+                }
+            }            
+
         }
 
         /// <summary>
@@ -58,7 +79,7 @@ namespace Sunshine
             // update the location in our second pane using the fragment manager
             if (location != null && !location.Equals(_location))
             {
-                var forecastFragment = (ForecastFragment)SupportFragmentManager.FindFragmentByTag(ForecaseFragmentTag);
+                var forecastFragment = (ForecastFragment)SupportFragmentManager.FindFragmentById(Resource.Id.fragment_forecast);
                 if (forecastFragment != null)
                 {
                     forecastFragment.OnLocationChanged();

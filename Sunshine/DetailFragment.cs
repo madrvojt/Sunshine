@@ -110,7 +110,7 @@ namespace Sunshine
         {
            
             var intent = Activity.Intent;
-            if (intent == null)
+            if (intent == null || intent.Data == null)
             {
                 return null;
             }
