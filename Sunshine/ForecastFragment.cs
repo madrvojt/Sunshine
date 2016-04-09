@@ -23,6 +23,12 @@ namespace Sunshine
         ForecastAdapter _forecastAdapter;
         const string SourceContext = "MyNamespace.MyClass";
         readonly ILogger _log;
+
+        ListView _listView;
+        int _position = AdapterView.InvalidPosition;
+        const string SelectedKey = "selected_position";
+
+
         const int ForecastLoader = 0;
 
 
@@ -88,10 +94,17 @@ namespace Sunshine
 
         public Android.Support.V4.Content.Loader OnCreateLoader(int id, Bundle args)
         {
-            string locationSetting = Utility.GetPreferredLocation(Activity);
+
+            // This is called when a new Loader needs to be created.  This
+            // fragment only uses one loader, so we don't care about checking the id.
+            // To only show current and future dates, filter the query to return weather only for
+            // dates after or including today.
 
             // Sort order:  Ascending, by date.
+
             const string sortOrder = WeatherContract.Weather.ColumnDate + " ASC";
+            string locationSetting = Utility.GetPreferredLocation(Activity);
+
             var weatherForLocationUri = WeatherContract.Weather.BuildWeatherLocationWithStartDate(
                                             locationSetting, DateTime.Now.Ticks);
 
@@ -103,6 +116,13 @@ namespace Sunshine
         public void OnLoadFinished(Android.Support.V4.Content.Loader loader, Java.Lang.Object data)
         {
             _forecastAdapter.SwapCursor((ICursor)data);
+
+            if (_position != AdapterView.InvalidPosition)
+            {
+                // If we don't need to restart the loader, and there's a desired position to restore
+                // to, do so now.
+                _listView.SmoothScrollToPosition(_position);
+            }  
         }
 
         public void OnLoaderReset(Android.Support.V4.Content.Loader loader)
@@ -169,14 +189,14 @@ namespace Sunshine
             _forecastAdapter = new ForecastAdapter(Activity, null, 0);
 
             var rootView = inflater.Inflate(Resource.Layout.fragment_main, container, false);
-            var listviewForecast = rootView.FindViewById<ListView>(Resource.Id.listview_forecast);
+            _listView = rootView.FindViewById<ListView>(Resource.Id.listview_forecast);
 
             // Reference to ListView
-            listviewForecast.Adapter = _forecastAdapter;
+            _listView.Adapter = _forecastAdapter;
 
 
 
-            listviewForecast.ItemClick += (sender, e) =>
+            _listView.ItemClick += (sender, e) =>
             {                   
                 var cursor = (ICursor)((AdapterView)sender).GetItemAtPosition(e.Position);
                 if (cursor != null)
@@ -186,12 +206,29 @@ namespace Sunshine
                     ((ICallback)Activity).OnItemSelected(WeatherContract.Weather.BuildWeatherLocationWithDate(
                             locationSetting, cursor.GetLong(ColWeatherDate)));
                 }
+                _position = e.Position;
             };
+
+            if (savedInstanceState != null && savedInstanceState.ContainsKey(SelectedKey))
+            {
+                // The listview probably hasn't even been populated yet.  Actually perform the
+                // swapout in onLoadFinished.
+                _position = savedInstanceState.GetInt(SelectedKey);
+            }
+
 
             return rootView;
         }
 
-       
+        public override void OnSaveInstanceState(Bundle outState)
+        {
+            if (_position != AdapterView.InvalidPosition)
+            {
+                outState.PutInt(SelectedKey, _position);
+            }
+
+            base.OnSaveInstanceState(outState);
+        }
 
     }
 }
