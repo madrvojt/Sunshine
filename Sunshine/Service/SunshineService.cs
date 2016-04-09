@@ -216,5 +216,19 @@ namespace Sunshine.Service
 
 
     }
+
+    [BroadcastReceiver(Enabled = true)]
+    public class AlarmReceiver : BroadcastReceiver
+    {
+
+        public override void OnReceive(Context context, Intent intent)
+        {
+            var sendIntent = new Intent(context, typeof(SunshineService));
+            sendIntent.PutExtra(SunshineService.LocationQueryExtra, intent.GetStringExtra(SunshineService.LocationQueryExtra));
+            context.StartService(sendIntent);
+        }
+    }
+             
+
 }
 

@@ -12,13 +12,14 @@ using Android.Support.V4.App;
 using Android.Database;
 using Android.Content;
 using Sunshine.Service;
+using Android.App;
 
 namespace Sunshine
 {
     /// <summary>
     ///  A placeholder fragment containing a simple view.
     /// </summary>
-    public class ForecastFragment : Android.Support.V4.App.Fragment, LoaderManager.ILoaderCallbacks
+    public class ForecastFragment : Android.Support.V4.App.Fragment, Android.Support.V4.App.LoaderManager.ILoaderCallbacks
     {
 
         ForecastAdapter _forecastAdapter;
@@ -179,13 +180,20 @@ namespace Sunshine
             LoaderManager.RestartLoader(ForecastLoader, null, this);
         }
 
-        async void UpdateWeather()
+        void UpdateWeather()
         {
+            // Android times are quoted as milliseconds since start of 1970
+            var dtBasis = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 
-            var intent = new Intent(Activity, typeof(SunshineService));
-            intent.PutExtra(SunshineService.LocationQueryExtra,
-                Utility.GetPreferredLocation(Activity));
-            Activity.StartService(intent);
+            var alarmIntent = new Intent(Activity, typeof(AlarmReceiver));
+            alarmIntent.PutExtra(SunshineService.LocationQueryExtra, Utility.GetPreferredLocation(Activity));
+
+            //Wrap in a pending intent which only fires once.
+            var pi = PendingIntent.GetBroadcast(Activity, 0, alarmIntent, PendingIntentFlags.OneShot);
+            var am = (AlarmManager)Activity.GetSystemService(Context.AlarmService);
+
+            //Set the AlarmManager to wake up the system.
+            am.Set(AlarmType.RtcWakeup, ((long)DateTime.UtcNow.Subtract(dtBasis).TotalMilliseconds) + 5000, pi);
         }
 
 
