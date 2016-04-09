@@ -27,7 +27,7 @@ namespace Sunshine
         ListView _listView;
         int _position = AdapterView.InvalidPosition;
         const string SelectedKey = "selected_position";
-
+        bool _useTodayLayout;
 
         const int ForecastLoader = 0;
 
@@ -75,6 +75,7 @@ namespace Sunshine
         public const int ColCoordLat = 7;
         public const int ColCoordLon = 8;
 
+       
 
         public ForecastFragment()
         {
@@ -82,8 +83,6 @@ namespace Sunshine
             levelSwitch.MinimumLevel = LogEventLevel.Verbose;
             _log = new LoggerConfiguration().MinimumLevel.ControlledBy(levelSwitch).WriteTo.AndroidLog().CreateLogger();
         }
-
-
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -112,6 +111,16 @@ namespace Sunshine
 
 
         }
+
+        public void SetUseTodayLayout(bool useTodayLayout)
+        {
+            _useTodayLayout = useTodayLayout;
+            if (_forecastAdapter != null)
+            {
+                _forecastAdapter.UseTodayLayout = _useTodayLayout;
+            }
+        }
+
 
         public void OnLoadFinished(Android.Support.V4.Content.Loader loader, Java.Lang.Object data)
         {
@@ -215,7 +224,7 @@ namespace Sunshine
                 // swapout in onLoadFinished.
                 _position = savedInstanceState.GetInt(SelectedKey);
             }
-
+            _forecastAdapter.UseTodayLayout = _useTodayLayout;
 
             return rootView;
         }

@@ -47,8 +47,11 @@ namespace Sunshine
         const int ViewTypeToday = 0;
         const int ViewTypeFutureDay = 1;
         const int ViewTypeCountConst = 2;
+        // Flag to determine if we want to use a separate view for "today".
+        bool _useTodayLayout = true;
 
 
+        public bool UseTodayLayout { set { _useTodayLayout = value; } }
 
 
 
@@ -69,7 +72,7 @@ namespace Sunshine
 
         public override int GetItemViewType(int position)
         {
-            if (position == 0)
+            if (position == 0 && _useTodayLayout)
                 return ViewTypeToday;
             else
                 return ViewTypeFutureDay;

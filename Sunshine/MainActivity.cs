@@ -57,7 +57,8 @@ namespace Sunshine
                     _twoPane = false;
                 }
             }            
-
+            var forecastFragment = ((ForecastFragment)SupportFragmentManager.FindFragmentById(Resource.Id.fragment_forecast));
+            forecastFragment.SetUseTodayLayout(!_twoPane);
         }
 
 
