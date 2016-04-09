@@ -5,7 +5,7 @@ using Android.Annotation;
 
 namespace Sunshine
 {
-    [Activity(Label = "Settings", Icon = "@mipmap/ic_launcher", ParentActivity = typeof(SettingsActivity))]            
+    [Activity(Label = "@string/title_activity_settings", Theme = "@style/SettingsTheme", Icon = "@mipmap/ic_launcher", ParentActivity = typeof(SettingsActivity))]            
     [MetaData("android.support.PARENT_ACTIVITY", Value = "cz.madrvojt.xamarin.sunshine.SettingActivity")]
     public class SettingsActivity : PreferenceActivity
     {
@@ -13,7 +13,6 @@ namespace Sunshine
         protected override void OnCreate(Android.OS.Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            Title = GetString(Resource.String.title_activity_detail);
             // Obsolete, because we want start app in old devices pre Honeycomb
             AddPreferencesFromResource(Resource.Xml.pref_general);
             BindPreferenceSummaryToValue(FindPreference(GetString(Resource.String.pref_location_key)));

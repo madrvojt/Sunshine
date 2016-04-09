@@ -9,7 +9,7 @@ using Android.Widget;
 
 namespace Sunshine
 {
-    [Activity(Label = "DetailActivity", Icon = "@mipmap/ic_launcher", ParentActivity = typeof(MainActivity))]            
+    [Activity(Label = "@string/title_activity_detail", Icon = "@mipmap/ic_launcher", ParentActivity = typeof(MainActivity))]            
     [MetaData("android.support.PARENT_ACTIVITY", Value = "cz.madrvojt.xamarin.sunshine.MainActivity")]
     public class DetailActivity : AppCompatActivity
     {

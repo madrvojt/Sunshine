@@ -7,7 +7,7 @@ using Xamarin.Android.NUnitLite;
 namespace Sunshine.Tests
 {
     [Activity(Label = "Sunshine.Tests", MainLauncher = true)]
-    public class MainActivity : TestSuiteActivity
+    public class TestMainActivity : TestSuiteActivity
     {
         protected override void OnCreate(Bundle bundle)
         {

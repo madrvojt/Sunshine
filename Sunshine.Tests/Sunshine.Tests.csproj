@@ -47,7 +47,6 @@
     <Reference Include="Xamarin.Android.NUnitLite" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainActivity.cs" />
     <Compile Include="TestsSample.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -60,6 +59,7 @@
     <Compile Include="Tests\TestProvider.cs" />
     <Compile Include="Tests\TestWeatherContract.cs" />
     <Compile Include="Tests\TestFetchWeatherTask.cs" />
+    <Compile Include="TestMainActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

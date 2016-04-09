@@ -762,32 +762,32 @@ namespace Sunshine
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f0c003c
-			public const int abc_background_cache_hint_selector_material_dark = 2131492924;
-			
-			// aapt resource value: 0x7f0c003d
-			public const int abc_background_cache_hint_selector_material_light = 2131492925;
-			
 			// aapt resource value: 0x7f0c003e
-			public const int abc_color_highlight_material = 2131492926;
+			public const int abc_background_cache_hint_selector_material_dark = 2131492926;
+			
+			// aapt resource value: 0x7f0c003f
+			public const int abc_background_cache_hint_selector_material_light = 2131492927;
+			
+			// aapt resource value: 0x7f0c0040
+			public const int abc_color_highlight_material = 2131492928;
 			
 			// aapt resource value: 0x7f0c0000
 			public const int abc_input_method_navigation_guard = 2131492864;
 			
-			// aapt resource value: 0x7f0c003f
-			public const int abc_primary_text_disable_only_material_dark = 2131492927;
-			
-			// aapt resource value: 0x7f0c0040
-			public const int abc_primary_text_disable_only_material_light = 2131492928;
-			
 			// aapt resource value: 0x7f0c0041
-			public const int abc_primary_text_material_dark = 2131492929;
+			public const int abc_primary_text_disable_only_material_dark = 2131492929;
 			
 			// aapt resource value: 0x7f0c0042
-			public const int abc_primary_text_material_light = 2131492930;
+			public const int abc_primary_text_disable_only_material_light = 2131492930;
 			
 			// aapt resource value: 0x7f0c0043
-			public const int abc_search_url_text = 2131492931;
+			public const int abc_primary_text_material_dark = 2131492931;
+			
+			// aapt resource value: 0x7f0c0044
+			public const int abc_primary_text_material_light = 2131492932;
+			
+			// aapt resource value: 0x7f0c0045
+			public const int abc_search_url_text = 2131492933;
 			
 			// aapt resource value: 0x7f0c0001
 			public const int abc_search_url_text_normal = 2131492865;
@@ -798,11 +798,11 @@ namespace Sunshine
 			// aapt resource value: 0x7f0c0003
 			public const int abc_search_url_text_selected = 2131492867;
 			
-			// aapt resource value: 0x7f0c0044
-			public const int abc_secondary_text_material_dark = 2131492932;
+			// aapt resource value: 0x7f0c0046
+			public const int abc_secondary_text_material_dark = 2131492934;
 			
-			// aapt resource value: 0x7f0c0045
-			public const int abc_secondary_text_material_light = 2131492933;
+			// aapt resource value: 0x7f0c0047
+			public const int abc_secondary_text_material_light = 2131492935;
 			
 			// aapt resource value: 0x7f0c0004
 			public const int accent_material_dark = 2131492868;
@@ -957,6 +957,12 @@ namespace Sunshine
 			// aapt resource value: 0x7f0c0035
 			public const int secondary_text_disabled_material_light = 2131492917;
 			
+			// aapt resource value: 0x7f0c003c
+			public const int sunshine_blue = 2131492924;
+			
+			// aapt resource value: 0x7f0c003d
+			public const int sunshine_dark_blue = 2131492925;
+			
 			// aapt resource value: 0x7f0c003b
 			public const int sunshine_light_blue = 2131492923;
 			
@@ -966,11 +972,11 @@ namespace Sunshine
 			// aapt resource value: 0x7f0c0037
 			public const int switch_thumb_disabled_material_light = 2131492919;
 			
-			// aapt resource value: 0x7f0c0046
-			public const int switch_thumb_material_dark = 2131492934;
+			// aapt resource value: 0x7f0c0048
+			public const int switch_thumb_material_dark = 2131492936;
 			
-			// aapt resource value: 0x7f0c0047
-			public const int switch_thumb_material_light = 2131492935;
+			// aapt resource value: 0x7f0c0049
+			public const int switch_thumb_material_light = 2131492937;
 			
 			// aapt resource value: 0x7f0c0038
 			public const int switch_thumb_normal_material_dark = 2131492920;
@@ -2232,6 +2238,12 @@ namespace Sunshine
 		public partial class Style
 		{
 			
+			// aapt resource value: 0x7f0a0136
+			public const int ActionBar_Solid_Sunshine_NoTitle = 2131362102;
+			
+			// aapt resource value: 0x7f0a0138
+			public const int ActionBar_V14_Sunshine_NoTitle = 2131362104;
+			
 			// aapt resource value: 0x7f0a007d
 			public const int AlertDialog_AppCompat = 2131361917;
 			
@@ -2667,8 +2679,11 @@ namespace Sunshine
 			// aapt resource value: 0x7f0a0073
 			public const int Base_Widget_AppCompat_Toolbar_Button_Navigation = 2131361907;
 			
+			// aapt resource value: 0x7f0a0137
+			public const int ForecastListStyle = 2131362103;
+			
 			// aapt resource value: 0x7f0a0134
-			public const int ForecastListStyle = 2131362100;
+			public const int ForecastTheme = 2131362100;
 			
 			// aapt resource value: 0x7f0a0010
 			public const int Platform_AppCompat = 2131361808;
@@ -2741,6 +2756,9 @@ namespace Sunshine
 			
 			// aapt resource value: 0x7f0a002e
 			public const int RtlUnderlay_Widget_AppCompat_ActionButton_Overflow = 2131361838;
+			
+			// aapt resource value: 0x7f0a0135
+			public const int SettingsTheme = 2131362101;
 			
 			// aapt resource value: 0x7f0a00ad
 			public const int TextAppearance_AppCompat = 2131361965;

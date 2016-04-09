@@ -13,7 +13,7 @@
     <AndroidResgenClass>Resource</AndroidResgenClass>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidApplication>True</AndroidApplication>
-    <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
+    <AndroidUseLatestPlatformSdk>False</AndroidUseLatestPlatformSdk>
     <AssemblyName>Sunshine</AssemblyName>
     <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
   </PropertyGroup>
@@ -111,7 +111,6 @@
     <AndroidResource Include="Resources\layout\fragment_main.axml" />
     <AndroidResource Include="Resources\values\Dimens.xml" />
     <AndroidResource Include="Resources\menu\Main.xml" />
-    <AndroidResource Include="Resources\values\Styles.xml" />
     <AndroidResource Include="Resources\layout\list_item_forecast.axml" />
     <AndroidResource Include="Resources\menu\forecastfragment.xml" />
     <AndroidResource Include="Resources\layout\activity_detail.axml" />
@@ -192,11 +191,14 @@
     <AndroidResource Include="Resources\layout-sw600dp\activity_main.axml" />
     <AndroidResource Include="Resources\drawable-v21\touch_selector.xml" />
     <AndroidResource Include="Resources\drawable\touch_selector.xml" />
-    <AndroidResource Include="Resources\values-sw600dp\Styles.xml" />
     <AndroidResource Include="Resources\values\Colors.xml" />
     <AndroidResource Include="Resources\layout\fragment_detail_wide.axml" />
     <AndroidResource Include="Resources\values-land\Refs.xml" />
     <AndroidResource Include="Resources\values-sw600dp\Refs.xml" />
+    <AndroidResource Include="Resources\values\Styles.xml" />
+    <AndroidResource Include="Resources\values-sw600dp\Styles.xml" />
+    <AndroidResource Include="Resources\values-v14\Styles.xml" />
+    <AndroidResource Include="Resources\values-v21\Styles.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
@@ -214,6 +216,8 @@
     <Folder Include="Resources\drawable-v21\" />
     <Folder Include="Resources\values-sw600dp\" />
     <Folder Include="Resources\values-land\" />
+    <Folder Include="Resources\values-v14\" />
+    <Folder Include="Resources\values-v21\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Insights.1.11.4\build\MonoAndroid10\Xamarin.Insights.targets" Condition="Exists('..\packages\Xamarin.Insights.1.11.4\build\MonoAndroid10\Xamarin.Insights.targets')" />

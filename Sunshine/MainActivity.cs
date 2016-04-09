@@ -11,7 +11,7 @@ using Serilog.Events;
 
 namespace Sunshine
 {
-    [Activity(MainLauncher = true, Icon = "@mipmap/ic_launcher")]
+    [Activity(MainLauncher = true, Theme = "@style/ForecastTheme", Label = "@string/app_name", Icon = "@mipmap/ic_launcher")]
     public class MainActivity : AppCompatActivity, Sunshine.ForecastFragment.ICallback
     {
 
@@ -55,6 +55,7 @@ namespace Sunshine
                 else
                 {
                     _twoPane = false;
+                    SupportActionBar.Elevation = 0f;
                 }
             }            
             var forecastFragment = ((ForecastFragment)SupportFragmentManager.FindFragmentById(Resource.Id.fragment_forecast));
