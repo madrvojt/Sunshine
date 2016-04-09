@@ -199,6 +199,8 @@
     <AndroidResource Include="Resources\values-sw600dp\Styles.xml" />
     <AndroidResource Include="Resources\values-v14\Styles.xml" />
     <AndroidResource Include="Resources\values-v21\Styles.xml" />
+    <AndroidResource Include="Resources\drawable-v21\today_touch_selector.xml" />
+    <AndroidResource Include="Resources\drawable\today_touch_selector.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
