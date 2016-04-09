@@ -177,6 +177,9 @@ namespace Sunshine
                 var description = dataCursor.GetString(ColWeatherDesc);
                 _descriptionView.Text = description;
 
+                // For accessibility, add a content description to the icon field
+                _iconView.ContentDescription = description;
+
                 // Read high temperature from cursor and update view
                 var isMetric = Utility.IsMetric(Activity);
 

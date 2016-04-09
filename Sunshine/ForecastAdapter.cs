@@ -36,10 +36,6 @@ namespace Sunshine
 
 
 
-
-
-
-
     public class ForecastAdapter : Android.Support.V4.Widget.CursorAdapter
     {
 
@@ -158,6 +154,9 @@ namespace Sunshine
             // TODO Read weather forecast from cursor
             var description = cursor.GetString(ForecastFragment.ColWeatherDesc);
             viewHolder.DescriptionView.Text = description;
+
+            // For accessibility, add a content description to the icon field
+            viewHolder.IconView.ContentDescription = description;
 
             // Read user preference for metric or imperial temperature units
             bool isMetric = Utility.IsMetric(context);
