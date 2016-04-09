@@ -105,7 +105,7 @@ namespace Sunshine
             string locationSetting = Utility.GetPreferredLocation(Activity);
 
             var weatherForLocationUri = WeatherContract.Weather.BuildWeatherLocationWithStartDate(
-                                            locationSetting, DateTime.Now.Ticks);
+                                            locationSetting, DateTime.UtcNow.Ticks);
 
             return new Android.Support.V4.Content.CursorLoader(Activity, weatherForLocationUri, forecastColumns, null, null, sortOrder);
 

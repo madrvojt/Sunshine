@@ -95,16 +95,13 @@ namespace Sunshine
                 var contentValuesList = new List<ContentValues>(jsonResult.WeatherDaysList.Count);
                               
                 var timeNow = DateTime.UtcNow;
-
+                var startDate = timeNow.StartOfDay();
 
                 for (int i = 0; i < jsonResult.WeatherDaysList.Count; i++)
                 {
 
                     // Current time and time in days
-                    var currentDate = timeNow.AddDays(i).Ticks;
-                    // Normalize time to UTC
-                    var normalizeUtcTime = WeatherContract.NormalizeDate(currentDate);
-
+                    var dateTime = startDate.AddDays(i).Ticks;
 
                     int humidity = jsonResult.WeatherDaysList[i].Humidity;
                     double pressure = jsonResult.WeatherDaysList[i].Pressure;
@@ -126,7 +123,7 @@ namespace Sunshine
                     var weatherValues = new ContentValues();
 
                     weatherValues.Put(WeatherContract.Weather.ColumnLocationKey, locationId);
-                    weatherValues.Put(WeatherContract.Weather.ColumnDate, normalizeUtcTime);
+                    weatherValues.Put(WeatherContract.Weather.ColumnDate, dateTime);
                     weatherValues.Put(WeatherContract.Weather.ColumnHumidity, humidity);
                     weatherValues.Put(WeatherContract.Weather.ColumnPressure, pressure);
                     weatherValues.Put(WeatherContract.Weather.ColumnWindSpeed, windSpeed);

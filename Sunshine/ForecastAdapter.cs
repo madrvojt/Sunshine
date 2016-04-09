@@ -1,9 +1,7 @@
 ﻿using System;
 using Android.Views;
-using Android.Support.V4.Widget;
 using Android.Content;
 using Android.Database;
-using Sunshine.Data;
 using Android.Widget;
 
 namespace Sunshine
@@ -32,8 +30,6 @@ namespace Sunshine
             LowTempView = view.FindViewById<TextView>(Resource.Id.list_item_low_textview);
         }
     }
-
-
 
 
     public class ForecastAdapter : Android.Support.V4.Widget.CursorAdapter

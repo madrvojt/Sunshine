@@ -19,6 +19,12 @@ namespace Sunshine
         }
 
 
+        public static DateTime StartOfDay(this DateTime theDate)
+        {
+            return theDate.Date;
+        }
+
+
         public static string GetFormattedStrings(Context context, float windSpeed, float degrees)
         {
         
@@ -129,9 +135,9 @@ namespace Sunshine
             // For all days after that: "Mon Jun 8"
 
             var currentTime = DateTime.UtcNow;
-            var inputTime = new DateTime(dateInMillis).ToUniversalTime();
+            var inputTime = new DateTime(dateInMillis);
 
-            var timeDifference = inputTime - currentTime;
+            var timeDifference = inputTime - currentTime.Date;
             // If the date we're building the String for is today's date, the format
             // is "Today, June 24"
             if (timeDifference.Days == 0)
@@ -307,9 +313,9 @@ namespace Sunshine
             // day name.
 
             var currentTime = DateTime.UtcNow;
-            var inputTime = new DateTime(dateInMillis).ToUniversalTime();
+            var inputTime = new DateTime(dateInMillis);
 
-            var timeDifference = inputTime - currentTime;
+            var timeDifference = inputTime - currentTime.Date;
 
 
             if (timeDifference.Days == 0)
