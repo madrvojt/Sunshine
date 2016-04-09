@@ -190,6 +190,10 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_snow.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_storm.png" />
     <AndroidResource Include="Resources\layout-sw600dp\activity_main.axml" />
+    <AndroidResource Include="Resources\drawable-v21\touch_selector.xml" />
+    <AndroidResource Include="Resources\drawable\touch_selector.xml" />
+    <AndroidResource Include="Resources\values-sw600dp\Styles.xml" />
+    <AndroidResource Include="Resources\values\Colors.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
@@ -204,6 +208,8 @@
     <Folder Include="Resources\drawable-xhdpi\" />
     <Folder Include="Resources\drawable-xxhdpi\" />
     <Folder Include="Resources\layout-sw600dp\" />
+    <Folder Include="Resources\drawable-v21\" />
+    <Folder Include="Resources\values-sw600dp\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Insights.1.11.4\build\MonoAndroid10\Xamarin.Insights.targets" Condition="Exists('..\packages\Xamarin.Insights.1.11.4\build\MonoAndroid10\Xamarin.Insights.targets')" />
