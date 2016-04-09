@@ -21,9 +21,19 @@ namespace Sunshine
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activity_detail);
 
+            var arguments = new Bundle();
+            arguments.PutParcelable(DetailFragment.DetailUri, Intent.Data);
+
+            var fragment = new DetailFragment();
+            fragment.Arguments = arguments;
+
+
+
             if (savedInstanceState == null)
             {
-                SupportFragmentManager.BeginTransaction().Add(Resource.Id.weather_detail_container, new DetailFragment()).Commit();
+                SupportFragmentManager.BeginTransaction()
+                    .Add(Resource.Id.weather_detail_container, fragment)
+                    .Commit();
 
             }
         }

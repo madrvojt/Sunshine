@@ -12,7 +12,7 @@ using Serilog.Events;
 namespace Sunshine
 {
     [Activity(MainLauncher = true, Icon = "@mipmap/ic_launcher")]
-    public class MainActivity : AppCompatActivity
+    public class MainActivity : AppCompatActivity, Sunshine.ForecastFragment.ICallback
     {
 
         const string DetailFragmentTag = "DFTAG";
@@ -60,6 +60,30 @@ namespace Sunshine
 
         }
 
+
+        public void OnItemSelected(Android.Net.Uri contentUri)
+        {
+            if (_twoPane)
+            {
+                // In two-pane mode, show the detail view in this activity by
+                // adding or replacing the detail fragment using a
+                // fragment transaction.
+                var args = new Bundle();
+                args.PutParcelable(DetailFragment.DetailUri, contentUri);
+
+                var fragment = new DetailFragment();
+                fragment.Arguments = args;
+                SupportFragmentManager.BeginTransaction().Replace(Resource.Id.weather_detail_container, fragment, DetailFragmentTag).Commit();
+            }
+            else
+            {
+                var intent = new Intent(this, typeof(DetailActivity));
+                intent.SetData(contentUri);
+                StartActivity(intent);
+            }
+        }
+
+
         /// <summary>
         /// Raises the create options menu event.
         ///  /// <returns>To be added.</returns>
@@ -84,6 +108,13 @@ namespace Sunshine
                 {
                     forecastFragment.OnLocationChanged();
                 }
+                var df = (DetailFragment)SupportFragmentManager.FindFragmentByTag(DetailFragmentTag);
+                if (df != null)
+                {
+                    df.OnLocationChanged(location);
+                }
+
+
                 _location = location;
             }
         }

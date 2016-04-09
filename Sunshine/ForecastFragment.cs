@@ -26,6 +26,16 @@ namespace Sunshine
         const int ForecastLoader = 0;
 
 
+        /// <summary>
+        /// A callback interface that all activities containing this fragment must
+        /// implement. This mechanism allows activities to be notified of item
+        /// selections
+        /// </summary>
+        public interface ICallback
+        {
+            // DetailFragmentCallback for when an item has been selected.
+            void OnItemSelected(Android.Net.Uri dateUri);
+        }
 
         static string[] forecastColumns =
             {
@@ -172,11 +182,9 @@ namespace Sunshine
                 if (cursor != null)
                 {
                     var locationSetting = Utility.GetPreferredLocation(Activity);
-                    var intent = new Intent(Activity, typeof(DetailActivity)).SetData(WeatherContract.Weather.BuildWeatherLocationWithDate(
-                                         locationSetting, cursor.GetLong(ColWeatherDate)
-                                     ));
-                    StartActivity(intent);
-
+                    
+                    ((ICallback)Activity).OnItemSelected(WeatherContract.Weather.BuildWeatherLocationWithDate(
+                            locationSetting, cursor.GetLong(ColWeatherDate)));
                 }
             };
 

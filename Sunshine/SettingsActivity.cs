@@ -1,6 +1,7 @@
 ﻿using System;
 using Android.Preferences;
 using Android.App;
+using Android.Annotation;
 
 namespace Sunshine
 {
@@ -36,6 +37,15 @@ namespace Sunshine
                 .GetString(preference.Key, ""));
         }
 
+        public override Android.Content.Intent ParentActivityIntent
+        {
+            get
+            {
+                var intent = base.ParentActivityIntent;
+                intent.SetFlags(Android.Content.ActivityFlags.ClearTop);
+                return intent;
+            }
+        }
 
         /// <summary>
         /// Raises the preference change event.

@@ -21,6 +21,8 @@ namespace Sunshine
 
         const string SourceContext = "MyNamespace.MyClass";
         readonly ILogger _log;
+        public const string DetailUri = "Uri";
+        Android.Net.Uri _uri;
 
 
         const int DetailLoader = 0;
@@ -86,6 +88,12 @@ namespace Sunshine
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
 
+            var arguments = Arguments;
+            if (arguments != null)
+            {
+                _uri = (Android.Net.Uri)arguments.GetParcelable(DetailFragment.DetailUri);
+            }
+
             View rootView = inflater.Inflate(Resource.Layout.fragment_detail, container, false);
             _iconView = rootView.FindViewById<ImageView>(Resource.Id.detail_icon);
             _dateView = rootView.FindViewById<TextView>(Resource.Id.detail_date_textview);
@@ -106,25 +114,38 @@ namespace Sunshine
             base.OnActivityCreated(savedInstanceState);
         }
 
+        public void OnLocationChanged(string newLocation)
+        {
+            // replace the uri, since the location has changed
+            Android.Net.Uri uri = _uri;
+            if (uri != null)
+            {
+                long date = WeatherContract.Weather.GetDateFromUri(uri);
+                var updatedUri = WeatherContract.Weather.BuildWeatherLocationWithDate(newLocation, date);
+                _uri = updatedUri;
+                LoaderManager.RestartLoader(DetailLoader, null, this);
+            }
+        }
+
+
+
         public Android.Support.V4.Content.Loader OnCreateLoader(int id, Bundle args)
         {
-           
-            var intent = Activity.Intent;
-            if (intent == null || intent.Data == null)
+            if (_uri != null)
             {
-                return null;
+                // Now create and return a CursorLoader that will take care of
+                // creating a Cursor for the data being displayed.
+                return new Android.Support.V4.Content.CursorLoader(
+                    Activity,
+                    _uri,
+                    _forecastColumns,
+                    null,
+                    null,
+                    null
+                );
             }
+            return null;
 
-            // Now create and return a CursorLoader that will take care of
-            // creating a Cursor for the data being displayed.
-            return new Android.Support.V4.Content.CursorLoader(
-                Activity,
-                intent.Data,
-                _forecastColumns,
-                null,
-                null,
-                null
-            );
         }
 
         public void OnLoadFinished(Android.Support.V4.Content.Loader loader, Java.Lang.Object data)
