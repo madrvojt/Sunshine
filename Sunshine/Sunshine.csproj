@@ -88,11 +88,11 @@
     <Compile Include="Data\WeatherContract.cs" />
     <Compile Include="Data\WeatherDbHelper.cs" />
     <Compile Include="Data\WeatherProvider.cs" />
-    <Compile Include="FetchWeatherTask.cs" />
     <Compile Include="JSON object\City.cs" />
     <Compile Include="JSON object\Coord.cs" />
     <Compile Include="Utility.cs" />
     <Compile Include="ForecastAdapter.cs" />
+    <Compile Include="Service\SunshineService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -220,6 +220,7 @@
     <Folder Include="Resources\values-land\" />
     <Folder Include="Resources\values-v14\" />
     <Folder Include="Resources\values-v21\" />
+    <Folder Include="Service\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Insights.1.11.4\build\MonoAndroid10\Xamarin.Insights.targets" Condition="Exists('..\packages\Xamarin.Insights.1.11.4\build\MonoAndroid10\Xamarin.Insights.targets')" />

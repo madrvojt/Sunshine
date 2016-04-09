@@ -11,6 +11,7 @@ using Android.Support.V4.Content;
 using Android.Support.V4.App;
 using Android.Database;
 using Android.Content;
+using Sunshine.Service;
 
 namespace Sunshine
 {
@@ -180,11 +181,11 @@ namespace Sunshine
 
         async void UpdateWeather()
         {
-                 
-            var weatherTask = new FetchWeatherTask(Activity);
-            var location = Utility.GetPreferredLocation(Activity);
-            await weatherTask.GetDataFromServer(location);
 
+            var intent = new Intent(Activity, typeof(SunshineService));
+            intent.PutExtra(SunshineService.LocationQueryExtra,
+                Utility.GetPreferredLocation(Activity));
+            Activity.StartService(intent);
         }
 
 

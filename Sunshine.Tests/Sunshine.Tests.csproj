@@ -58,7 +58,6 @@
     <Compile Include="Tests\TestUriMatcher.cs" />
     <Compile Include="Tests\TestProvider.cs" />
     <Compile Include="Tests\TestWeatherContract.cs" />
-    <Compile Include="Tests\TestFetchWeatherTask.cs" />
     <Compile Include="TestMainActivity.cs" />
   </ItemGroup>
   <ItemGroup>
