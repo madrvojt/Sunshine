@@ -194,6 +194,9 @@
     <AndroidResource Include="Resources\drawable\touch_selector.xml" />
     <AndroidResource Include="Resources\values-sw600dp\Styles.xml" />
     <AndroidResource Include="Resources\values\Colors.xml" />
+    <AndroidResource Include="Resources\layout\fragment_detail_wide.axml" />
+    <AndroidResource Include="Resources\values-land\Refs.xml" />
+    <AndroidResource Include="Resources\values-sw600dp\Refs.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
@@ -210,6 +213,7 @@
     <Folder Include="Resources\layout-sw600dp\" />
     <Folder Include="Resources\drawable-v21\" />
     <Folder Include="Resources\values-sw600dp\" />
+    <Folder Include="Resources\values-land\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Insights.1.11.4\build\MonoAndroid10\Xamarin.Insights.targets" Condition="Exists('..\packages\Xamarin.Insights.1.11.4\build\MonoAndroid10\Xamarin.Insights.targets')" />
