@@ -13,7 +13,7 @@ namespace Sunshine
     [MetaData("android.support.PARENT_ACTIVITY", Value = "cz.madrvojt.xamarin.sunshine.MainActivity")]
     public class DetailActivity : AppCompatActivity
     {
-        private Android.Support.V7.Widget.ShareActionProvider _shareActionProvider;
+        Android.Support.V7.Widget.ShareActionProvider _shareActionProvider;
 
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -24,10 +24,9 @@ namespace Sunshine
             var arguments = new Bundle();
             arguments.PutParcelable(DetailFragment.DetailUri, Intent.Data);
 
+
             var fragment = new DetailFragment();
             fragment.Arguments = arguments;
-
-
 
             if (savedInstanceState == null)
             {
@@ -37,6 +36,8 @@ namespace Sunshine
 
             }
         }
+
+
 
         /// <summary>
         /// Raises the create options menu event.
@@ -78,11 +79,6 @@ namespace Sunshine
             int id = item.ItemId;
             switch (id)
             {
-                case Resource.Id.action_settings:
-                    var intent = new Intent(this, typeof(SettingsActivity));
-                    StartActivity(intent);
-                    return true;
-
                 default:
                     return base.OnOptionsItemSelected(item);
 

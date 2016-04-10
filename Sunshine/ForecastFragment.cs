@@ -13,6 +13,7 @@ using Android.Database;
 using Android.Content;
 using Android.App;
 using Sunshine.Sync;
+using Android.Runtime;
 
 namespace Sunshine
 {
@@ -158,7 +159,10 @@ namespace Sunshine
 
         public void OnLoadFinished(Android.Support.V4.Content.Loader loader, Java.Lang.Object data)
         {
-            _forecastAdapter.SwapCursor((ICursor)data);
+
+            var cursor = data.JavaCast<ICursor>();
+
+            _forecastAdapter.SwapCursor(cursor);
 
             if (_position != AdapterView.InvalidPosition)
             {
@@ -204,6 +208,12 @@ namespace Sunshine
             }
         }
 
+  
+        public void OnMetricChanged()
+        {
+            LoaderManager.RestartLoader(ForecastLoader, null, this);
+        }
+
 
         public void OnLocationChanged()
         {
@@ -236,7 +246,7 @@ namespace Sunshine
 
             _listView.ItemClick += (sender, e) =>
             {                   
-                var cursor = (ICursor)((AdapterView)sender).GetItemAtPosition(e.Position);
+                var cursor = ((AdapterView)sender).GetItemAtPosition(e.Position).JavaCast<ICursor>();
                 if (cursor != null)
                 {
                     var locationSetting = Utility.GetPreferredLocation(Activity);

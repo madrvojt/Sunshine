@@ -10,6 +10,8 @@ using Android.Support.V4.View;
 using Sunshine.Data;
 using Android.Database;
 using System;
+using Sunshine.Sync;
+using Android.Runtime;
 
 namespace Sunshine
 {
@@ -105,6 +107,11 @@ namespace Sunshine
             base.OnActivityCreated(savedInstanceState);
         }
 
+        public void OnMetricChanged()
+        {
+            LoaderManager.RestartLoader(DetailLoader, null, this);
+        }
+
         public void OnLocationChanged(string newLocation)
         {
             // replace the uri, since the location has changed
@@ -118,8 +125,7 @@ namespace Sunshine
             }
         }
 
-
-
+      
         public Android.Support.V4.Content.Loader OnCreateLoader(int id, Bundle args)
         {
             if (_uri != null)
@@ -142,8 +148,7 @@ namespace Sunshine
         public void OnLoadFinished(Android.Support.V4.Content.Loader loader, Java.Lang.Object data)
         {
 
-            var dataCursor = (ICursor)data;
-
+            var dataCursor = data.JavaCast<ICursor>();
             if (dataCursor != null & dataCursor.MoveToFirst())
             {
          
@@ -243,16 +248,7 @@ namespace Sunshine
             }    
         }
 
-        public override bool OnOptionsItemSelected(IMenuItem item)
-        {
-            int id = item.ItemId;
 
-            switch (id)
-            {
-                default:
-                    return base.OnOptionsItemSelected(item);
-            }
-        }
 
     }
 }

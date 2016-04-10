@@ -163,7 +163,11 @@ namespace Sunshine
             else
             {
                 // Otherwise, use the form "Mon Jun 3"
-                return inputTime.ToString("ddd M");
+                //return inputTime.ToString("ddd M");
+                string dayName = GetDayName(context, dateInMillis);
+                string smallDayName = dayName.Substring(0, 3);
+                string name = inputTime.ToString("M");
+                return smallDayName + " " + name;
 
             }
         }

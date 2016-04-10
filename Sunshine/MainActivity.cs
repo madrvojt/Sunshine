@@ -9,6 +9,9 @@ using Android.Net;
 using Serilog.Core;
 using Serilog.Events;
 using Sunshine.Sync;
+using Android.Runtime;
+using System;
+using System.Threading.Tasks;
 
 namespace Sunshine
 {
@@ -17,15 +20,56 @@ namespace Sunshine
     {
 
         const string DetailFragmentTag = "DFTAG";
+        const string HockeyAppId = "b632892031c04a5cb7aecc6452a0b1e4";
         string _location;
-        private bool _twoPane;
+        bool _twoPane;
+        bool _isMetric;
+
+
+        public void StartHockeyApp()
+        {
+
+       
+
+            // Register the crash manager before Initializing the trace writer
+            HockeyApp.CrashManager.Register(this, HockeyAppId); 
+
+            // Initialize the Trace Writer
+            HockeyApp.TraceWriter.Initialize();
+
+            // Wire up Unhandled Expcetion handler from Android
+            AndroidEnvironment.UnhandledExceptionRaiser += (sender, args) =>
+            {
+                // Use the trace writer to log exceptions so HockeyApp finds them
+                HockeyApp.TraceWriter.WriteTrace(args.Exception);
+                args.Handled = true;
+            };
+
+            // Wire up the .NET Unhandled Exception handler
+            AppDomain.CurrentDomain.UnhandledException +=
+            (sender, args) => HockeyApp.TraceWriter.WriteTrace(args.ExceptionObject);
+
+            // Wire up the unobserved task exception handler
+            TaskScheduler.UnobservedTaskException += 
+            (sender, args) => HockeyApp.TraceWriter.WriteTrace(args.Exception);
+
+
+        }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+
+            #if !DEBUG
+                StartHockeyApp();
+            #endif
+
+
             SetContentView(Resource.Layout.activity_main);
 
             _location = Utility.GetPreferredLocation(this);
+            _isMetric = Utility.IsMetric(this);
+
 
             if (FindViewById(Resource.Id.weather_detail_container) != null)
             {
@@ -46,12 +90,13 @@ namespace Sunshine
                     
                                     
                 }
-                else
-                {
-                    _twoPane = false;
-                    SupportActionBar.Elevation = 0f;
-                }
-            }            
+            }
+            else
+            {
+                _twoPane = false;
+                SupportActionBar.Elevation = 0f;
+            }
+
             var forecastFragment = ((ForecastFragment)SupportFragmentManager.FindFragmentById(Resource.Id.fragment_forecast));
             forecastFragment.SetUseTodayLayout(!_twoPane);
             SunshineSyncAdapter.InitializeSyncAdapter(this);
@@ -97,6 +142,8 @@ namespace Sunshine
             base.OnResume();
 
             var location = Utility.GetPreferredLocation(this);
+            var isMetric = Utility.IsMetric(this);
+
             // update the location in our second pane using the fragment manager
             if (location != null && !location.Equals(_location))
             {
@@ -105,15 +152,31 @@ namespace Sunshine
                 {
                     forecastFragment.OnLocationChanged();
                 }
-                var df = (DetailFragment)SupportFragmentManager.FindFragmentByTag(DetailFragmentTag);
-                if (df != null)
+                var detailFragment = (DetailFragment)SupportFragmentManager.FindFragmentByTag(DetailFragmentTag);
+                if (detailFragment != null)
                 {
-                    df.OnLocationChanged(location);
+                    detailFragment.OnLocationChanged(location);
                 }
-
 
                 _location = location;
             }
+            else if (isMetric != _isMetric)
+            {
+                var forecastFragment = (ForecastFragment)SupportFragmentManager.FindFragmentById(Resource.Id.fragment_forecast);
+                if (forecastFragment != null)
+                {
+                    forecastFragment.OnMetricChanged();
+                }
+                var detailFragment = (DetailFragment)SupportFragmentManager.FindFragmentByTag(DetailFragmentTag);
+                if (detailFragment != null)
+                {
+                    detailFragment.OnMetricChanged();
+                }
+
+                _isMetric = isMetric;
+            }
+
+
         }
 
         /// <summary>

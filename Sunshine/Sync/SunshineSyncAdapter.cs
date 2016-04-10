@@ -30,9 +30,9 @@ namespace Sunshine.Sync
         const string SourceContext = "MyNamespace.MyClass";
         // Interval at which to sync with the weather, in seconds.
         // 60 seconds (1 minute) * 180 = 3 hours
-        // public const int SyncInterval = 60 * 180;
+        public const int SyncInterval = 60 * 180;
 
-        public const int SyncInterval = 20;
+        // public const int SyncInterval = 20;
 
         public const int SyncFlextime = SyncInterval / 3;
         const int WeatherNotificationId = 3004;
@@ -74,7 +74,6 @@ namespace Sunshine.Sync
             if (displayNotifications)
             {
 
-
                 var lastNotificationKey = context.GetString(Resource.String.pref_last_notification);
                 long lastSync = prefs.GetLong(lastNotificationKey, 0);
 
@@ -82,7 +81,7 @@ namespace Sunshine.Sync
                 var saveDate = new DateTime(lastSync).StartOfDay();
                 var diffDate = startDate - saveDate;
 
-                if (diffDate.Days >= 0)
+                if (diffDate.Days >= 1)
                 {
                     // Last sync was more than 1 day ago, let's send a notification with the weather.
                     var locationQuery = Utility.GetPreferredLocation(context);
@@ -219,7 +218,7 @@ namespace Sunshine.Sync
                 // Constants for parameters
                 const string Format = "json";
                 const string Units = "metric";
-                const int NumDays = 7;
+                const int NumDays = 14;
                 const string AppId = "582900aa4d4687a5711f7704ae16611a";
 
                 var builder = new UriBuilder();
