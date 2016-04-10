@@ -17,6 +17,7 @@ using Android.Support.V4.App;
 using Android.Content.Res;
 using Android.Graphics;
 using Android.App;
+using Android.Support.V4.Content;
 
 namespace Sunshine.Sync
 {
@@ -117,7 +118,7 @@ namespace Sunshine.Sync
                         // notifications.  Just throw in some data.
                         var builder =
                             new NotificationCompat.Builder(Context)
-                                .SetColor(resources.GetColor(Resource.Color.sunshine_light_blue))
+                                .SetColor(ContextCompat.GetColor(context, Resource.Color.sunshine_light_blue))
                                 .SetSmallIcon(iconId)
                                 .SetLargeIcon(largeIcon)
                                 .SetContentTitle(title)

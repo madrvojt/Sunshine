@@ -19,8 +19,6 @@ namespace Sunshine
         string _forecastString;
         Android.Support.V7.Widget.ShareActionProvider _shareActionProvider;
 
-        const string SourceContext = "MyNamespace.MyClass";
-        readonly ILogger _log;
         public const string DetailUri = "Uri";
         Android.Net.Uri _uri;
 
@@ -69,13 +67,6 @@ namespace Sunshine
         TextView _humidityView;
         TextView _windView;
         TextView _pressureView;
-
-        public DetailFragment()
-        {
-            var levelSwitch = new LoggingLevelSwitch();
-            levelSwitch.MinimumLevel = LogEventLevel.Verbose;
-            _log = new LoggerConfiguration().MinimumLevel.ControlledBy(levelSwitch).WriteTo.AndroidLog().CreateLogger();
-        }
 
 
         public override void OnCreate(Bundle savedInstanceState)
@@ -179,9 +170,6 @@ namespace Sunshine
 
                 // For accessibility, add a content description to the icon field
                 _iconView.ContentDescription = description;
-
-                // Read high temperature from cursor and update view
-                var isMetric = Utility.IsMetric(Activity);
 
                 double high = dataCursor.GetDouble(ColWeatherMaxTemp);
                 var highString = Utility.FormatTemperature(Activity, high);

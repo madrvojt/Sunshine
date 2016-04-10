@@ -19,7 +19,6 @@ namespace Sunshine
         const string DetailFragmentTag = "DFTAG";
         string _location;
         private bool _twoPane;
-        ILogger _log;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -28,11 +27,6 @@ namespace Sunshine
 
             _location = Utility.GetPreferredLocation(this);
 
-            // Logger instance
-            var levelSwitch = new LoggingLevelSwitch();
-            levelSwitch.MinimumLevel = LogEventLevel.Verbose;
-            _log = new LoggerConfiguration().MinimumLevel.ControlledBy(levelSwitch).WriteTo.AndroidLog().CreateLogger();
-
             if (FindViewById(Resource.Id.weather_detail_container) != null)
             {
 
@@ -40,7 +34,6 @@ namespace Sunshine
                 // (res/layout-sw600dp). If this view is present, then the activity should be
                 // in two-pane mode.
 
-               
                 _twoPane = true;
                 // In two-pane mode, show the detail view in this activity by
                 // adding or replacing the detail fragment using a

@@ -1,6 +1,8 @@
 ﻿using System;
 using Android.Content;
 using Android.Preferences;
+using Android.OS;
+using Android.Support.V4.Content;
 
 namespace Sunshine
 {
@@ -79,6 +81,9 @@ namespace Sunshine
         }
 
 
+       
+
+
         /// <summary>
         /// Determines if is metric the specified context.
         /// </summary>
@@ -108,8 +113,6 @@ namespace Sunshine
         {
             // Data stored in Celsius by default.  If user prefers to see in Fahrenheit, convert
             // the values here.
-
-            string suffix = "\u00B0";
             if (!IsMetric(context))
             {
                 temperature = (temperature * 1.8) + 32;

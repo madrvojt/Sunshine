@@ -14,9 +14,11 @@ namespace Sunshine
         {
             base.OnCreate(savedInstanceState);
             // Obsolete, because we want start app in old devices pre Honeycomb
+            #pragma warning disable 0618
             AddPreferencesFromResource(Resource.Xml.pref_general);
             BindPreferenceSummaryToValue(FindPreference(GetString(Resource.String.pref_location_key)));
             BindPreferenceSummaryToValue(FindPreference(GetString(Resource.String.pref_units_key)));
+            #pragma warning restore 0618
         }
 
         /// <summary>

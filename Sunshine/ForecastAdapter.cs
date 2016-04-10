@@ -35,7 +35,6 @@ namespace Sunshine
     public class ForecastAdapter : Android.Support.V4.Widget.CursorAdapter
     {
 
-        Context _context;
         const int ViewTypeToday = 0;
         const int ViewTypeFutureDay = 1;
         const int ViewTypeCountConst = 2;
@@ -50,7 +49,6 @@ namespace Sunshine
         public ForecastAdapter(Context context, ICursor c, int flags)
             : base(context, c, flags)
         {
-            _context = context;
         }
 
 
@@ -122,8 +120,6 @@ namespace Sunshine
             // we'll keep the UI functional with a simple (and slow!) binding.
             var viewHolder = (ViewHolder)view.Tag;
 
-            // Read weather icon ID from cursor
-            int weatherId = cursor.GetInt(ForecastFragment.ColWeatherId);
             int viewType = GetItemViewType(cursor.Position);
             switch (viewType)
             {
@@ -153,9 +149,6 @@ namespace Sunshine
 
             // For accessibility, add a content description to the icon field
             viewHolder.IconView.ContentDescription = description;
-
-            // Read user preference for metric or imperial temperature units
-            bool isMetric = Utility.IsMetric(context);
 
             // Read high temperature from cursor
             double high = cursor.GetDouble(ForecastFragment.ColWeatherMaxTemp);
