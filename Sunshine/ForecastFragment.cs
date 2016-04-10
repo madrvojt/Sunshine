@@ -11,7 +11,6 @@ using Android.Support.V4.Content;
 using Android.Support.V4.App;
 using Android.Database;
 using Android.Content;
-using Sunshine.Service;
 using Android.App;
 using Sunshine.Sync;
 

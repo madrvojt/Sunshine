@@ -22,6 +22,11 @@ namespace Sunshine.Sync
 
         const string LogTag = "SunshineSyncAdapter";
         const string SourceContext = "MyNamespace.MyClass";
+        // Interval at which to sync with the weather, in seconds.
+        // 60 seconds (1 minute) * 180 = 3 hours
+        public const int SyncInterval = 60 * 180;
+        public const int SyncFlextime = SyncInterval / 3;
+
 
         public SunshineSyncAdapter(Context context, bool autoInitialize)
             : base(context, autoInitialize)
@@ -30,6 +35,49 @@ namespace Sunshine.Sync
             levelSwitch.MinimumLevel = LogEventLevel.Verbose;
             _log = new LoggerConfiguration().MinimumLevel.ControlledBy(levelSwitch).WriteTo.AndroidLog().CreateLogger();
         
+        }
+
+
+        /// <summary>
+        /// Helper method to schedule the sync adapter periodic execution
+        /// </summary>
+        public static void ConfigurePeriodicSync(Context context, int syncInterval, int flexTime)
+        {
+            var account = GetSyncAccount(context);
+            var authority = context.GetString(Resource.String.content_authority);
+            if (Build.VERSION.SdkInt >= BuildVersionCodes.Kitkat)
+            {
+                // we can enable inexact timers in our periodic sync
+                var request = new SyncRequest.Builder().
+                                        SyncPeriodic(syncInterval, flexTime).
+                                        SetSyncAdapter(account, authority).
+                    SetExtras(new Bundle()).Build();
+                ContentResolver.RequestSync(request);
+            }
+            else
+            {
+                ContentResolver.AddPeriodicSync(account,
+                    authority, new Bundle(), syncInterval);
+            }
+        }
+
+
+        static void OnAccountCreated(Account newAccount, Context context)
+        {
+
+            // Since we've created an account
+            SunshineSyncAdapter.ConfigurePeriodicSync(context, SyncInterval, SyncFlextime);
+
+            // Without calling setSyncAutomatically, our periodic sync will not be enabled.
+            ContentResolver.SetSyncAutomatically(newAccount, context.GetString(Resource.String.content_authority), true);
+
+            // Finally, let's do a sync to get things started
+            SyncImmediately(context);
+        }
+
+        public static void InitializeSyncAdapter(Context context)
+        {
+            GetSyncAccount(context);
         }
 
 
@@ -244,7 +292,7 @@ namespace Sunshine.Sync
                                  context.GetString(Resource.String.app_name), context.GetString(Resource.String.sync_account_type));
 
             // If the password doesn't exist, the account doesn't exist
-            if (null == accountManager.GetPassword(newAccount))
+            if (accountManager.GetPassword(newAccount) == null)
             {
 
                 // Add the account and account type, no password or user data
@@ -253,7 +301,9 @@ namespace Sunshine.Sync
                 {
                     return null;
                 }
-                    
+                   
+                OnAccountCreated(newAccount, context);
+
                 // If you don't set android:syncable="true" in
                 // in your <provider> element in the manifest,
                 // then call ContentResolver.setIsSyncable(account, AUTHORITY, 1)

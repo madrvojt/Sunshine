@@ -8,6 +8,7 @@ using Android.Preferences;
 using Android.Net;
 using Serilog.Core;
 using Serilog.Events;
+using Sunshine.Sync;
 
 namespace Sunshine
 {
@@ -60,6 +61,7 @@ namespace Sunshine
             }            
             var forecastFragment = ((ForecastFragment)SupportFragmentManager.FindFragmentById(Resource.Id.fragment_forecast));
             forecastFragment.SetUseTodayLayout(!_twoPane);
+            SunshineSyncAdapter.InitializeSyncAdapter(this);
         }
 
 
