@@ -9,7 +9,7 @@ using Serilog;
 
 namespace Sunshine.Data
 {
-    [ContentProvider(new string[] { WeatherContract.ContentAuthority })]
+    [ContentProvider(new string[] { WeatherContract.ContentAuthority }, Exported = false, Syncable = true)]
     public class WeatherProvider : ContentProvider
     {
         readonly ILogger _log;

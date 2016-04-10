@@ -2171,6 +2171,9 @@ namespace Sunshine
 			// aapt resource value: 0x7f070016
 			public const int app_name = 2131165206;
 			
+			// aapt resource value: 0x7f07002f
+			public const int content_authority = 2131165231;
+			
 			// aapt resource value: 0x7f070028
 			public const int format_full_friendly_date = 2131165224;
 			
@@ -2224,6 +2227,9 @@ namespace Sunshine
 			
 			// aapt resource value: 0x7f070013
 			public const int status_bar_notification_info_overflow = 2131165203;
+			
+			// aapt resource value: 0x7f07002e
+			public const int sync_account_type = 2131165230;
 			
 			// aapt resource value: 0x7f07001b
 			public const int title_activity_detail = 2131165211;
@@ -3203,7 +3209,13 @@ namespace Sunshine
 		{
 			
 			// aapt resource value: 0x7f060000
-			public const int pref_general = 2131099648;
+			public const int authenticator = 2131099648;
+			
+			// aapt resource value: 0x7f060001
+			public const int pref_general = 2131099649;
+			
+			// aapt resource value: 0x7f060002
+			public const int syncadapter = 2131099650;
 			
 			static Xml()
 			{

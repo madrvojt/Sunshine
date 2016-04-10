@@ -13,6 +13,7 @@ using Android.Database;
 using Android.Content;
 using Sunshine.Service;
 using Android.App;
+using Sunshine.Sync;
 
 namespace Sunshine
 {
@@ -182,18 +183,7 @@ namespace Sunshine
 
         void UpdateWeather()
         {
-            // Android times are quoted as milliseconds since start of 1970
-            var dtBasis = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-
-            var alarmIntent = new Intent(Activity, typeof(AlarmReceiver));
-            alarmIntent.PutExtra(SunshineService.LocationQueryExtra, Utility.GetPreferredLocation(Activity));
-
-            //Wrap in a pending intent which only fires once.
-            var pi = PendingIntent.GetBroadcast(Activity, 0, alarmIntent, PendingIntentFlags.OneShot);
-            var am = (AlarmManager)Activity.GetSystemService(Context.AlarmService);
-
-            //Set the AlarmManager to wake up the system.
-            am.Set(AlarmType.RtcWakeup, ((long)DateTime.UtcNow.Subtract(dtBasis).TotalMilliseconds) + 5000, pi);
+            SunshineSyncAdapter.SyncImmediately(Activity);
         }
 
 

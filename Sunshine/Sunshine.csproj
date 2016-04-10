@@ -93,6 +93,10 @@
     <Compile Include="Utility.cs" />
     <Compile Include="ForecastAdapter.cs" />
     <Compile Include="Service\SunshineService.cs" />
+    <Compile Include="Sync\SunshineAuthenticator.cs" />
+    <Compile Include="Sync\SunshineAuthenticatorService.cs" />
+    <Compile Include="Sync\SunshineSyncAdapter.cs" />
+    <Compile Include="Sync\SunshineSyncService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -201,6 +205,8 @@
     <AndroidResource Include="Resources\values-v21\Styles.xml" />
     <AndroidResource Include="Resources\drawable-v21\today_touch_selector.xml" />
     <AndroidResource Include="Resources\drawable\today_touch_selector.xml" />
+    <AndroidResource Include="Resources\xml\authenticator.xml" />
+    <AndroidResource Include="Resources\xml\syncadapter.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
@@ -221,6 +227,7 @@
     <Folder Include="Resources\values-v14\" />
     <Folder Include="Resources\values-v21\" />
     <Folder Include="Service\" />
+    <Folder Include="Sync\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Insights.1.11.4\build\MonoAndroid10\Xamarin.Insights.targets" Condition="Exists('..\packages\Xamarin.Insights.1.11.4\build\MonoAndroid10\Xamarin.Insights.targets')" />
