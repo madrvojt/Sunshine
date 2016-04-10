@@ -92,7 +92,6 @@
     <Compile Include="JSON object\Coord.cs" />
     <Compile Include="Utility.cs" />
     <Compile Include="ForecastAdapter.cs" />
-    <Compile Include="Service\SunshineService.cs" />
     <Compile Include="Sync\SunshineAuthenticator.cs" />
     <Compile Include="Sync\SunshineAuthenticatorService.cs" />
     <Compile Include="Sync\SunshineSyncAdapter.cs" />
@@ -226,7 +225,6 @@
     <Folder Include="Resources\values-land\" />
     <Folder Include="Resources\values-v14\" />
     <Folder Include="Resources\values-v21\" />
-    <Folder Include="Service\" />
     <Folder Include="Sync\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
