@@ -2171,32 +2171,53 @@ namespace Sunshine
 			// aapt resource value: 0x7f070016
 			public const int app_name = 2131165206;
 			
-			// aapt resource value: 0x7f07002f
-			public const int content_authority = 2131165231;
-			
-			// aapt resource value: 0x7f070028
-			public const int format_full_friendly_date = 2131165224;
+			// aapt resource value: 0x7f070034
+			public const int content_authority = 2131165236;
 			
 			// aapt resource value: 0x7f07002d
-			public const int format_humidity = 2131165229;
+			public const int format_full_friendly_date = 2131165229;
 			
-			// aapt resource value: 0x7f07002c
-			public const int format_pressure = 2131165228;
+			// aapt resource value: 0x7f070032
+			public const int format_humidity = 2131165234;
 			
-			// aapt resource value: 0x7f070029
-			public const int format_temperature = 2131165225;
+			// aapt resource value: 0x7f070035
+			public const int format_notification = 2131165237;
 			
-			// aapt resource value: 0x7f07002b
-			public const int format_wind_kmh = 2131165227;
+			// aapt resource value: 0x7f070031
+			public const int format_pressure = 2131165233;
 			
-			// aapt resource value: 0x7f07002a
-			public const int format_wind_mph = 2131165226;
+			// aapt resource value: 0x7f07002e
+			public const int format_temperature = 2131165230;
+			
+			// aapt resource value: 0x7f070030
+			public const int format_wind_kmh = 2131165232;
+			
+			// aapt resource value: 0x7f07002f
+			public const int format_wind_mph = 2131165231;
 			
 			// aapt resource value: 0x7f070015
 			public const int hello_world = 2131165205;
 			
 			// aapt resource value: 0x7f070014
 			public const int library_name = 2131165204;
+			
+			// aapt resource value: 0x7f07002a
+			public const int pref_enable_notifications_default = 2131165226;
+			
+			// aapt resource value: 0x7f070029
+			public const int pref_enable_notifications_false = 2131165225;
+			
+			// aapt resource value: 0x7f070026
+			public const int pref_enable_notifications_key = 2131165222;
+			
+			// aapt resource value: 0x7f070027
+			public const int pref_enable_notifications_label = 2131165223;
+			
+			// aapt resource value: 0x7f070028
+			public const int pref_enable_notifications_true = 2131165224;
+			
+			// aapt resource value: 0x7f070036
+			public const int pref_last_notification = 2131165238;
 			
 			// aapt resource value: 0x7f07001f
 			public const int pref_location_default = 2131165215;
@@ -2228,8 +2249,8 @@ namespace Sunshine
 			// aapt resource value: 0x7f070013
 			public const int status_bar_notification_info_overflow = 2131165203;
 			
-			// aapt resource value: 0x7f07002e
-			public const int sync_account_type = 2131165230;
+			// aapt resource value: 0x7f070033
+			public const int sync_account_type = 2131165235;
 			
 			// aapt resource value: 0x7f07001b
 			public const int title_activity_detail = 2131165211;
@@ -2237,11 +2258,11 @@ namespace Sunshine
 			// aapt resource value: 0x7f07001c
 			public const int title_activity_settings = 2131165212;
 			
-			// aapt resource value: 0x7f070026
-			public const int today = 2131165222;
+			// aapt resource value: 0x7f07002b
+			public const int today = 2131165227;
 			
-			// aapt resource value: 0x7f070027
-			public const int tomorrow = 2131165223;
+			// aapt resource value: 0x7f07002c
+			public const int tomorrow = 2131165228;
 			
 			static String()
 			{

@@ -104,18 +104,18 @@ namespace Sunshine
         /// <param name = "context"></param>
         /// <param name="temperature">Temperature.</param>
         /// <param name="isMetric">If set to <c>true</c> is metric.</param>
-        public static string FormatTemperature(Context context, double temperature, bool isMetric)
+        public static string FormatTemperature(Context context, double temperature)
         {
-            double temp;
-            if (!isMetric)
+            // Data stored in Celsius by default.  If user prefers to see in Fahrenheit, convert
+            // the values here.
+
+            string suffix = "\u00B0";
+            if (!IsMetric(context))
             {
-                temp = 9 * temperature / 5 + 32;
+                temperature = (temperature * 1.8) + 32;
             }
-            else
-            {
-                temp = temperature;
-            }
-            return context.GetString(Resource.String.format_temperature, temp);
+
+            return Java.Lang.String.Format(context.GetString(Resource.String.format_temperature), temperature);
         }
 
 

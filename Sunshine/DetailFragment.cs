@@ -184,13 +184,13 @@ namespace Sunshine
                 var isMetric = Utility.IsMetric(Activity);
 
                 double high = dataCursor.GetDouble(ColWeatherMaxTemp);
-                var highString = Utility.FormatTemperature(Activity, high, isMetric);
+                var highString = Utility.FormatTemperature(Activity, high);
                 _highTempView.Text = highString;
 
 
                 // Read low temperature from cursor and update view
                 var low = dataCursor.GetDouble(ColWeatherMinTemp);
-                var lowString = Utility.FormatTemperature(Activity, low, isMetric);
+                var lowString = Utility.FormatTemperature(Activity, low);
                 _lowTempView.Text = lowString;
 
                 // Read humidity from cursor and update view

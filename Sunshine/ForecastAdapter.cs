@@ -160,11 +160,11 @@ namespace Sunshine
             // Read high temperature from cursor
             double high = cursor.GetDouble(ForecastFragment.ColWeatherMaxTemp);
 
-            viewHolder.HighTempView.Text = Utility.FormatTemperature(context, high, isMetric);
+            viewHolder.HighTempView.Text = Utility.FormatTemperature(context, high);
 
             // TODO Read low temperature from cursor
             double low = cursor.GetDouble(ForecastFragment.ColWeatherMinTemp);
-            viewHolder.LowTempView.Text = Utility.FormatTemperature(context, low, isMetric);
+            viewHolder.LowTempView.Text = Utility.FormatTemperature(context, low);
 
         }
 

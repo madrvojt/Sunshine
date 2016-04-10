@@ -12,6 +12,11 @@ using Newtonsoft.Json;
 using Sunshine.JSONobject;
 using System.Collections.Generic;
 using Sunshine.Data;
+using Android.Preferences;
+using Android.Support.V4.App;
+using Android.Content.Res;
+using Android.Graphics;
+using Android.App;
 
 namespace Sunshine.Sync
 {
@@ -24,9 +29,27 @@ namespace Sunshine.Sync
         const string SourceContext = "MyNamespace.MyClass";
         // Interval at which to sync with the weather, in seconds.
         // 60 seconds (1 minute) * 180 = 3 hours
-        public const int SyncInterval = 60 * 180;
-        public const int SyncFlextime = SyncInterval / 3;
+        // public const int SyncInterval = 60 * 180;
 
+        public const int SyncInterval = 20;
+
+        public const int SyncFlextime = SyncInterval / 3;
+        const int WeatherNotificationId = 3004;
+
+
+        readonly string[] _notifyWeatherProjection = new []
+        {
+            WeatherContract.Weather.ColumnWeatherId,
+            WeatherContract.Weather.ColumnMaximumTemp,
+            WeatherContract.Weather.ColumnMinimumTemp,
+            WeatherContract.Weather.ColumnShortDescription
+        };
+
+        // these indices must match the projection
+        const int IndexWeatherId = 0;
+        const int IndexMaximumTemp = 1;
+        const int IndexMinimumTemp = 2;
+        const int IndexShortDesc = 3;
 
         public SunshineSyncAdapter(Context context, bool autoInitialize)
             : base(context, autoInitialize)
@@ -37,6 +60,102 @@ namespace Sunshine.Sync
         
         }
 
+        void NotifyWeather()
+        {
+            Context context = Context;
+            //checking the last update and notify if it' the first of the day
+            var prefs = PreferenceManager.GetDefaultSharedPreferences(context);
+            var displayNotificationsKey = context.GetString(Resource.String.pref_enable_notifications_key);
+            bool displayNotifications = prefs.GetBoolean(displayNotificationsKey,
+                                            bool.Parse(context.GetString(Resource.String.pref_enable_notifications_default)));
+
+
+            if (displayNotifications)
+            {
+
+
+                var lastNotificationKey = context.GetString(Resource.String.pref_last_notification);
+                long lastSync = prefs.GetLong(lastNotificationKey, 0);
+
+                var startDate = DateTime.UtcNow.StartOfDay();
+                var saveDate = new DateTime(lastSync).StartOfDay();
+                var diffDate = startDate - saveDate;
+
+                if (diffDate.Days >= 0)
+                {
+                    // Last sync was more than 1 day ago, let's send a notification with the weather.
+                    var locationQuery = Utility.GetPreferredLocation(context);
+
+                    var weatherUri = WeatherContract.Weather.BuildWeatherLocationWithDate(locationQuery, DateTime.UtcNow.Ticks);
+
+                    // we'll query our contentProvider, as always
+                    var cursor = context.ContentResolver.Query(weatherUri, _notifyWeatherProjection, null, null, null);
+
+                    if (cursor.MoveToFirst())
+                    {
+                        int weatherId = cursor.GetInt(IndexWeatherId);
+                        double high = cursor.GetDouble(IndexMaximumTemp);
+                        double low = cursor.GetDouble(IndexMinimumTemp);
+                        String desc = cursor.GetString(IndexShortDesc);
+
+                        int iconId = Utility.GetIconResourceForWeatherCondition(weatherId);
+                        var resources = context.Resources;
+                        var largeIcon = BitmapFactory.DecodeResource(resources,
+                                            Utility.GetArtResourceForWeatherCondition(weatherId));
+
+                        var title = context.GetString(Resource.String.app_name);
+
+                        // Define the text of the forecast.
+                        var contentText = Java.Lang.String.Format(context.GetString(Resource.String.format_notification),
+                                              desc,
+                                              Utility.FormatTemperature(context, high),
+                                              Utility.FormatTemperature(context, low));
+                    
+
+
+                        // NotificationCompatBuilder is a very convenient way to build backward-compatible
+                        // notifications.  Just throw in some data.
+                        var builder =
+                            new NotificationCompat.Builder(Context)
+                                .SetColor(resources.GetColor(Resource.Color.sunshine_light_blue))
+                                .SetSmallIcon(iconId)
+                                .SetLargeIcon(largeIcon)
+                                .SetContentTitle(title)
+                                .SetContentText(contentText);
+
+                        // Make something interesting happen when the user clicks on the notification.
+                        // In this case, opening the app is sufficient.
+                        var resultIntent = new Intent(context, typeof(MainActivity));
+
+                        // The stack builder object will contain an artificial back stack for the
+                        // started Activity.
+                        // This ensures that navigating backward from the Activity leads out of
+                        // your application to the Home screen.
+                        var stackBuilder = Android.Support.V4.App.TaskStackBuilder.Create(context);
+                        stackBuilder.AddNextIntent(resultIntent);
+                        var resultPendingIntent =
+                            stackBuilder.GetPendingIntent(
+                                0, (int)PendingIntentFlags.UpdateCurrent
+
+                            );
+                        builder.SetContentIntent(resultPendingIntent);
+
+                        var mNotificationManager =
+                            (NotificationManager)Context.GetSystemService(Context.NotificationService);
+                        // WEATHER_NOTIFICATION_ID allows you to update the notification later on.
+                        mNotificationManager.Notify(WeatherNotificationId, builder.Build());
+
+
+                        //refreshing last sync
+                        var editor = prefs.Edit();
+                        editor.PutLong(lastNotificationKey, DateTime.UtcNow.Ticks);
+                        editor.Commit();
+
+                    }
+                    cursor.Close();
+                }
+            }
+        }
 
         /// <summary>
         /// Helper method to schedule the sync adapter periodic execution
@@ -204,8 +323,9 @@ namespace Sunshine.Sync
                 if (contentValuesList.Count > 0)
                 {
                     inserted = Context.ContentResolver.BulkInsert(WeatherContract.Weather.ContentUri, contentValuesList.ToArray());
+                    NotifyWeather();
                 }
-
+               
                 _log.ForContext<SunshineSyncAdapter>().Debug($"FetchWeatherTask Complete {inserted} Inserted");
 
 
