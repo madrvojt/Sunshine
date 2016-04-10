@@ -1560,8 +1560,8 @@ namespace Sunshine
 			// aapt resource value: 0x7f0d0065
 			public const int action_divider = 2131558501;
 			
-			// aapt resource value: 0x7f0d0071
-			public const int action_map = 2131558513;
+			// aapt resource value: 0x7f0d0070
+			public const int action_map = 2131558512;
 			
 			// aapt resource value: 0x7f0d0002
 			public const int action_menu_divider = 2131558402;
@@ -1577,9 +1577,6 @@ namespace Sunshine
 			
 			// aapt resource value: 0x7f0d0023
 			public const int action_mode_close_button = 2131558435;
-			
-			// aapt resource value: 0x7f0d0070
-			public const int action_refresh = 2131558512;
 			
 			// aapt resource value: 0x7f0d006e
 			public const int action_settings = 2131558510;

@@ -93,6 +93,39 @@ namespace Sunshine
             HasOptionsMenu = true;
         }
 
+
+        void OpenPreferredLocationInMap()
+        {
+            // Using the URI scheme for showing a location found on a map.  This super-handy
+            // intent can is detailed in the "Common Intents" page of Android's developer site:
+            // http://developer.android.com/guide/components/intents-common.html#Maps
+            if (_forecastAdapter != null)
+            {
+                var c = _forecastAdapter.Cursor;
+                if (c != null)
+                {
+                    c.MoveToPosition(0);
+                    var posLat = c.GetString(ColCoordLat);
+                    var posLong = c.GetString(ColCoordLon);
+                    var geoLocation = Android.Net.Uri.Parse("geo:" + posLat + "," + posLong);
+
+                    var intent = new Intent(Intent.ActionView);
+                    intent.SetData(geoLocation);
+
+                    if (intent.ResolveActivity(Activity.PackageManager) != null)
+                    {
+                        StartActivity(intent);
+                    }
+                    else
+                    {
+                        _log.ForContext<ForecastFragment>().Debug("Couldn't call " + geoLocation.ToString() + ", no receiving apps installed!");
+                    }
+                }
+
+            }
+        }
+
+
         public Android.Support.V4.Content.Loader OnCreateLoader(int id, Bundle args)
         {
 
@@ -110,7 +143,6 @@ namespace Sunshine
                                             locationSetting, DateTime.UtcNow.Ticks);
 
             return new Android.Support.V4.Content.CursorLoader(Activity, weatherForLocationUri, forecastColumns, null, null, sortOrder);
-
 
         }
 
@@ -163,9 +195,8 @@ namespace Sunshine
 
             switch (id)
             {
-                case Resource.Id.action_refresh:
-
-                    UpdateWeather();                            
+                case Resource.Id.action_map:
+                    OpenPreferredLocationInMap();
                     return true;
 
                 default:

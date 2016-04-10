@@ -147,11 +147,6 @@ namespace Sunshine
                     StartActivity(intent);
                     return true;
             
-                case Resource.Id.action_map:
-
-                    OpenPreferredLocationOnMap();
-                    return true;
-
 
                 default:
                     return base.OnOptionsItemSelected(item);
@@ -159,33 +154,7 @@ namespace Sunshine
             }
         }
 
-        /// <summary>
-        /// Opens the preferred location on map
-        /// </summary>
-        void OpenPreferredLocationOnMap()
-        {
-           
-            string location = Utility.GetPreferredLocation(this);
-           
-            // Using the URI scheme for showing a location found on a map.  This super-handy
-            // intent can is detailed in the "Common Intents" page of Android's developer site:
-            // http://developer.android.com/guide/components/intents-common.html#Maps
-            Uri geoLocation = Uri.Parse("geo:0,0?").BuildUpon()
-                                .AppendQueryParameter("q", location)
-                                .Build();
-            
-            var intent = new Intent(Android.Content.Intent.ActionView);
-            intent.SetData(geoLocation);
-
-            if (intent.ResolveActivity(PackageManager) != null)
-            {
-                StartActivity(intent);
-            }
-            else
-            {
-                _log.ForContext<ForecastFragment>().Error("Couldn't call {0}, no receiving apps installed!", location);
-            }
-        }
+      
        
     }
 }
