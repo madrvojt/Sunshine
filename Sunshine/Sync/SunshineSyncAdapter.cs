@@ -323,6 +323,12 @@ namespace Sunshine.Sync
                 if (contentValuesList.Count > 0)
                 {
                     inserted = Context.ContentResolver.BulkInsert(WeatherContract.Weather.ContentUri, contentValuesList.ToArray());
+
+                    var yesterday = DateTime.UtcNow.StartOfDay().AddDays(-1);
+                    Context.ContentResolver.Delete(WeatherContract.Weather.ContentUri,
+                        WeatherContract.Weather.ColumnDate + " <= ?",
+                        new string[] { yesterday.Ticks.ToString() });
+
                     NotifyWeather();
                 }
                
