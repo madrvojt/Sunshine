@@ -3,6 +3,7 @@ using Android.Content;
 using Android.Preferences;
 using Android.OS;
 using Android.Support.V4.Content;
+using System.Globalization;
 
 namespace Sunshine
 {
@@ -166,7 +167,9 @@ namespace Sunshine
                 //return inputTime.ToString("ddd M");
                 string dayName = GetDayName(context, dateInMillis);
                 string smallDayName = dayName.Substring(0, 3);
-                string name = inputTime.ToString("M");
+
+
+                string name = inputTime.ToString("M", CultureInfo.CreateSpecificCulture("en"));
                 return smallDayName + " " + name;
 
             }
@@ -336,7 +339,7 @@ namespace Sunshine
             else
             {
                 // Otherwise, the format is just the day of the week (e.g "Wednesday".)
-                return inputTime.ToString("dddd");
+                return inputTime.ToString("dddd", CultureInfo.CreateSpecificCulture("en"));
             }
         }
 
@@ -348,7 +351,7 @@ namespace Sunshine
             // it must be converted to milliseconds in order to be converted to valid date.
 
             var dateTime = new DateTime(dateInMillis);
-            return dateTime.ToString("D");
+            return dateTime.ToString("D", CultureInfo.CreateSpecificCulture("en"));
         }
 
 

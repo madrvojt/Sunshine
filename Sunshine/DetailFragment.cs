@@ -202,7 +202,7 @@ namespace Sunshine
                 _pressureView.Text = Activity.GetString(Resource.String.format_pressure, pressure);
 
                 // We still need this for the share intent
-                _forecastString = String.Format("%s - %s - %s/%s", dateText, description, high, low);
+                _forecastString = Java.Lang.String.Format("%s - %s - %s/%s", dateText, description, high, low);
 
 
                 // If onCreateOptionsMenu has already happened, we need to update the share intent now.

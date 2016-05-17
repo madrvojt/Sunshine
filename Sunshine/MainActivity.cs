@@ -12,6 +12,7 @@ using Sunshine.Sync;
 using Android.Runtime;
 using System;
 using System.Threading.Tasks;
+using Android.Content.Res;
 
 namespace Sunshine
 {
@@ -64,6 +65,16 @@ namespace Sunshine
                 StartHockeyApp();
             #endif
 
+            var res = ApplicationContext.Resources;
+
+
+            var locale = new Java.Util.Locale("en");
+
+            Java.Util.Locale.Default = locale;
+
+            var config = new Configuration();
+            config.Locale = locale;
+            res.UpdateConfiguration(config, res.DisplayMetrics);
 
             SetContentView(Resource.Layout.activity_main);
 
