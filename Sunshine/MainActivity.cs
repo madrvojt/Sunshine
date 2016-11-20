@@ -3,11 +3,6 @@ using Android.OS;
 using Android.Views;
 using Android.Support.V7.App;
 using Android.Content;
-using Serilog;
-using Android.Preferences;
-using Android.Net;
-using Serilog.Core;
-using Serilog.Events;
 using Sunshine.Sync;
 using Android.Runtime;
 using System;
@@ -30,10 +25,10 @@ namespace Sunshine
         public void StartHockeyApp()
         {
 
-       
+
 
             // Register the crash manager before Initializing the trace writer
-            HockeyApp.CrashManager.Register(this, HockeyAppId); 
+            HockeyApp.CrashManager.Register(this, HockeyAppId);
 
             // Initialize the Trace Writer
             HockeyApp.TraceWriter.Initialize();
@@ -51,7 +46,7 @@ namespace Sunshine
             (sender, args) => HockeyApp.TraceWriter.WriteTrace(args.ExceptionObject);
 
             // Wire up the unobserved task exception handler
-            TaskScheduler.UnobservedTaskException += 
+            TaskScheduler.UnobservedTaskException +=
             (sender, args) => HockeyApp.TraceWriter.WriteTrace(args.Exception);
 
 
@@ -61,9 +56,9 @@ namespace Sunshine
         {
             base.OnCreate(savedInstanceState);
 
-            #if !DEBUG
+#if !DEBUG
                 StartHockeyApp();
-            #endif
+#endif
 
             var res = ApplicationContext.Resources;
 
@@ -98,8 +93,8 @@ namespace Sunshine
                     SupportFragmentManager.BeginTransaction()
                         .Replace(Resource.Id.weather_detail_container, new DetailFragment(), DetailFragmentTag)
                                             .Commit();
-                    
-                                    
+
+
                 }
             }
             else
@@ -213,7 +208,7 @@ namespace Sunshine
                     var intent = new Intent(this, typeof(SettingsActivity));
                     StartActivity(intent);
                     return true;
-            
+
 
                 default:
                     return base.OnOptionsItemSelected(item);
@@ -221,7 +216,7 @@ namespace Sunshine
             }
         }
 
-      
-       
+
+
     }
 }
