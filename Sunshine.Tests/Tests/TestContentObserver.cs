@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Sunshine.Tests.Tests
 {
-    class TestContentObserver : ContentObserver
+    public class TestContentObserver : ContentObserver
     {
         readonly HandlerThread _hT;
         bool _contentChanged;

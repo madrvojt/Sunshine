@@ -7,61 +7,58 @@ namespace Sunshine.Data
     {
         // Manages a local database for weather data.
         // If you change the database schema, you must increment the database version.
-        const int DatabaseVersion = 5;
+        private const int DatabaseVersion = 5;
+
         public const string Database = "weather.db";
 
         public WeatherDbHelper(Context context)
             : base(context, Database, null, DatabaseVersion)
         {
-                
         }
 
         public override void OnCreate(SQLiteDatabase db)
         {
-
-            const string SqlCreateLocationTable = "CREATE TABLE " +
+            const string sqlCreateLocationTable = "CREATE TABLE " +
                                                   WeatherContract.Location.TableName + " (" +
                                                   WeatherContract.Location.Id + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                                                   WeatherContract.Location.ColumnCityName + " TEXT NOT NULL, " +
                                                   WeatherContract.Location.ColumnCoordinationLat + " REAL NOT NULL, " +
                                                   WeatherContract.Location.ColumnCoordinationLong + " REAL NOT NULL, " +
                                                   WeatherContract.Location.ColumnLocationSetting + " TEXT NOT NULL );";
-
-            const string SqlCreateWeatherTable = "CREATE TABLE " +
+            const string sqlCreateWeatherTable = "CREATE TABLE " +
                                                  WeatherContract.Weather.TableName + " (" +
-                // Why AutoIncrement here, and not above?
-                // Unique keys will be auto-generated in either case.  But for weather
-                // forecasting, it's reasonable to assume the user will want information
-                // for a certain date and all dates *following*, so the forecast data
-                // should be sorted accordingly.
+                                                 // Why AutoIncrement here, and not above?
+                                                 // Unique keys will be auto-generated in either case.  But for weather
+                                                 // forecasting, it's reasonable to assume the user will want information
+                                                 // for a certain date and all dates *following*, so the forecast data
+                                                 // should be sorted accordingly.
                                                  WeatherContract.Weather.Id + " INTEGER PRIMARY KEY AUTOINCREMENT," +
 
-                // the ID of the location entry associated with this weather data
+                                                 // the ID of the location entry associated with this weather data
                                                  WeatherContract.Weather.ColumnLocationKey + " INTEGER NOT NULL, " +
                                                  WeatherContract.Weather.ColumnDate + " INTEGER NOT NULL, " +
                                                  WeatherContract.Weather.ColumnShortDescription + " TEXT NOT NULL, " +
                                                  WeatherContract.Weather.ColumnWeatherId + " INTEGER NOT NULL," +
-
                                                  WeatherContract.Weather.ColumnMinimumTemp + " REAL NOT NULL, " +
                                                  WeatherContract.Weather.ColumnMaximumTemp + " REAL NOT NULL, " +
-
                                                  WeatherContract.Weather.ColumnHumidity + " REAL NOT NULL, " +
                                                  WeatherContract.Weather.ColumnPressure + " REAL NOT NULL, " +
                                                  WeatherContract.Weather.ColumnWindSpeed + " REAL NOT NULL, " +
                                                  WeatherContract.Weather.ColumnDegrees + " REAL NOT NULL, " +
 
-                // Set up the location column as a foreign key to location table.
-                                                 " FOREIGN KEY (" + WeatherContract.Weather.ColumnLocationKey + ") REFERENCES " +
-                                                 WeatherContract.Location.TableName + " (" + WeatherContract.Location.Id + "), " +
+                                                 // Set up the location column as a foreign key to location table.
+                                                 " FOREIGN KEY (" + WeatherContract.Weather.ColumnLocationKey +
+                                                 ") REFERENCES " +
+                                                 WeatherContract.Location.TableName + " (" +
+                                                 WeatherContract.Location.Id + "), " +
 
-                // To assure the application have just one weather entry per day
-                // per location, it's created a UNIQUE constraint with REPLACE strategy
+                                                 // To assure the application have just one weather entry per day
+                                                 // per location, it's created a UNIQUE constraint with REPLACE strategy
                                                  " UNIQUE (" + WeatherContract.Weather.ColumnDate + ", " +
                                                  WeatherContract.Weather.ColumnLocationKey + ") ON CONFLICT REPLACE);";
-            db.ExecSQL(SqlCreateLocationTable);
-            db.ExecSQL(SqlCreateWeatherTable);
+            db.ExecSQL(sqlCreateLocationTable);
+            db.ExecSQL(sqlCreateWeatherTable);
         }
-
 
         public override void OnUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
         {
@@ -77,4 +74,3 @@ namespace Sunshine.Data
         }
     }
 }
-

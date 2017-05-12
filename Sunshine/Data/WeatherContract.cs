@@ -144,7 +144,7 @@ namespace Sunshine.Data
             public static Android.Net.Uri BuildWeatherLocationWithStartDate(
                 string locationSetting, long startDate)
             {
-                long normalizedDate = NormalizeDate(startDate);
+                var normalizedDate = NormalizeDate(startDate);
                 return ContentUri.BuildUpon().AppendPath(locationSetting)
                     .AppendQueryParameter(ColumnDate, normalizedDate.ToString()).Build();
             }

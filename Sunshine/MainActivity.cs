@@ -8,6 +8,9 @@ using Android.Runtime;
 using System;
 using System.Threading.Tasks;
 using Android.Content.Res;
+using Microsoft.Azure.Mobile;
+using Microsoft.Azure.Mobile.Analytics;
+using Microsoft.Azure.Mobile.Crashes;
 
 namespace Sunshine
 {
@@ -22,34 +25,10 @@ namespace Sunshine
         bool _isMetric;
 
 
-        public void StartHockeyApp()
+        public void StartMobileCenterAnalysis()
         {
-
-
-
-            // Register the crash manager before Initializing the trace writer
-            HockeyApp.CrashManager.Register(this, HockeyAppId);
-
-            // Initialize the Trace Writer
-            HockeyApp.TraceWriter.Initialize();
-
-            // Wire up Unhandled Expcetion handler from Android
-            AndroidEnvironment.UnhandledExceptionRaiser += (sender, args) =>
-            {
-                // Use the trace writer to log exceptions so HockeyApp finds them
-                HockeyApp.TraceWriter.WriteTrace(args.Exception);
-                args.Handled = true;
-            };
-
-            // Wire up the .NET Unhandled Exception handler
-            AppDomain.CurrentDomain.UnhandledException +=
-            (sender, args) => HockeyApp.TraceWriter.WriteTrace(args.ExceptionObject);
-
-            // Wire up the unobserved task exception handler
-            TaskScheduler.UnobservedTaskException +=
-            (sender, args) => HockeyApp.TraceWriter.WriteTrace(args.Exception);
-
-
+            MobileCenter.Start("ae8de28c-e986-4cfa-b4b0-a5ce90660c5a",
+                typeof(Analytics), typeof(Crashes));
         }
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -57,7 +36,7 @@ namespace Sunshine
             base.OnCreate(savedInstanceState);
 
 #if !DEBUG
-                StartHockeyApp();
+                StartMobileCenterAnalysis();
 #endif
 
             var res = ApplicationContext.Resources;
