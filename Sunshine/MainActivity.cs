@@ -4,13 +4,11 @@ using Android.Views;
 using Android.Support.V7.App;
 using Android.Content;
 using Sunshine.Sync;
-using Android.Runtime;
-using System;
-using System.Threading.Tasks;
 using Android.Content.Res;
-using Microsoft.Azure.Mobile;
-using Microsoft.Azure.Mobile.Analytics;
-using Microsoft.Azure.Mobile.Crashes;
+
+using System.Threading.Tasks;
+using HockeyApp.Android;
+using HockeyApp.Android.Metrics;
 
 namespace Sunshine
 {
@@ -25,21 +23,21 @@ namespace Sunshine
         bool _isMetric;
 
 
-        public void StartMobileCenterAnalysis()
+        public void ConfigureStartMobileCenter()
         {
-            MobileCenter.Start("ae8de28c-e986-4cfa-b4b0-a5ce90660c5a",
-                typeof(Analytics), typeof(Crashes));
-        }
+			CrashManager.Register(this, "b632892031c04a5cb7aecc6452a0b1e4");
+			MetricsManager.Register(Application, "b632892031c04a5cb7aecc6452a0b1e4");
+		}
 
-        protected override void OnCreate(Bundle savedInstanceState)
+		protected async override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
 #if !DEBUG
-                StartMobileCenterAnalysis();
+			ConfigureStartMobileCenter();
 #endif
 
-            var res = ApplicationContext.Resources;
+			var res = ApplicationContext.Resources;
 
 
             var locale = new Java.Util.Locale("en");

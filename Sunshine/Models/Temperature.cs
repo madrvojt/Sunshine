@@ -1,7 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json;
 
-namespace Sunshine.JSONobject
+namespace Sunshine.Models
 {
     /// <summary>
     /// All temperatures are children of the "temp" object.

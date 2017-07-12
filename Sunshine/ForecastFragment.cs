@@ -3,17 +3,14 @@
 using Android.OS;
 using Android.Views;
 using Android.Widget;
-using Serilog;
-using Serilog.Core;
-using Serilog.Events;
 using Sunshine.Data;
-using Android.Support.V4.Content;
 using Android.Support.V4.App;
 using Android.Database;
 using Android.Content;
 using Android.App;
 using Sunshine.Sync;
 using Android.Runtime;
+using Android.Util;
 
 namespace Sunshine
 {
@@ -25,7 +22,10 @@ namespace Sunshine
 
         ForecastAdapter _forecastAdapter;
         const string SourceContext = "MyNamespace.MyClass";
-        readonly ILogger _log;
+
+        private const string _tag = "ForecastFragment";
+
+
 
         ListView _listView;
         int _position = AdapterView.InvalidPosition;
@@ -82,9 +82,7 @@ namespace Sunshine
 
         public ForecastFragment()
         {
-            var levelSwitch = new LoggingLevelSwitch();
-            levelSwitch.MinimumLevel = LogEventLevel.Verbose;
-            _log = new LoggerConfiguration().MinimumLevel.ControlledBy(levelSwitch).WriteTo.AndroidLog().CreateLogger();
+      
         }
 
         public override void OnCreate(Bundle savedInstanceState)
@@ -119,7 +117,7 @@ namespace Sunshine
                     }
                     else
                     {
-                        _log.ForContext<ForecastFragment>().Debug("Couldn't call " + geoLocation.ToString() + ", no receiving apps installed!");
+                        Log.WriteLine(LogPriority.Debug, _tag, $"Couldn't call {geoLocation.ToString()}, no receiving apps installed!");
                     }
                 }
 
@@ -245,8 +243,10 @@ namespace Sunshine
 
 
             _listView.ItemClick += (sender, e) =>
-            {                   
-                var cursor = ((AdapterView)sender).GetItemAtPosition(e.Position).JavaCast<ICursor>();
+            {
+
+				HockeyApp.MetricsManager.TrackEvent("Detail Click");
+				var cursor = ((AdapterView)sender).GetItemAtPosition(e.Position).JavaCast<ICursor>();
                 if (cursor != null)
                 {
                     var locationSetting = Utility.GetPreferredLocation(Activity);

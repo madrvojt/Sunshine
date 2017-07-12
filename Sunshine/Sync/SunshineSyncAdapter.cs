@@ -2,32 +2,31 @@
 using Android.Content;
 using Android.OS;
 using Android.Accounts;
-using Serilog;
-using Serilog.Core;
-using Serilog.Events;
 using System.Net.Http;
 using ModernHttpClient;
 using System.Web;
 using Newtonsoft.Json;
-using Sunshine.JSONobject;
 using System.Collections.Generic;
 using Sunshine.Data;
 using Android.Preferences;
 using Android.Support.V4.App;
-using Android.Content.Res;
 using Android.Graphics;
 using Android.App;
 using Android.Support.V4.Content;
+using Android.Util;
+using Sunshine.Models;
 
 namespace Sunshine.Sync
 {
     public class SunshineSyncAdapter : AbstractThreadedSyncAdapter
     {
-        readonly ILogger _log;
-
 
         const string LogTag = "SunshineSyncAdapter";
         const string SourceContext = "MyNamespace.MyClass";
+
+        private const string _tag = "SunshineSyncAdapter";
+
+
         // Interval at which to sync with the weather, in seconds.
         // 60 seconds (1 minute) * 180 = 3 hours
         public const int SyncInterval = 60 * 180;
@@ -55,9 +54,7 @@ namespace Sunshine.Sync
         public SunshineSyncAdapter(Context context, bool autoInitialize)
             : base(context, autoInitialize)
         {
-            var levelSwitch = new LoggingLevelSwitch();
-            levelSwitch.MinimumLevel = LogEventLevel.Verbose;
-            _log = new LoggerConfiguration().MinimumLevel.ControlledBy(levelSwitch).WriteTo.AndroidLog().CreateLogger();
+         
         
         }
 
@@ -202,7 +199,10 @@ namespace Sunshine.Sync
 
         public async override void OnPerformSync(Android.Accounts.Account account, Android.OS.Bundle extras, string authority, ContentProviderClient provider, SyncResult syncResult)
         {
-            _log.ForContext<SunshineSyncAdapter>().Debug("Starting sync");
+
+            Log.WriteLine(LogPriority.Debug, _tag, "Starting sync");
+
+
             try
             {
 
@@ -212,7 +212,6 @@ namespace Sunshine.Sync
                 const string Url = "api.openweathermap.org";
                 const string Path = "data/2.5/forecast/daily";
                 const string Scheme = "http";
-                const string Content = "data/2.5/forecast/daily?q=25219&mode=json&units=metric&cnt=7&appid=582900aa4d4687a5711f7704ae16611a";
 
 
                 // Constants for parameters
@@ -243,13 +242,11 @@ namespace Sunshine.Sync
             }
             catch (Java.Net.UnknownHostException e)
             {
-                _log.ForContext<ForecastFragment>().Error("Download failed with result {0}", e.Message);
-
+                Log.WriteLine(LogPriority.Debug, _tag, $"Download failed with result {e.Message}");
             }
             catch (JsonSerializationException e)
             {
-                _log.ForContext<ForecastFragment>().Error("Json parser failed with error {0}", e.Message);
-
+                Log.WriteLine(LogPriority.Debug, _tag, $"Json parser failed with error {e.Message}");
             }
 
             return;
@@ -331,14 +328,12 @@ namespace Sunshine.Sync
 
                     NotifyWeather();
                 }
-               
-                _log.ForContext<SunshineSyncAdapter>().Debug($"FetchWeatherTask Complete {inserted} Inserted");
-
+                Log.WriteLine(LogPriority.Debug, _tag, $"FetchWeatherTask Complete {inserted} Inserted");
 
             }
             catch (JsonException e)
             {
-                _log.ForContext<SunshineSyncAdapter>().Error(e, SourceContext, null);
+                Log.WriteLine(LogPriority.Error, _tag, e.Message);
             }
 
         }

@@ -1,8 +1,6 @@
-﻿using System;
-using Newtonsoft.Json;
-using System.Collections.Generic;
+﻿using Newtonsoft.Json;
 
-namespace Sunshine.JSONobject
+namespace Sunshine.Models
 {
     /// <summary>
     /// Location information

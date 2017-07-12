@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace Sunshine.JSONobject
+namespace Sunshine.Models
 {
     public class Weather
     {

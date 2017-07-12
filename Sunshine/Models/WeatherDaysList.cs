@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace Sunshine.JSONobject
+namespace Sunshine.Models
 {
     /// <summary>
     /// Weather information.  Each day's forecast info is an element of the "list" array.

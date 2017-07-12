@@ -26,6 +26,136 @@ namespace Sunshine
 		
 		public static void UpdateIdValues()
 		{
+			global::HockeyApp.Resource.Color.hockeyapp_background_header = global::Sunshine.Resource.Color.hockeyapp_background_header;
+			global::HockeyApp.Resource.Color.hockeyapp_background_light = global::Sunshine.Resource.Color.hockeyapp_background_light;
+			global::HockeyApp.Resource.Color.hockeyapp_background_white = global::Sunshine.Resource.Color.hockeyapp_background_white;
+			global::HockeyApp.Resource.Color.hockeyapp_button_background = global::Sunshine.Resource.Color.hockeyapp_button_background;
+			global::HockeyApp.Resource.Color.hockeyapp_button_background_pressed = global::Sunshine.Resource.Color.hockeyapp_button_background_pressed;
+			global::HockeyApp.Resource.Color.hockeyapp_button_background_selected = global::Sunshine.Resource.Color.hockeyapp_button_background_selected;
+			global::HockeyApp.Resource.Color.hockeyapp_text_black = global::Sunshine.Resource.Color.hockeyapp_text_black;
+			global::HockeyApp.Resource.Color.hockeyapp_text_light = global::Sunshine.Resource.Color.hockeyapp_text_light;
+			global::HockeyApp.Resource.Color.hockeyapp_text_normal = global::Sunshine.Resource.Color.hockeyapp_text_normal;
+			global::HockeyApp.Resource.Color.hockeyapp_text_white = global::Sunshine.Resource.Color.hockeyapp_text_white;
+			global::HockeyApp.Resource.Drawable.hockeyapp_btn_background = global::Sunshine.Resource.Drawable.hockeyapp_btn_background;
+			global::HockeyApp.Resource.Id.button_add_response = global::Sunshine.Resource.Id.button_add_response;
+			global::HockeyApp.Resource.Id.button_attachment = global::Sunshine.Resource.Id.button_attachment;
+			global::HockeyApp.Resource.Id.button_login = global::Sunshine.Resource.Id.button_login;
+			global::HockeyApp.Resource.Id.button_refresh = global::Sunshine.Resource.Id.button_refresh;
+			global::HockeyApp.Resource.Id.button_send = global::Sunshine.Resource.Id.button_send;
+			global::HockeyApp.Resource.Id.button_update = global::Sunshine.Resource.Id.button_update;
+			global::HockeyApp.Resource.Id.input_email = global::Sunshine.Resource.Id.input_email;
+			global::HockeyApp.Resource.Id.input_message = global::Sunshine.Resource.Id.input_message;
+			global::HockeyApp.Resource.Id.input_name = global::Sunshine.Resource.Id.input_name;
+			global::HockeyApp.Resource.Id.input_password = global::Sunshine.Resource.Id.input_password;
+			global::HockeyApp.Resource.Id.input_subject = global::Sunshine.Resource.Id.input_subject;
+			global::HockeyApp.Resource.Id.label_author = global::Sunshine.Resource.Id.label_author;
+			global::HockeyApp.Resource.Id.label_date = global::Sunshine.Resource.Id.label_date;
+			global::HockeyApp.Resource.Id.label_last_updated = global::Sunshine.Resource.Id.label_last_updated;
+			global::HockeyApp.Resource.Id.label_message = global::Sunshine.Resource.Id.label_message;
+			global::HockeyApp.Resource.Id.label_text = global::Sunshine.Resource.Id.label_text;
+			global::HockeyApp.Resource.Id.label_title = global::Sunshine.Resource.Id.label_title;
+			global::HockeyApp.Resource.Id.label_version = global::Sunshine.Resource.Id.label_version;
+			global::HockeyApp.Resource.Id.list_attachments = global::Sunshine.Resource.Id.list_attachments;
+			global::HockeyApp.Resource.Id.list_feedback_messages = global::Sunshine.Resource.Id.list_feedback_messages;
+			global::HockeyApp.Resource.Id.text_headline = global::Sunshine.Resource.Id.text_headline;
+			global::HockeyApp.Resource.Id.view_header = global::Sunshine.Resource.Id.view_header;
+			global::HockeyApp.Resource.Id.web_update_details = global::Sunshine.Resource.Id.web_update_details;
+			global::HockeyApp.Resource.Id.wrapper_attachments = global::Sunshine.Resource.Id.wrapper_attachments;
+			global::HockeyApp.Resource.Id.wrapper_feedback = global::Sunshine.Resource.Id.wrapper_feedback;
+			global::HockeyApp.Resource.Id.wrapper_feedback_scroll = global::Sunshine.Resource.Id.wrapper_feedback_scroll;
+			global::HockeyApp.Resource.Id.wrapper_messages = global::Sunshine.Resource.Id.wrapper_messages;
+			global::HockeyApp.Resource.Id.wrapper_messages_buttons = global::Sunshine.Resource.Id.wrapper_messages_buttons;
+			global::HockeyApp.Resource.Layout.hockeyapp_activity_expiry_info = global::Sunshine.Resource.Layout.hockeyapp_activity_expiry_info;
+			global::HockeyApp.Resource.Layout.hockeyapp_activity_feedback = global::Sunshine.Resource.Layout.hockeyapp_activity_feedback;
+			global::HockeyApp.Resource.Layout.hockeyapp_activity_login = global::Sunshine.Resource.Layout.hockeyapp_activity_login;
+			global::HockeyApp.Resource.Layout.hockeyapp_activity_update = global::Sunshine.Resource.Layout.hockeyapp_activity_update;
+			global::HockeyApp.Resource.Layout.hockeyapp_fragment_update = global::Sunshine.Resource.Layout.hockeyapp_fragment_update;
+			global::HockeyApp.Resource.Layout.hockeyapp_view_feedback_message = global::Sunshine.Resource.Layout.hockeyapp_view_feedback_message;
+			global::HockeyApp.Resource.String.hockeyapp_crash_dialog_app_name_fallback = global::Sunshine.Resource.String.hockeyapp_crash_dialog_app_name_fallback;
+			global::HockeyApp.Resource.String.hockeyapp_crash_dialog_message = global::Sunshine.Resource.String.hockeyapp_crash_dialog_message;
+			global::HockeyApp.Resource.String.hockeyapp_crash_dialog_negative_button = global::Sunshine.Resource.String.hockeyapp_crash_dialog_negative_button;
+			global::HockeyApp.Resource.String.hockeyapp_crash_dialog_neutral_button = global::Sunshine.Resource.String.hockeyapp_crash_dialog_neutral_button;
+			global::HockeyApp.Resource.String.hockeyapp_crash_dialog_positive_button = global::Sunshine.Resource.String.hockeyapp_crash_dialog_positive_button;
+			global::HockeyApp.Resource.String.hockeyapp_crash_dialog_title = global::Sunshine.Resource.String.hockeyapp_crash_dialog_title;
+			global::HockeyApp.Resource.String.hockeyapp_dialog_error_message = global::Sunshine.Resource.String.hockeyapp_dialog_error_message;
+			global::HockeyApp.Resource.String.hockeyapp_dialog_error_title = global::Sunshine.Resource.String.hockeyapp_dialog_error_title;
+			global::HockeyApp.Resource.String.hockeyapp_dialog_negative_button = global::Sunshine.Resource.String.hockeyapp_dialog_negative_button;
+			global::HockeyApp.Resource.String.hockeyapp_dialog_positive_button = global::Sunshine.Resource.String.hockeyapp_dialog_positive_button;
+			global::HockeyApp.Resource.String.hockeyapp_download_failed_dialog_message = global::Sunshine.Resource.String.hockeyapp_download_failed_dialog_message;
+			global::HockeyApp.Resource.String.hockeyapp_download_failed_dialog_negative_button = global::Sunshine.Resource.String.hockeyapp_download_failed_dialog_negative_button;
+			global::HockeyApp.Resource.String.hockeyapp_download_failed_dialog_positive_button = global::Sunshine.Resource.String.hockeyapp_download_failed_dialog_positive_button;
+			global::HockeyApp.Resource.String.hockeyapp_download_failed_dialog_title = global::Sunshine.Resource.String.hockeyapp_download_failed_dialog_title;
+			global::HockeyApp.Resource.String.hockeyapp_error_no_network_message = global::Sunshine.Resource.String.hockeyapp_error_no_network_message;
+			global::HockeyApp.Resource.String.hockeyapp_expiry_info_text = global::Sunshine.Resource.String.hockeyapp_expiry_info_text;
+			global::HockeyApp.Resource.String.hockeyapp_expiry_info_title = global::Sunshine.Resource.String.hockeyapp_expiry_info_title;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_attach_file = global::Sunshine.Resource.String.hockeyapp_feedback_attach_file;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_attach_picture = global::Sunshine.Resource.String.hockeyapp_feedback_attach_picture;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_attachment_added = global::Sunshine.Resource.String.hockeyapp_feedback_attachment_added;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_attachment_button_text = global::Sunshine.Resource.String.hockeyapp_feedback_attachment_button_text;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_attachment_error = global::Sunshine.Resource.String.hockeyapp_feedback_attachment_error;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_attachment_loading = global::Sunshine.Resource.String.hockeyapp_feedback_attachment_loading;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_attachment_remove_description = global::Sunshine.Resource.String.hockeyapp_feedback_attachment_remove_description;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_attachment_removed = global::Sunshine.Resource.String.hockeyapp_feedback_attachment_removed;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_email_hint = global::Sunshine.Resource.String.hockeyapp_feedback_email_hint;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_email_hint_required = global::Sunshine.Resource.String.hockeyapp_feedback_email_hint_required;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_failed_text = global::Sunshine.Resource.String.hockeyapp_feedback_failed_text;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_failed_title = global::Sunshine.Resource.String.hockeyapp_feedback_failed_title;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_fetching_feedback_text = global::Sunshine.Resource.String.hockeyapp_feedback_fetching_feedback_text;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_generic_error = global::Sunshine.Resource.String.hockeyapp_feedback_generic_error;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_last_updated_text = global::Sunshine.Resource.String.hockeyapp_feedback_last_updated_text;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_max_attachments_allowed = global::Sunshine.Resource.String.hockeyapp_feedback_max_attachments_allowed;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_message_hint = global::Sunshine.Resource.String.hockeyapp_feedback_message_hint;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_message_hint_required = global::Sunshine.Resource.String.hockeyapp_feedback_message_hint_required;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_name_hint = global::Sunshine.Resource.String.hockeyapp_feedback_name_hint;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_name_hint_required = global::Sunshine.Resource.String.hockeyapp_feedback_name_hint_required;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_refresh_button_text = global::Sunshine.Resource.String.hockeyapp_feedback_refresh_button_text;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_response_button_text = global::Sunshine.Resource.String.hockeyapp_feedback_response_button_text;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_select_file = global::Sunshine.Resource.String.hockeyapp_feedback_select_file;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_select_picture = global::Sunshine.Resource.String.hockeyapp_feedback_select_picture;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_send_button_text = global::Sunshine.Resource.String.hockeyapp_feedback_send_button_text;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_send_generic_error = global::Sunshine.Resource.String.hockeyapp_feedback_send_generic_error;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_send_network_error = global::Sunshine.Resource.String.hockeyapp_feedback_send_network_error;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_sending_feedback_text = global::Sunshine.Resource.String.hockeyapp_feedback_sending_feedback_text;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_sent_toast = global::Sunshine.Resource.String.hockeyapp_feedback_sent_toast;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_subject_hint = global::Sunshine.Resource.String.hockeyapp_feedback_subject_hint;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_subject_hint_required = global::Sunshine.Resource.String.hockeyapp_feedback_subject_hint_required;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_title = global::Sunshine.Resource.String.hockeyapp_feedback_title;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_validate_email_empty = global::Sunshine.Resource.String.hockeyapp_feedback_validate_email_empty;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_validate_email_error = global::Sunshine.Resource.String.hockeyapp_feedback_validate_email_error;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_validate_name_error = global::Sunshine.Resource.String.hockeyapp_feedback_validate_name_error;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_validate_subject_error = global::Sunshine.Resource.String.hockeyapp_feedback_validate_subject_error;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_validate_text_error = global::Sunshine.Resource.String.hockeyapp_feedback_validate_text_error;
+			global::HockeyApp.Resource.String.hockeyapp_login_email_hint = global::Sunshine.Resource.String.hockeyapp_login_email_hint;
+			global::HockeyApp.Resource.String.hockeyapp_login_email_hint_required = global::Sunshine.Resource.String.hockeyapp_login_email_hint_required;
+			global::HockeyApp.Resource.String.hockeyapp_login_headline_text = global::Sunshine.Resource.String.hockeyapp_login_headline_text;
+			global::HockeyApp.Resource.String.hockeyapp_login_headline_text_email_only = global::Sunshine.Resource.String.hockeyapp_login_headline_text_email_only;
+			global::HockeyApp.Resource.String.hockeyapp_login_login_button_text = global::Sunshine.Resource.String.hockeyapp_login_login_button_text;
+			global::HockeyApp.Resource.String.hockeyapp_login_missing_credentials_toast = global::Sunshine.Resource.String.hockeyapp_login_missing_credentials_toast;
+			global::HockeyApp.Resource.String.hockeyapp_login_password_hint = global::Sunshine.Resource.String.hockeyapp_login_password_hint;
+			global::HockeyApp.Resource.String.hockeyapp_login_password_hint_required = global::Sunshine.Resource.String.hockeyapp_login_password_hint_required;
+			global::HockeyApp.Resource.String.hockeyapp_paint_dialog_message = global::Sunshine.Resource.String.hockeyapp_paint_dialog_message;
+			global::HockeyApp.Resource.String.hockeyapp_paint_dialog_negative_button = global::Sunshine.Resource.String.hockeyapp_paint_dialog_negative_button;
+			global::HockeyApp.Resource.String.hockeyapp_paint_dialog_neutral_button = global::Sunshine.Resource.String.hockeyapp_paint_dialog_neutral_button;
+			global::HockeyApp.Resource.String.hockeyapp_paint_dialog_positive_button = global::Sunshine.Resource.String.hockeyapp_paint_dialog_positive_button;
+			global::HockeyApp.Resource.String.hockeyapp_paint_indicator_toast = global::Sunshine.Resource.String.hockeyapp_paint_indicator_toast;
+			global::HockeyApp.Resource.String.hockeyapp_paint_menu_clear = global::Sunshine.Resource.String.hockeyapp_paint_menu_clear;
+			global::HockeyApp.Resource.String.hockeyapp_paint_menu_save = global::Sunshine.Resource.String.hockeyapp_paint_menu_save;
+			global::HockeyApp.Resource.String.hockeyapp_paint_menu_undo = global::Sunshine.Resource.String.hockeyapp_paint_menu_undo;
+			global::HockeyApp.Resource.String.hockeyapp_permission_dialog_negative_button = global::Sunshine.Resource.String.hockeyapp_permission_dialog_negative_button;
+			global::HockeyApp.Resource.String.hockeyapp_permission_dialog_positive_button = global::Sunshine.Resource.String.hockeyapp_permission_dialog_positive_button;
+			global::HockeyApp.Resource.String.hockeyapp_permission_update_message = global::Sunshine.Resource.String.hockeyapp_permission_update_message;
+			global::HockeyApp.Resource.String.hockeyapp_permission_update_title = global::Sunshine.Resource.String.hockeyapp_permission_update_title;
+			global::HockeyApp.Resource.String.hockeyapp_update_button = global::Sunshine.Resource.String.hockeyapp_update_button;
+			global::HockeyApp.Resource.String.hockeyapp_update_dialog_message = global::Sunshine.Resource.String.hockeyapp_update_dialog_message;
+			global::HockeyApp.Resource.String.hockeyapp_update_dialog_negative_button = global::Sunshine.Resource.String.hockeyapp_update_dialog_negative_button;
+			global::HockeyApp.Resource.String.hockeyapp_update_dialog_positive_button = global::Sunshine.Resource.String.hockeyapp_update_dialog_positive_button;
+			global::HockeyApp.Resource.String.hockeyapp_update_dialog_title = global::Sunshine.Resource.String.hockeyapp_update_dialog_title;
+			global::HockeyApp.Resource.String.hockeyapp_update_mandatory_toast = global::Sunshine.Resource.String.hockeyapp_update_mandatory_toast;
+			global::HockeyApp.Resource.String.hockeyapp_update_version_details_label = global::Sunshine.Resource.String.hockeyapp_update_version_details_label;
+			global::HockeyApp.Resource.String.library_name = global::Sunshine.Resource.String.library_name;
+			global::HockeyApp.Resource.Style.HockeyApp_ButtonStyle = global::Sunshine.Resource.Style.HockeyApp_ButtonStyle;
+			global::HockeyApp.Resource.Style.HockeyApp_EditTextStyle = global::Sunshine.Resource.Style.HockeyApp_EditTextStyle;
+			global::HockeyApp.Resource.Style.HockeyApp_SingleLineInputStyle = global::Sunshine.Resource.Style.HockeyApp_SingleLineInputStyle;
 			global::ModernHttpClient.Resource.String.library_name = global::Sunshine.Resource.String.library_name;
 		}
 		
@@ -819,44 +949,44 @@ namespace Sunshine
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f0b0042
-			public const int abc_background_cache_hint_selector_material_dark = 2131427394;
+			// aapt resource value: 0x7f0b004c
+			public const int abc_background_cache_hint_selector_material_dark = 2131427404;
 			
-			// aapt resource value: 0x7f0b0043
-			public const int abc_background_cache_hint_selector_material_light = 2131427395;
+			// aapt resource value: 0x7f0b004d
+			public const int abc_background_cache_hint_selector_material_light = 2131427405;
 			
-			// aapt resource value: 0x7f0b0044
-			public const int abc_btn_colored_borderless_text_material = 2131427396;
+			// aapt resource value: 0x7f0b004e
+			public const int abc_btn_colored_borderless_text_material = 2131427406;
 			
-			// aapt resource value: 0x7f0b0045
-			public const int abc_btn_colored_text_material = 2131427397;
+			// aapt resource value: 0x7f0b004f
+			public const int abc_btn_colored_text_material = 2131427407;
 			
-			// aapt resource value: 0x7f0b0046
-			public const int abc_color_highlight_material = 2131427398;
+			// aapt resource value: 0x7f0b0050
+			public const int abc_color_highlight_material = 2131427408;
 			
-			// aapt resource value: 0x7f0b0047
-			public const int abc_hint_foreground_material_dark = 2131427399;
+			// aapt resource value: 0x7f0b0051
+			public const int abc_hint_foreground_material_dark = 2131427409;
 			
-			// aapt resource value: 0x7f0b0048
-			public const int abc_hint_foreground_material_light = 2131427400;
+			// aapt resource value: 0x7f0b0052
+			public const int abc_hint_foreground_material_light = 2131427410;
 			
 			// aapt resource value: 0x7f0b0001
 			public const int abc_input_method_navigation_guard = 2131427329;
 			
-			// aapt resource value: 0x7f0b0049
-			public const int abc_primary_text_disable_only_material_dark = 2131427401;
+			// aapt resource value: 0x7f0b0053
+			public const int abc_primary_text_disable_only_material_dark = 2131427411;
 			
-			// aapt resource value: 0x7f0b004a
-			public const int abc_primary_text_disable_only_material_light = 2131427402;
+			// aapt resource value: 0x7f0b0054
+			public const int abc_primary_text_disable_only_material_light = 2131427412;
 			
-			// aapt resource value: 0x7f0b004b
-			public const int abc_primary_text_material_dark = 2131427403;
+			// aapt resource value: 0x7f0b0055
+			public const int abc_primary_text_material_dark = 2131427413;
 			
-			// aapt resource value: 0x7f0b004c
-			public const int abc_primary_text_material_light = 2131427404;
+			// aapt resource value: 0x7f0b0056
+			public const int abc_primary_text_material_light = 2131427414;
 			
-			// aapt resource value: 0x7f0b004d
-			public const int abc_search_url_text = 2131427405;
+			// aapt resource value: 0x7f0b0057
+			public const int abc_search_url_text = 2131427415;
 			
 			// aapt resource value: 0x7f0b0002
 			public const int abc_search_url_text_normal = 2131427330;
@@ -867,32 +997,32 @@ namespace Sunshine
 			// aapt resource value: 0x7f0b0004
 			public const int abc_search_url_text_selected = 2131427332;
 			
-			// aapt resource value: 0x7f0b004e
-			public const int abc_secondary_text_material_dark = 2131427406;
+			// aapt resource value: 0x7f0b0058
+			public const int abc_secondary_text_material_dark = 2131427416;
 			
-			// aapt resource value: 0x7f0b004f
-			public const int abc_secondary_text_material_light = 2131427407;
+			// aapt resource value: 0x7f0b0059
+			public const int abc_secondary_text_material_light = 2131427417;
 			
-			// aapt resource value: 0x7f0b0050
-			public const int abc_tint_btn_checkable = 2131427408;
+			// aapt resource value: 0x7f0b005a
+			public const int abc_tint_btn_checkable = 2131427418;
 			
-			// aapt resource value: 0x7f0b0051
-			public const int abc_tint_default = 2131427409;
+			// aapt resource value: 0x7f0b005b
+			public const int abc_tint_default = 2131427419;
 			
-			// aapt resource value: 0x7f0b0052
-			public const int abc_tint_edittext = 2131427410;
+			// aapt resource value: 0x7f0b005c
+			public const int abc_tint_edittext = 2131427420;
 			
-			// aapt resource value: 0x7f0b0053
-			public const int abc_tint_seek_thumb = 2131427411;
+			// aapt resource value: 0x7f0b005d
+			public const int abc_tint_seek_thumb = 2131427421;
 			
-			// aapt resource value: 0x7f0b0054
-			public const int abc_tint_spinner = 2131427412;
+			// aapt resource value: 0x7f0b005e
+			public const int abc_tint_spinner = 2131427422;
 			
-			// aapt resource value: 0x7f0b0055
-			public const int abc_tint_switch_thumb = 2131427413;
+			// aapt resource value: 0x7f0b005f
+			public const int abc_tint_switch_thumb = 2131427423;
 			
-			// aapt resource value: 0x7f0b0056
-			public const int abc_tint_switch_track = 2131427414;
+			// aapt resource value: 0x7f0b0060
+			public const int abc_tint_switch_track = 2131427424;
 			
 			// aapt resource value: 0x7f0b0005
 			public const int accent_material_dark = 2131427333;
@@ -912,8 +1042,8 @@ namespace Sunshine
 			// aapt resource value: 0x7f0b000a
 			public const int background_material_light = 2131427338;
 			
-			// aapt resource value: 0x7f0b003e
-			public const int black = 2131427390;
+			// aapt resource value: 0x7f0b0048
+			public const int black = 2131427400;
 			
 			// aapt resource value: 0x7f0b000b
 			public const int bright_foreground_disabled_material_dark = 2131427339;
@@ -957,17 +1087,47 @@ namespace Sunshine
 			// aapt resource value: 0x7f0b0018
 			public const int foreground_material_light = 2131427352;
 			
-			// aapt resource value: 0x7f0b003c
-			public const int grey = 2131427388;
+			// aapt resource value: 0x7f0b0046
+			public const int grey = 2131427398;
 			
-			// aapt resource value: 0x7f0b003d
-			public const int grey_700 = 2131427389;
+			// aapt resource value: 0x7f0b0047
+			public const int grey_700 = 2131427399;
 			
 			// aapt resource value: 0x7f0b0019
 			public const int highlighted_text_material_dark = 2131427353;
 			
 			// aapt resource value: 0x7f0b001a
 			public const int highlighted_text_material_light = 2131427354;
+			
+			// aapt resource value: 0x7f0b003b
+			public const int hockeyapp_background_header = 2131427387;
+			
+			// aapt resource value: 0x7f0b003c
+			public const int hockeyapp_background_light = 2131427388;
+			
+			// aapt resource value: 0x7f0b003d
+			public const int hockeyapp_background_white = 2131427389;
+			
+			// aapt resource value: 0x7f0b003e
+			public const int hockeyapp_button_background = 2131427390;
+			
+			// aapt resource value: 0x7f0b003f
+			public const int hockeyapp_button_background_pressed = 2131427391;
+			
+			// aapt resource value: 0x7f0b0040
+			public const int hockeyapp_button_background_selected = 2131427392;
+			
+			// aapt resource value: 0x7f0b0041
+			public const int hockeyapp_text_black = 2131427393;
+			
+			// aapt resource value: 0x7f0b0042
+			public const int hockeyapp_text_light = 2131427394;
+			
+			// aapt resource value: 0x7f0b0043
+			public const int hockeyapp_text_normal = 2131427395;
+			
+			// aapt resource value: 0x7f0b0044
+			public const int hockeyapp_text_white = 2131427396;
 			
 			// aapt resource value: 0x7f0b001b
 			public const int material_blue_grey_800 = 2131427355;
@@ -1056,14 +1216,14 @@ namespace Sunshine
 			// aapt resource value: 0x7f0b0036
 			public const int secondary_text_disabled_material_light = 2131427382;
 			
-			// aapt resource value: 0x7f0b0040
-			public const int sunshine_blue = 2131427392;
+			// aapt resource value: 0x7f0b004a
+			public const int sunshine_blue = 2131427402;
 			
-			// aapt resource value: 0x7f0b0041
-			public const int sunshine_dark_blue = 2131427393;
+			// aapt resource value: 0x7f0b004b
+			public const int sunshine_dark_blue = 2131427403;
 			
-			// aapt resource value: 0x7f0b003f
-			public const int sunshine_light_blue = 2131427391;
+			// aapt resource value: 0x7f0b0049
+			public const int sunshine_light_blue = 2131427401;
 			
 			// aapt resource value: 0x7f0b0037
 			public const int switch_thumb_disabled_material_dark = 2131427383;
@@ -1071,11 +1231,11 @@ namespace Sunshine
 			// aapt resource value: 0x7f0b0038
 			public const int switch_thumb_disabled_material_light = 2131427384;
 			
-			// aapt resource value: 0x7f0b0057
-			public const int switch_thumb_material_dark = 2131427415;
+			// aapt resource value: 0x7f0b0061
+			public const int switch_thumb_material_dark = 2131427425;
 			
-			// aapt resource value: 0x7f0b0058
-			public const int switch_thumb_material_light = 2131427416;
+			// aapt resource value: 0x7f0b0062
+			public const int switch_thumb_material_light = 2131427426;
 			
 			// aapt resource value: 0x7f0b0039
 			public const int switch_thumb_normal_material_dark = 2131427385;
@@ -1083,8 +1243,8 @@ namespace Sunshine
 			// aapt resource value: 0x7f0b003a
 			public const int switch_thumb_normal_material_light = 2131427386;
 			
-			// aapt resource value: 0x7f0b003b
-			public const int white = 2131427387;
+			// aapt resource value: 0x7f0b0045
+			public const int white = 2131427397;
 			
 			static Color()
 			{
@@ -1686,73 +1846,76 @@ namespace Sunshine
 			public const int art_storm = 2130837594;
 			
 			// aapt resource value: 0x7f02005b
-			public const int ic_clear = 2130837595;
+			public const int hockeyapp_btn_background = 2130837595;
 			
 			// aapt resource value: 0x7f02005c
-			public const int ic_cloudy = 2130837596;
+			public const int ic_clear = 2130837596;
 			
 			// aapt resource value: 0x7f02005d
-			public const int ic_fog = 2130837597;
+			public const int ic_cloudy = 2130837597;
 			
 			// aapt resource value: 0x7f02005e
-			public const int ic_light_clouds = 2130837598;
+			public const int ic_fog = 2130837598;
 			
 			// aapt resource value: 0x7f02005f
-			public const int ic_light_rain = 2130837599;
+			public const int ic_light_clouds = 2130837599;
 			
 			// aapt resource value: 0x7f020060
-			public const int ic_logo = 2130837600;
+			public const int ic_light_rain = 2130837600;
 			
 			// aapt resource value: 0x7f020061
-			public const int ic_rain = 2130837601;
+			public const int ic_logo = 2130837601;
 			
 			// aapt resource value: 0x7f020062
-			public const int ic_snow = 2130837602;
+			public const int ic_rain = 2130837602;
 			
 			// aapt resource value: 0x7f020063
-			public const int ic_storm = 2130837603;
+			public const int ic_snow = 2130837603;
 			
 			// aapt resource value: 0x7f020064
-			public const int notification_action_background = 2130837604;
+			public const int ic_storm = 2130837604;
 			
 			// aapt resource value: 0x7f020065
-			public const int notification_bg = 2130837605;
+			public const int notification_action_background = 2130837605;
 			
 			// aapt resource value: 0x7f020066
-			public const int notification_bg_low = 2130837606;
+			public const int notification_bg = 2130837606;
 			
 			// aapt resource value: 0x7f020067
-			public const int notification_bg_low_normal = 2130837607;
+			public const int notification_bg_low = 2130837607;
 			
 			// aapt resource value: 0x7f020068
-			public const int notification_bg_low_pressed = 2130837608;
+			public const int notification_bg_low_normal = 2130837608;
 			
 			// aapt resource value: 0x7f020069
-			public const int notification_bg_normal = 2130837609;
+			public const int notification_bg_low_pressed = 2130837609;
 			
 			// aapt resource value: 0x7f02006a
-			public const int notification_bg_normal_pressed = 2130837610;
+			public const int notification_bg_normal = 2130837610;
 			
 			// aapt resource value: 0x7f02006b
-			public const int notification_icon_background = 2130837611;
-			
-			// aapt resource value: 0x7f020070
-			public const int notification_template_icon_bg = 2130837616;
-			
-			// aapt resource value: 0x7f020071
-			public const int notification_template_icon_low_bg = 2130837617;
+			public const int notification_bg_normal_pressed = 2130837611;
 			
 			// aapt resource value: 0x7f02006c
-			public const int notification_tile_bg = 2130837612;
+			public const int notification_icon_background = 2130837612;
+			
+			// aapt resource value: 0x7f020071
+			public const int notification_template_icon_bg = 2130837617;
+			
+			// aapt resource value: 0x7f020072
+			public const int notification_template_icon_low_bg = 2130837618;
 			
 			// aapt resource value: 0x7f02006d
-			public const int notify_panel_notification_icon_bg = 2130837613;
+			public const int notification_tile_bg = 2130837613;
 			
 			// aapt resource value: 0x7f02006e
-			public const int today_touch_selector = 2130837614;
+			public const int notify_panel_notification_icon_bg = 2130837614;
 			
 			// aapt resource value: 0x7f02006f
-			public const int touch_selector = 2130837615;
+			public const int today_touch_selector = 2130837615;
+			
+			// aapt resource value: 0x7f020070
+			public const int touch_selector = 2130837616;
 			
 			static Drawable()
 			{
@@ -1767,8 +1930,8 @@ namespace Sunshine
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f0c006a
-			public const int action0 = 2131492970;
+			// aapt resource value: 0x7f0c0086
+			public const int action0 = 2131492998;
 			
 			// aapt resource value: 0x7f0c0047
 			public const int action_bar = 2131492935;
@@ -1791,20 +1954,20 @@ namespace Sunshine
 			// aapt resource value: 0x7f0c0024
 			public const int action_bar_title = 2131492900;
 			
-			// aapt resource value: 0x7f0c0067
-			public const int action_container = 2131492967;
+			// aapt resource value: 0x7f0c0083
+			public const int action_container = 2131492995;
 			
 			// aapt resource value: 0x7f0c0048
 			public const int action_context_bar = 2131492936;
 			
-			// aapt resource value: 0x7f0c006e
-			public const int action_divider = 2131492974;
+			// aapt resource value: 0x7f0c008a
+			public const int action_divider = 2131493002;
 			
-			// aapt resource value: 0x7f0c0068
-			public const int action_image = 2131492968;
+			// aapt resource value: 0x7f0c0084
+			public const int action_image = 2131492996;
 			
-			// aapt resource value: 0x7f0c007f
-			public const int action_map = 2131492991;
+			// aapt resource value: 0x7f0c009b
+			public const int action_map = 2131493019;
 			
 			// aapt resource value: 0x7f0c0002
 			public const int action_menu_divider = 2131492866;
@@ -1821,17 +1984,17 @@ namespace Sunshine
 			// aapt resource value: 0x7f0c0026
 			public const int action_mode_close_button = 2131492902;
 			
-			// aapt resource value: 0x7f0c0080
-			public const int action_settings = 2131492992;
+			// aapt resource value: 0x7f0c009c
+			public const int action_settings = 2131493020;
 			
-			// aapt resource value: 0x7f0c007e
-			public const int action_share = 2131492990;
+			// aapt resource value: 0x7f0c009a
+			public const int action_share = 2131493018;
 			
-			// aapt resource value: 0x7f0c0069
-			public const int action_text = 2131492969;
+			// aapt resource value: 0x7f0c0085
+			public const int action_text = 2131492997;
 			
-			// aapt resource value: 0x7f0c0077
-			public const int actions = 2131492983;
+			// aapt resource value: 0x7f0c0093
+			public const int actions = 2131493011;
 			
 			// aapt resource value: 0x7f0c0027
 			public const int activity_chooser_view_content = 2131492903;
@@ -1854,14 +2017,32 @@ namespace Sunshine
 			// aapt resource value: 0x7f0c002e
 			public const int buttonPanel = 2131492910;
 			
+			// aapt resource value: 0x7f0c006f
+			public const int button_add_response = 2131492975;
+			
+			// aapt resource value: 0x7f0c006a
+			public const int button_attachment = 2131492970;
+			
+			// aapt resource value: 0x7f0c0074
+			public const int button_login = 2131492980;
+			
+			// aapt resource value: 0x7f0c0070
+			public const int button_refresh = 2131492976;
+			
 			// aapt resource value: 0x7f0c006b
-			public const int cancel_action = 2131492971;
+			public const int button_send = 2131492971;
+			
+			// aapt resource value: 0x7f0c0078
+			public const int button_update = 2131492984;
+			
+			// aapt resource value: 0x7f0c0087
+			public const int cancel_action = 2131492999;
 			
 			// aapt resource value: 0x7f0c003e
 			public const int checkbox = 2131492926;
 			
-			// aapt resource value: 0x7f0c0073
-			public const int chronometer = 2131492979;
+			// aapt resource value: 0x7f0c008f
+			public const int chronometer = 2131493007;
 			
 			// aapt resource value: 0x7f0c001e
 			public const int collapseActionView = 2131492894;
@@ -1917,8 +2098,8 @@ namespace Sunshine
 			// aapt resource value: 0x7f0c001b
 			public const int end = 2131492891;
 			
-			// aapt resource value: 0x7f0c007d
-			public const int end_padder = 2131492989;
+			// aapt resource value: 0x7f0c0099
+			public const int end_padder = 2131493017;
 			
 			// aapt resource value: 0x7f0c0028
 			public const int expand_activities_button = 2131492904;
@@ -1938,8 +2119,8 @@ namespace Sunshine
 			// aapt resource value: 0x7f0c002c
 			public const int icon = 2131492908;
 			
-			// aapt resource value: 0x7f0c0078
-			public const int icon_group = 2131492984;
+			// aapt resource value: 0x7f0c0094
+			public const int icon_group = 2131493012;
 			
 			// aapt resource value: 0x7f0c001f
 			public const int ifRoom = 2131492895;
@@ -1947,41 +2128,83 @@ namespace Sunshine
 			// aapt resource value: 0x7f0c0029
 			public const int image = 2131492905;
 			
-			// aapt resource value: 0x7f0c0074
-			public const int info = 2131492980;
+			// aapt resource value: 0x7f0c0090
+			public const int info = 2131493008;
 			
-			// aapt resource value: 0x7f0c0079
-			public const int line1 = 2131492985;
+			// aapt resource value: 0x7f0c0066
+			public const int input_email = 2131492966;
+			
+			// aapt resource value: 0x7f0c0068
+			public const int input_message = 2131492968;
+			
+			// aapt resource value: 0x7f0c0065
+			public const int input_name = 2131492965;
+			
+			// aapt resource value: 0x7f0c0073
+			public const int input_password = 2131492979;
+			
+			// aapt resource value: 0x7f0c0067
+			public const int input_subject = 2131492967;
+			
+			// aapt resource value: 0x7f0c007a
+			public const int label_author = 2131492986;
 			
 			// aapt resource value: 0x7f0c007b
-			public const int line3 = 2131492987;
+			public const int label_date = 2131492987;
+			
+			// aapt resource value: 0x7f0c006d
+			public const int label_last_updated = 2131492973;
+			
+			// aapt resource value: 0x7f0c0062
+			public const int label_message = 2131492962;
+			
+			// aapt resource value: 0x7f0c007c
+			public const int label_text = 2131492988;
+			
+			// aapt resource value: 0x7f0c0076
+			public const int label_title = 2131492982;
+			
+			// aapt resource value: 0x7f0c0077
+			public const int label_version = 2131492983;
+			
+			// aapt resource value: 0x7f0c0095
+			public const int line1 = 2131493013;
+			
+			// aapt resource value: 0x7f0c0097
+			public const int line3 = 2131493015;
 			
 			// aapt resource value: 0x7f0c0009
 			public const int listMode = 2131492873;
 			
+			// aapt resource value: 0x7f0c007d
+			public const int list_attachments = 2131492989;
+			
+			// aapt resource value: 0x7f0c0071
+			public const int list_feedback_messages = 2131492977;
+			
 			// aapt resource value: 0x7f0c002b
 			public const int list_item = 2131492907;
 			
-			// aapt resource value: 0x7f0c0063
-			public const int list_item_date_textview = 2131492963;
+			// aapt resource value: 0x7f0c007f
+			public const int list_item_date_textview = 2131492991;
 			
-			// aapt resource value: 0x7f0c0064
-			public const int list_item_forecast_textview = 2131492964;
+			// aapt resource value: 0x7f0c0080
+			public const int list_item_forecast_textview = 2131492992;
 			
-			// aapt resource value: 0x7f0c0065
-			public const int list_item_high_textview = 2131492965;
+			// aapt resource value: 0x7f0c0081
+			public const int list_item_high_textview = 2131492993;
 			
-			// aapt resource value: 0x7f0c0062
-			public const int list_item_icon = 2131492962;
+			// aapt resource value: 0x7f0c007e
+			public const int list_item_icon = 2131492990;
 			
-			// aapt resource value: 0x7f0c0066
-			public const int list_item_low_textview = 2131492966;
+			// aapt resource value: 0x7f0c0082
+			public const int list_item_low_textview = 2131492994;
 			
 			// aapt resource value: 0x7f0c0061
 			public const int listview_forecast = 2131492961;
 			
-			// aapt resource value: 0x7f0c006d
-			public const int media_actions = 2131492973;
+			// aapt resource value: 0x7f0c0089
+			public const int media_actions = 2131493001;
 			
 			// aapt resource value: 0x7f0c001c
 			public const int middle = 2131492892;
@@ -1998,14 +2221,14 @@ namespace Sunshine
 			// aapt resource value: 0x7f0c000a
 			public const int normal = 2131492874;
 			
-			// aapt resource value: 0x7f0c0076
-			public const int notification_background = 2131492982;
+			// aapt resource value: 0x7f0c0092
+			public const int notification_background = 2131493010;
 			
-			// aapt resource value: 0x7f0c0070
-			public const int notification_main_column = 2131492976;
+			// aapt resource value: 0x7f0c008c
+			public const int notification_main_column = 2131493004;
 			
-			// aapt resource value: 0x7f0c006f
-			public const int notification_main_column_container = 2131492975;
+			// aapt resource value: 0x7f0c008b
+			public const int notification_main_column_container = 2131493003;
 			
 			// aapt resource value: 0x7f0c0030
 			public const int parentPanel = 2131492912;
@@ -2019,11 +2242,11 @@ namespace Sunshine
 			// aapt resource value: 0x7f0c0040
 			public const int radio = 2131492928;
 			
-			// aapt resource value: 0x7f0c0075
-			public const int right_icon = 2131492981;
+			// aapt resource value: 0x7f0c0091
+			public const int right_icon = 2131493009;
 			
-			// aapt resource value: 0x7f0c0071
-			public const int right_side = 2131492977;
+			// aapt resource value: 0x7f0c008d
+			public const int right_side = 2131493005;
 			
 			// aapt resource value: 0x7f0c0015
 			public const int screen = 2131492885;
@@ -2097,8 +2320,8 @@ namespace Sunshine
 			// aapt resource value: 0x7f0c0018
 			public const int src_over = 2131492888;
 			
-			// aapt resource value: 0x7f0c006c
-			public const int status_bar_latest_event_content = 2131492972;
+			// aapt resource value: 0x7f0c0088
+			public const int status_bar_latest_event_content = 2131493000;
 			
 			// aapt resource value: 0x7f0c0041
 			public const int submenuarrow = 2131492929;
@@ -2109,11 +2332,11 @@ namespace Sunshine
 			// aapt resource value: 0x7f0c000b
 			public const int tabMode = 2131492875;
 			
-			// aapt resource value: 0x7f0c007c
-			public const int text = 2131492988;
+			// aapt resource value: 0x7f0c0098
+			public const int text = 2131493016;
 			
-			// aapt resource value: 0x7f0c007a
-			public const int text2 = 2131492986;
+			// aapt resource value: 0x7f0c0096
+			public const int text2 = 2131493014;
 			
 			// aapt resource value: 0x7f0c0035
 			public const int textSpacerNoButtons = 2131492917;
@@ -2122,7 +2345,10 @@ namespace Sunshine
 			public const int textSpacerNoTitle = 2131492916;
 			
 			// aapt resource value: 0x7f0c0072
-			public const int time = 2131492978;
+			public const int text_headline = 2131492978;
+			
+			// aapt resource value: 0x7f0c008e
+			public const int time = 2131493006;
 			
 			// aapt resource value: 0x7f0c002d
 			public const int title = 2131492909;
@@ -2145,14 +2371,35 @@ namespace Sunshine
 			// aapt resource value: 0x7f0c0012
 			public const int useLogo = 2131492882;
 			
+			// aapt resource value: 0x7f0c0075
+			public const int view_header = 2131492981;
+			
 			// aapt resource value: 0x7f0c0056
 			public const int weather_detail_container = 2131492950;
+			
+			// aapt resource value: 0x7f0c0079
+			public const int web_update_details = 2131492985;
 			
 			// aapt resource value: 0x7f0c0021
 			public const int withText = 2131492897;
 			
 			// aapt resource value: 0x7f0c0019
 			public const int wrap_content = 2131492889;
+			
+			// aapt resource value: 0x7f0c0069
+			public const int wrapper_attachments = 2131492969;
+			
+			// aapt resource value: 0x7f0c0064
+			public const int wrapper_feedback = 2131492964;
+			
+			// aapt resource value: 0x7f0c0063
+			public const int wrapper_feedback_scroll = 2131492963;
+			
+			// aapt resource value: 0x7f0c006c
+			public const int wrapper_messages = 2131492972;
+			
+			// aapt resource value: 0x7f0c006e
+			public const int wrapper_messages_buttons = 2131492974;
 			
 			static Id()
 			{
@@ -2289,67 +2536,85 @@ namespace Sunshine
 			public const int fragment_main = 2130968607;
 			
 			// aapt resource value: 0x7f040020
-			public const int list_item_forecast = 2130968608;
+			public const int hockeyapp_activity_expiry_info = 2130968608;
 			
 			// aapt resource value: 0x7f040021
-			public const int list_item_forecast_today = 2130968609;
+			public const int hockeyapp_activity_feedback = 2130968609;
 			
 			// aapt resource value: 0x7f040022
-			public const int notification_action = 2130968610;
+			public const int hockeyapp_activity_login = 2130968610;
 			
 			// aapt resource value: 0x7f040023
-			public const int notification_action_tombstone = 2130968611;
+			public const int hockeyapp_activity_update = 2130968611;
 			
 			// aapt resource value: 0x7f040024
-			public const int notification_media_action = 2130968612;
+			public const int hockeyapp_fragment_update = 2130968612;
 			
 			// aapt resource value: 0x7f040025
-			public const int notification_media_cancel_action = 2130968613;
+			public const int hockeyapp_view_feedback_message = 2130968613;
 			
 			// aapt resource value: 0x7f040026
-			public const int notification_template_big_media = 2130968614;
+			public const int list_item_forecast = 2130968614;
 			
 			// aapt resource value: 0x7f040027
-			public const int notification_template_big_media_custom = 2130968615;
+			public const int list_item_forecast_today = 2130968615;
 			
 			// aapt resource value: 0x7f040028
-			public const int notification_template_big_media_narrow = 2130968616;
+			public const int notification_action = 2130968616;
 			
 			// aapt resource value: 0x7f040029
-			public const int notification_template_big_media_narrow_custom = 2130968617;
+			public const int notification_action_tombstone = 2130968617;
 			
 			// aapt resource value: 0x7f04002a
-			public const int notification_template_custom_big = 2130968618;
+			public const int notification_media_action = 2130968618;
 			
 			// aapt resource value: 0x7f04002b
-			public const int notification_template_icon_group = 2130968619;
+			public const int notification_media_cancel_action = 2130968619;
 			
 			// aapt resource value: 0x7f04002c
-			public const int notification_template_lines_media = 2130968620;
+			public const int notification_template_big_media = 2130968620;
 			
 			// aapt resource value: 0x7f04002d
-			public const int notification_template_media = 2130968621;
+			public const int notification_template_big_media_custom = 2130968621;
 			
 			// aapt resource value: 0x7f04002e
-			public const int notification_template_media_custom = 2130968622;
+			public const int notification_template_big_media_narrow = 2130968622;
 			
 			// aapt resource value: 0x7f04002f
-			public const int notification_template_part_chronometer = 2130968623;
+			public const int notification_template_big_media_narrow_custom = 2130968623;
 			
 			// aapt resource value: 0x7f040030
-			public const int notification_template_part_time = 2130968624;
+			public const int notification_template_custom_big = 2130968624;
 			
 			// aapt resource value: 0x7f040031
-			public const int select_dialog_item_material = 2130968625;
+			public const int notification_template_icon_group = 2130968625;
 			
 			// aapt resource value: 0x7f040032
-			public const int select_dialog_multichoice_material = 2130968626;
+			public const int notification_template_lines_media = 2130968626;
 			
 			// aapt resource value: 0x7f040033
-			public const int select_dialog_singlechoice_material = 2130968627;
+			public const int notification_template_media = 2130968627;
 			
 			// aapt resource value: 0x7f040034
-			public const int support_simple_spinner_dropdown_item = 2130968628;
+			public const int notification_template_media_custom = 2130968628;
+			
+			// aapt resource value: 0x7f040035
+			public const int notification_template_part_chronometer = 2130968629;
+			
+			// aapt resource value: 0x7f040036
+			public const int notification_template_part_time = 2130968630;
+			
+			// aapt resource value: 0x7f040037
+			public const int select_dialog_item_material = 2130968631;
+			
+			// aapt resource value: 0x7f040038
+			public const int select_dialog_multichoice_material = 2130968632;
+			
+			// aapt resource value: 0x7f040039
+			public const int select_dialog_singlechoice_material = 2130968633;
+			
+			// aapt resource value: 0x7f04003a
+			public const int support_simple_spinner_dropdown_item = 2130968634;
 			
 			static Layout()
 			{
@@ -2498,95 +2763,338 @@ namespace Sunshine
 			// aapt resource value: 0x7f070012
 			public const int abc_toolbar_collapse_description = 2131165202;
 			
-			// aapt resource value: 0x7f070025
-			public const int action_map = 2131165221;
+			// aapt resource value: 0x7f070076
+			public const int action_map = 2131165302;
 			
-			// aapt resource value: 0x7f070027
-			public const int action_refresh = 2131165223;
+			// aapt resource value: 0x7f070078
+			public const int action_refresh = 2131165304;
 			
-			// aapt resource value: 0x7f070024
-			public const int action_settings = 2131165220;
+			// aapt resource value: 0x7f070075
+			public const int action_settings = 2131165301;
 			
-			// aapt resource value: 0x7f070026
-			public const int action_share = 2131165222;
+			// aapt resource value: 0x7f070077
+			public const int action_share = 2131165303;
 			
-			// aapt resource value: 0x7f070023
-			public const int app_name = 2131165219;
+			// aapt resource value: 0x7f070074
+			public const int app_name = 2131165300;
 			
-			// aapt resource value: 0x7f070041
-			public const int content_authority = 2131165249;
+			// aapt resource value: 0x7f070092
+			public const int content_authority = 2131165330;
 			
-			// aapt resource value: 0x7f07003a
-			public const int format_full_friendly_date = 2131165242;
+			// aapt resource value: 0x7f07008b
+			public const int format_full_friendly_date = 2131165323;
 			
-			// aapt resource value: 0x7f07003f
-			public const int format_humidity = 2131165247;
+			// aapt resource value: 0x7f070090
+			public const int format_humidity = 2131165328;
 			
-			// aapt resource value: 0x7f070042
-			public const int format_notification = 2131165250;
+			// aapt resource value: 0x7f070093
+			public const int format_notification = 2131165331;
 			
-			// aapt resource value: 0x7f07003e
-			public const int format_pressure = 2131165246;
+			// aapt resource value: 0x7f07008f
+			public const int format_pressure = 2131165327;
 			
-			// aapt resource value: 0x7f07003b
-			public const int format_temperature = 2131165243;
+			// aapt resource value: 0x7f07008c
+			public const int format_temperature = 2131165324;
 			
-			// aapt resource value: 0x7f07003d
-			public const int format_wind_kmh = 2131165245;
+			// aapt resource value: 0x7f07008e
+			public const int format_wind_kmh = 2131165326;
 			
-			// aapt resource value: 0x7f07003c
-			public const int format_wind_mph = 2131165244;
+			// aapt resource value: 0x7f07008d
+			public const int format_wind_mph = 2131165325;
+			
+			// aapt resource value: 0x7f070073
+			public const int hello_world = 2131165299;
 			
 			// aapt resource value: 0x7f070022
-			public const int hello_world = 2131165218;
+			public const int hockeyapp_crash_dialog_app_name_fallback = 2131165218;
+			
+			// aapt resource value: 0x7f070023
+			public const int hockeyapp_crash_dialog_message = 2131165219;
+			
+			// aapt resource value: 0x7f070024
+			public const int hockeyapp_crash_dialog_negative_button = 2131165220;
+			
+			// aapt resource value: 0x7f070025
+			public const int hockeyapp_crash_dialog_neutral_button = 2131165221;
+			
+			// aapt resource value: 0x7f070026
+			public const int hockeyapp_crash_dialog_positive_button = 2131165222;
+			
+			// aapt resource value: 0x7f070027
+			public const int hockeyapp_crash_dialog_title = 2131165223;
+			
+			// aapt resource value: 0x7f070028
+			public const int hockeyapp_dialog_error_message = 2131165224;
+			
+			// aapt resource value: 0x7f070029
+			public const int hockeyapp_dialog_error_title = 2131165225;
+			
+			// aapt resource value: 0x7f07002a
+			public const int hockeyapp_dialog_negative_button = 2131165226;
+			
+			// aapt resource value: 0x7f07002b
+			public const int hockeyapp_dialog_positive_button = 2131165227;
+			
+			// aapt resource value: 0x7f07002c
+			public const int hockeyapp_download_failed_dialog_message = 2131165228;
+			
+			// aapt resource value: 0x7f07002d
+			public const int hockeyapp_download_failed_dialog_negative_button = 2131165229;
+			
+			// aapt resource value: 0x7f07002e
+			public const int hockeyapp_download_failed_dialog_positive_button = 2131165230;
+			
+			// aapt resource value: 0x7f07002f
+			public const int hockeyapp_download_failed_dialog_title = 2131165231;
+			
+			// aapt resource value: 0x7f070030
+			public const int hockeyapp_error_no_network_message = 2131165232;
+			
+			// aapt resource value: 0x7f070031
+			public const int hockeyapp_expiry_info_text = 2131165233;
+			
+			// aapt resource value: 0x7f070032
+			public const int hockeyapp_expiry_info_title = 2131165234;
+			
+			// aapt resource value: 0x7f070033
+			public const int hockeyapp_feedback_attach_file = 2131165235;
+			
+			// aapt resource value: 0x7f070034
+			public const int hockeyapp_feedback_attach_picture = 2131165236;
+			
+			// aapt resource value: 0x7f070035
+			public const int hockeyapp_feedback_attachment_added = 2131165237;
+			
+			// aapt resource value: 0x7f070036
+			public const int hockeyapp_feedback_attachment_button_text = 2131165238;
+			
+			// aapt resource value: 0x7f070037
+			public const int hockeyapp_feedback_attachment_error = 2131165239;
+			
+			// aapt resource value: 0x7f070038
+			public const int hockeyapp_feedback_attachment_loading = 2131165240;
+			
+			// aapt resource value: 0x7f070039
+			public const int hockeyapp_feedback_attachment_remove_description = 2131165241;
+			
+			// aapt resource value: 0x7f07003a
+			public const int hockeyapp_feedback_attachment_removed = 2131165242;
+			
+			// aapt resource value: 0x7f07003b
+			public const int hockeyapp_feedback_email_hint = 2131165243;
+			
+			// aapt resource value: 0x7f07003c
+			public const int hockeyapp_feedback_email_hint_required = 2131165244;
+			
+			// aapt resource value: 0x7f07003d
+			public const int hockeyapp_feedback_failed_text = 2131165245;
+			
+			// aapt resource value: 0x7f07003e
+			public const int hockeyapp_feedback_failed_title = 2131165246;
+			
+			// aapt resource value: 0x7f07003f
+			public const int hockeyapp_feedback_fetching_feedback_text = 2131165247;
+			
+			// aapt resource value: 0x7f070040
+			public const int hockeyapp_feedback_generic_error = 2131165248;
+			
+			// aapt resource value: 0x7f070041
+			public const int hockeyapp_feedback_last_updated_text = 2131165249;
+			
+			// aapt resource value: 0x7f070042
+			public const int hockeyapp_feedback_max_attachments_allowed = 2131165250;
+			
+			// aapt resource value: 0x7f070043
+			public const int hockeyapp_feedback_message_hint = 2131165251;
+			
+			// aapt resource value: 0x7f070044
+			public const int hockeyapp_feedback_message_hint_required = 2131165252;
+			
+			// aapt resource value: 0x7f070045
+			public const int hockeyapp_feedback_name_hint = 2131165253;
+			
+			// aapt resource value: 0x7f070046
+			public const int hockeyapp_feedback_name_hint_required = 2131165254;
+			
+			// aapt resource value: 0x7f070047
+			public const int hockeyapp_feedback_refresh_button_text = 2131165255;
+			
+			// aapt resource value: 0x7f070048
+			public const int hockeyapp_feedback_response_button_text = 2131165256;
+			
+			// aapt resource value: 0x7f070049
+			public const int hockeyapp_feedback_select_file = 2131165257;
+			
+			// aapt resource value: 0x7f07004a
+			public const int hockeyapp_feedback_select_picture = 2131165258;
+			
+			// aapt resource value: 0x7f07004b
+			public const int hockeyapp_feedback_send_button_text = 2131165259;
+			
+			// aapt resource value: 0x7f07004c
+			public const int hockeyapp_feedback_send_generic_error = 2131165260;
+			
+			// aapt resource value: 0x7f07004d
+			public const int hockeyapp_feedback_send_network_error = 2131165261;
+			
+			// aapt resource value: 0x7f07004e
+			public const int hockeyapp_feedback_sending_feedback_text = 2131165262;
+			
+			// aapt resource value: 0x7f07004f
+			public const int hockeyapp_feedback_sent_toast = 2131165263;
+			
+			// aapt resource value: 0x7f070050
+			public const int hockeyapp_feedback_subject_hint = 2131165264;
+			
+			// aapt resource value: 0x7f070051
+			public const int hockeyapp_feedback_subject_hint_required = 2131165265;
+			
+			// aapt resource value: 0x7f070052
+			public const int hockeyapp_feedback_title = 2131165266;
+			
+			// aapt resource value: 0x7f070053
+			public const int hockeyapp_feedback_validate_email_empty = 2131165267;
+			
+			// aapt resource value: 0x7f070054
+			public const int hockeyapp_feedback_validate_email_error = 2131165268;
+			
+			// aapt resource value: 0x7f070055
+			public const int hockeyapp_feedback_validate_name_error = 2131165269;
+			
+			// aapt resource value: 0x7f070056
+			public const int hockeyapp_feedback_validate_subject_error = 2131165270;
+			
+			// aapt resource value: 0x7f070057
+			public const int hockeyapp_feedback_validate_text_error = 2131165271;
+			
+			// aapt resource value: 0x7f070058
+			public const int hockeyapp_login_email_hint = 2131165272;
+			
+			// aapt resource value: 0x7f070059
+			public const int hockeyapp_login_email_hint_required = 2131165273;
+			
+			// aapt resource value: 0x7f07005a
+			public const int hockeyapp_login_headline_text = 2131165274;
+			
+			// aapt resource value: 0x7f07005b
+			public const int hockeyapp_login_headline_text_email_only = 2131165275;
+			
+			// aapt resource value: 0x7f07005c
+			public const int hockeyapp_login_login_button_text = 2131165276;
+			
+			// aapt resource value: 0x7f07005d
+			public const int hockeyapp_login_missing_credentials_toast = 2131165277;
+			
+			// aapt resource value: 0x7f07005e
+			public const int hockeyapp_login_password_hint = 2131165278;
+			
+			// aapt resource value: 0x7f07005f
+			public const int hockeyapp_login_password_hint_required = 2131165279;
+			
+			// aapt resource value: 0x7f070060
+			public const int hockeyapp_paint_dialog_message = 2131165280;
+			
+			// aapt resource value: 0x7f070061
+			public const int hockeyapp_paint_dialog_negative_button = 2131165281;
+			
+			// aapt resource value: 0x7f070062
+			public const int hockeyapp_paint_dialog_neutral_button = 2131165282;
+			
+			// aapt resource value: 0x7f070063
+			public const int hockeyapp_paint_dialog_positive_button = 2131165283;
+			
+			// aapt resource value: 0x7f070064
+			public const int hockeyapp_paint_indicator_toast = 2131165284;
+			
+			// aapt resource value: 0x7f070065
+			public const int hockeyapp_paint_menu_clear = 2131165285;
+			
+			// aapt resource value: 0x7f070066
+			public const int hockeyapp_paint_menu_save = 2131165286;
+			
+			// aapt resource value: 0x7f070067
+			public const int hockeyapp_paint_menu_undo = 2131165287;
+			
+			// aapt resource value: 0x7f070068
+			public const int hockeyapp_permission_dialog_negative_button = 2131165288;
+			
+			// aapt resource value: 0x7f070069
+			public const int hockeyapp_permission_dialog_positive_button = 2131165289;
+			
+			// aapt resource value: 0x7f07006a
+			public const int hockeyapp_permission_update_message = 2131165290;
+			
+			// aapt resource value: 0x7f07006b
+			public const int hockeyapp_permission_update_title = 2131165291;
+			
+			// aapt resource value: 0x7f07006c
+			public const int hockeyapp_update_button = 2131165292;
+			
+			// aapt resource value: 0x7f07006d
+			public const int hockeyapp_update_dialog_message = 2131165293;
+			
+			// aapt resource value: 0x7f07006e
+			public const int hockeyapp_update_dialog_negative_button = 2131165294;
+			
+			// aapt resource value: 0x7f07006f
+			public const int hockeyapp_update_dialog_positive_button = 2131165295;
+			
+			// aapt resource value: 0x7f070070
+			public const int hockeyapp_update_dialog_title = 2131165296;
+			
+			// aapt resource value: 0x7f070071
+			public const int hockeyapp_update_mandatory_toast = 2131165297;
+			
+			// aapt resource value: 0x7f070072
+			public const int hockeyapp_update_version_details_label = 2131165298;
 			
 			// aapt resource value: 0x7f070021
 			public const int library_name = 2131165217;
 			
-			// aapt resource value: 0x7f070037
-			public const int pref_enable_notifications_default = 2131165239;
+			// aapt resource value: 0x7f070088
+			public const int pref_enable_notifications_default = 2131165320;
 			
-			// aapt resource value: 0x7f070036
-			public const int pref_enable_notifications_false = 2131165238;
+			// aapt resource value: 0x7f070087
+			public const int pref_enable_notifications_false = 2131165319;
 			
-			// aapt resource value: 0x7f070033
-			public const int pref_enable_notifications_key = 2131165235;
+			// aapt resource value: 0x7f070084
+			public const int pref_enable_notifications_key = 2131165316;
 			
-			// aapt resource value: 0x7f070034
-			public const int pref_enable_notifications_label = 2131165236;
+			// aapt resource value: 0x7f070085
+			public const int pref_enable_notifications_label = 2131165317;
 			
-			// aapt resource value: 0x7f070035
-			public const int pref_enable_notifications_true = 2131165237;
+			// aapt resource value: 0x7f070086
+			public const int pref_enable_notifications_true = 2131165318;
 			
-			// aapt resource value: 0x7f070043
-			public const int pref_last_notification = 2131165251;
+			// aapt resource value: 0x7f070094
+			public const int pref_last_notification = 2131165332;
 			
-			// aapt resource value: 0x7f07002c
-			public const int pref_location_default = 2131165228;
+			// aapt resource value: 0x7f07007d
+			public const int pref_location_default = 2131165309;
 			
-			// aapt resource value: 0x7f07002b
-			public const int pref_location_key = 2131165227;
+			// aapt resource value: 0x7f07007c
+			public const int pref_location_key = 2131165308;
 			
-			// aapt resource value: 0x7f07002a
-			public const int pref_location_label = 2131165226;
+			// aapt resource value: 0x7f07007b
+			public const int pref_location_label = 2131165307;
 			
-			// aapt resource value: 0x7f070032
-			public const int pref_units_imperial = 2131165234;
+			// aapt resource value: 0x7f070083
+			public const int pref_units_imperial = 2131165315;
 			
-			// aapt resource value: 0x7f070030
-			public const int pref_units_key = 2131165232;
+			// aapt resource value: 0x7f070081
+			public const int pref_units_key = 2131165313;
 			
-			// aapt resource value: 0x7f07002d
-			public const int pref_units_label = 2131165229;
+			// aapt resource value: 0x7f07007e
+			public const int pref_units_label = 2131165310;
 			
-			// aapt resource value: 0x7f07002f
-			public const int pref_units_label_imperial = 2131165231;
+			// aapt resource value: 0x7f070080
+			public const int pref_units_label_imperial = 2131165312;
 			
-			// aapt resource value: 0x7f07002e
-			public const int pref_units_label_metric = 2131165230;
+			// aapt resource value: 0x7f07007f
+			public const int pref_units_label_metric = 2131165311;
 			
-			// aapt resource value: 0x7f070031
-			public const int pref_units_metric = 2131165233;
+			// aapt resource value: 0x7f070082
+			public const int pref_units_metric = 2131165314;
 			
 			// aapt resource value: 0x7f070013
 			public const int search_menu_title = 2131165203;
@@ -2594,20 +3102,20 @@ namespace Sunshine
 			// aapt resource value: 0x7f070014
 			public const int status_bar_notification_info_overflow = 2131165204;
 			
-			// aapt resource value: 0x7f070040
-			public const int sync_account_type = 2131165248;
+			// aapt resource value: 0x7f070091
+			public const int sync_account_type = 2131165329;
 			
-			// aapt resource value: 0x7f070028
-			public const int title_activity_detail = 2131165224;
+			// aapt resource value: 0x7f070079
+			public const int title_activity_detail = 2131165305;
 			
-			// aapt resource value: 0x7f070029
-			public const int title_activity_settings = 2131165225;
+			// aapt resource value: 0x7f07007a
+			public const int title_activity_settings = 2131165306;
 			
-			// aapt resource value: 0x7f070038
-			public const int today = 2131165240;
+			// aapt resource value: 0x7f070089
+			public const int today = 2131165321;
 			
-			// aapt resource value: 0x7f070039
-			public const int tomorrow = 2131165241;
+			// aapt resource value: 0x7f07008a
+			public const int tomorrow = 2131165322;
 			
 			static String()
 			{
@@ -2622,11 +3130,11 @@ namespace Sunshine
 		public partial class Style
 		{
 			
-			// aapt resource value: 0x7f090162
-			public const int ActionBar_Solid_Sunshine_NoTitle = 2131296610;
+			// aapt resource value: 0x7f090165
+			public const int ActionBar_Solid_Sunshine_NoTitle = 2131296613;
 			
-			// aapt resource value: 0x7f090164
-			public const int ActionBar_V14_Sunshine_NoTitle = 2131296612;
+			// aapt resource value: 0x7f090167
+			public const int ActionBar_V14_Sunshine_NoTitle = 2131296615;
 			
 			// aapt resource value: 0x7f09009f
 			public const int AlertDialog_AppCompat = 2131296415;
@@ -2640,8 +3148,8 @@ namespace Sunshine
 			// aapt resource value: 0x7f0900a2
 			public const int Animation_AppCompat_DropDownUp = 2131296418;
 			
-			// aapt resource value: 0x7f09015f
-			public const int AppTheme = 2131296607;
+			// aapt resource value: 0x7f090162
+			public const int AppTheme = 2131296610;
 			
 			// aapt resource value: 0x7f0900a3
 			public const int Base_AlertDialog_AppCompat = 2131296419;
@@ -3099,11 +3607,20 @@ namespace Sunshine
 			// aapt resource value: 0x7f090084
 			public const int Base_Widget_AppCompat_Toolbar_Button_Navigation = 2131296388;
 			
+			// aapt resource value: 0x7f090166
+			public const int ForecastListStyle = 2131296614;
+			
 			// aapt resource value: 0x7f090163
-			public const int ForecastListStyle = 2131296611;
+			public const int ForecastTheme = 2131296611;
+			
+			// aapt resource value: 0x7f09015f
+			public const int HockeyApp_ButtonStyle = 2131296607;
 			
 			// aapt resource value: 0x7f090160
-			public const int ForecastTheme = 2131296608;
+			public const int HockeyApp_EditTextStyle = 2131296608;
+			
+			// aapt resource value: 0x7f090161
+			public const int HockeyApp_SingleLineInputStyle = 2131296609;
 			
 			// aapt resource value: 0x7f09001e
 			public const int Platform_AppCompat = 2131296286;
@@ -3189,8 +3706,8 @@ namespace Sunshine
 			// aapt resource value: 0x7f09003e
 			public const int RtlUnderlay_Widget_AppCompat_ActionButton_Overflow = 2131296318;
 			
-			// aapt resource value: 0x7f090161
-			public const int SettingsTheme = 2131296609;
+			// aapt resource value: 0x7f090164
+			public const int SettingsTheme = 2131296612;
 			
 			// aapt resource value: 0x7f0900ce
 			public const int TextAppearance_AppCompat = 2131296462;

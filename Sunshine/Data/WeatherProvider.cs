@@ -3,24 +3,16 @@ using Android.Content;
 using Android.Database.Sqlite;
 using Android.Database;
 using Android.Annotation;
-using Serilog.Core;
-using Serilog.Events;
-using Serilog;
+using Android.OS;
+using Android.Util;
 
 namespace Sunshine.Data
 {
     [ContentProvider(new string[] { WeatherContract.ContentAuthority }, Exported = false, Syncable = true)]
     public class WeatherProvider : ContentProvider
     {
-        readonly ILogger _log;
 
-        public WeatherProvider()
-        {
-            var levelSwitch = new LoggingLevelSwitch();
-            levelSwitch.MinimumLevel = LogEventLevel.Verbose;
-            _log = new LoggerConfiguration().MinimumLevel.ControlledBy(levelSwitch).WriteTo.AndroidLog().CreateLogger();
-
-        }
+        private const string _tag = "WeatherProvider";
 
 
         // The URI Matcher used by this content provider.
@@ -369,9 +361,9 @@ namespace Sunshine.Data
 
                         db.SetTransactionSuccessful();
                     }
-                    catch (System.Exception e)
+                    catch (Exception e)
                     {
-                        _log.ForContext<WeatherProvider>().Debug("Build insert failed with message {0}", e.Message);    
+                        Log.WriteLine(LogPriority.Debug, _tag, $"Build insert failed with message {e.Message}");
                     }
                     finally
                     {

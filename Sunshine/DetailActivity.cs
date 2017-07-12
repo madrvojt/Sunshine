@@ -9,9 +9,9 @@ using Android.Widget;
 
 namespace Sunshine
 {
-    [Activity(Label = "@string/title_activity_detail", Icon = "@mipmap/ic_launcher", ParentActivity = typeof(MainActivity))]            
+    [Activity(Label = "@string/title_activity_detail", Icon = "@mipmap/ic_launcher", ParentActivity = typeof(MainActivity), Theme = "@style/ForecastTheme")]            
     [MetaData("android.support.PARENT_ACTIVITY", Value = "cz.madrvojt.xamarin.sunshine.MainActivity")]
-    public class DetailActivity : AppCompatActivity
+	public class DetailActivity : AppCompatActivity
     {
         Android.Support.V7.Widget.ShareActionProvider _shareActionProvider;
 
@@ -21,8 +21,12 @@ namespace Sunshine
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activity_detail);
 
-            var arguments = new Bundle();
-            arguments.PutParcelable(DetailFragment.DetailUri, Intent.Data);
+
+			// HACK : Bug
+			Bundle arguments = null;
+			//Bundle arguments = new Bundle();
+            
+			arguments.PutParcelable(DetailFragment.DetailUri, Intent.Data);
 
 
             var fragment = new DetailFragment();
