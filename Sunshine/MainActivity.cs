@@ -23,19 +23,15 @@ namespace Sunshine
         bool _isMetric;
 
 
-        public void ConfigureStartMobileCenter()
+		public void ConfigureStartMobileCenter()
         {
-			CrashManager.Register(this, "b632892031c04a5cb7aecc6452a0b1e4");
-			MetricsManager.Register(Application, "b632892031c04a5cb7aecc6452a0b1e4");
+			CrashManager.Register(this, HockeyAppId);
+			MetricsManager.Register(Application, HockeyAppId);
 		}
 
 		protected async override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
-#if !DEBUG
-			ConfigureStartMobileCenter();
-#endif
 
 			var res = ApplicationContext.Resources;
 
@@ -124,7 +120,11 @@ namespace Sunshine
         {
             base.OnResume();
 
-            var location = Utility.GetPreferredLocation(this);
+#if !DEBUG
+			ConfigureStartMobileCenter();
+#endif
+
+			var location = Utility.GetPreferredLocation(this);
             var isMetric = Utility.IsMetric(this);
 
             // update the location in our second pane using the fragment manager
