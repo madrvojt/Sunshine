@@ -23,9 +23,9 @@ namespace Sunshine
 
 
 			// HACK : Bug
-			Bundle arguments = null;
-			//Bundle arguments = new Bundle();
-            
+			//Bundle arguments = null;
+			Bundle arguments = new Bundle();
+
 			arguments.PutParcelable(DetailFragment.DetailUri, Intent.Data);
 
 
