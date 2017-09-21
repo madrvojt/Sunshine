@@ -352,8 +352,6 @@ namespace Sunshine
             var dateTime = new DateTime(dateInMillis);
             return dateTime.ToString("D", CultureInfo.CreateSpecificCulture("en"));
         }
-
-
     }
 }
 
