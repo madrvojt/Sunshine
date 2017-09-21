@@ -43,7 +43,6 @@ namespace Sunshine
                 windSpeed = .621371192237334f * windSpeed;
             }
 
-
             string direction = "Unknown";
             if (degrees >= 337.5 || degrees < 22.5)
             {
