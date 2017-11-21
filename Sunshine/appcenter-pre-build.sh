@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-MANIFEST_FILE='Sunshine/Properties/AndroidManifest.xml'
+MANIFEST_FILE='Properties/AndroidManifest.xml'
 PACKAGENAME=`grep "package" $MANIFEST_FILE | sed 's/.*package="//;s/".*//'`
 NEWNAME=$PACKAGENAME.DEBUG
 
