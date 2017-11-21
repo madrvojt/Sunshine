@@ -8,6 +8,6 @@ if [ "$APPCENTER_BRANCH" == "master" ];
 then
 
 echo "Package name is $PACKAGENAME and new is $NEWNAME";
-sed -i 's/package=*"'$PACKAGENAME'"/package="'$NEWNAME'"/g' $MANIFEST_FILE
+sed -i '' 's/package=*"'$PACKAGENAME'"/package="'$NEWNAME'"/g' $MANIFEST_FILE
 
 fi
