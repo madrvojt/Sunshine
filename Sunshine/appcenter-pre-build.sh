@@ -5,7 +5,7 @@ PACKAGENAME=`grep "package" $MANIFEST_FILE | sed 's/.*package="//;s/".*//'`
 VERSIONNAME=`grep "versionName" $MANIFEST_FILE | sed 's/.*versionName="//;s/".*//'`
 NEWNAME=$PACKAGENAME.DEBUG
 GITCOUNT=$(git rev-list --all --count)
-NEWVERSIONNAME="$ENVIRONMENT_VARIABLE.$GITCOUNT"
+NEWVERSIONNAME="$APP_VERSION.$GITCOUNT"
 
 if [ "$APPCENTER_BRANCH" == "master" ];
 then
