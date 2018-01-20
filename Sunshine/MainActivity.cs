@@ -17,7 +17,7 @@ namespace Sunshine
     {
 
         const string DetailFragmentTag = "DFTAG";
-        const string AppCenterId = "b50908b9-3665-4ad4-958d-564a7820029e";
+        const string AppCenterId = "e60b8765-ab03-44f5-9c93-5eb1db906ffc";
         string _location;
         bool _twoPane;
         bool _isMetric;
