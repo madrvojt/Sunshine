@@ -245,7 +245,6 @@ namespace Sunshine
             _listView.ItemClick += (sender, e) =>
             {
 
-				HockeyApp.MetricsManager.TrackEvent("Detail Click");
 				var cursor = ((AdapterView)sender).GetItemAtPosition(e.Position).JavaCast<ICursor>();
                 if (cursor != null)
                 {

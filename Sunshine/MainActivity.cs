@@ -7,8 +7,8 @@ using Sunshine.Sync;
 using Android.Content.Res;
 
 using System.Threading.Tasks;
-using HockeyApp.Android;
-using HockeyApp.Android.Metrics;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Crashes;
 
 namespace Sunshine
 {
@@ -17,7 +17,7 @@ namespace Sunshine
     {
 
         const string DetailFragmentTag = "DFTAG";
-        const string HockeyAppId = "b632892031c04a5cb7aecc6452a0b1e4";
+        const string AppCenterId = "b50908b9-3665-4ad4-958d-564a7820029e";
         string _location;
         bool _twoPane;
         bool _isMetric;
@@ -25,11 +25,10 @@ namespace Sunshine
 
 		public void ConfigureStartMobileCenter()
         {
-			CrashManager.Register(this, HockeyAppId);
-			MetricsManager.Register(Application, HockeyAppId);
-		}
+            AppCenter.Start(AppCenterId, typeof(Crashes));
+        }
 
-		protected async override void OnCreate(Bundle savedInstanceState)
+		protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 

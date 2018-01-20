@@ -28,7 +28,7 @@
 	<!-- Default postal code for location preference [CHAR LIMIT=NONE] -->
 	<string
 		name="pref_location_default"
-		translatable="false">25219</string>
+		translatable="false">Prague,cz</string>
 	<!-- Label for the temperature units preference [CHAR LIMIT=30] -->
 	<string
 		name="pref_units_label">Temperature Units</string>
