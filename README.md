@@ -3,6 +3,7 @@
 Sunshine is the companion Android app inspirated by the Udacity course Developing Android Apps: Android Fundamentals, develop by Xamarin.Android. 
 
 * https://eu.udacity.com/course/new-android-fundamentals--ud851
+* https://github.com/udacity/Sunshine-Version-2
 
 ## App Info 
 
