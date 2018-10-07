@@ -8,7 +8,11 @@ Sunshine is the companion Android app inspirated by the Udacity course Developin
 ## App Info 
 
 * Develop system : Android 9 Pie
-* Release - Not released yet
+* Release - 0.9.0
+
+### Download link (VS APPCenter)
+
+https://install.appcenter.ms/users/madrvojt/apps/udacity-sunshine-app-based-on-xamarin.android/distribution_groups/beta%20testers
 
 ### Release State
 
