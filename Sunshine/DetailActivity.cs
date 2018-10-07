@@ -21,14 +21,8 @@ namespace Sunshine
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activity_detail);
 
-
-			// HACK : Bug
-			//Bundle arguments = null;
 			Bundle arguments = new Bundle();
-
 			arguments.PutParcelable(DetailFragment.DetailUri, Intent.Data);
-
-
             var fragment = new DetailFragment();
             fragment.Arguments = arguments;
 

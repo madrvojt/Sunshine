@@ -2,9 +2,7 @@
 using Android.Content;
 using Android.OS;
 using Android.Accounts;
-using System.Net.Http;
 using ModernHttpClient;
-using System.Web;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using Sunshine.Data;
@@ -15,6 +13,8 @@ using Android.App;
 using Android.Support.V4.Content;
 using Android.Util;
 using Sunshine.Models;
+using System.Net.Http;
+using System.Web;
 
 namespace Sunshine.Sync
 {

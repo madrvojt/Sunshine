@@ -17,26 +17,19 @@ namespace Sunshine
     {
 
         const string DetailFragmentTag = "DFTAG";
-        const string AppCenterId = "e60b8765-ab03-44f5-9c93-5eb1db906ffc";
+        const string AppCenterId = "511166e6-39a4-4f84-ade7-10b443669ad6";
         string _location;
         bool _twoPane;
         bool _isMetric;
 
 
-		public void ConfigureStartMobileCenter()
-        {
-            AppCenter.Start(AppCenterId, typeof(Crashes));
-        }
-
 		protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            AppCenter.Start(AppCenterId, typeof(Crashes));
 
-			var res = ApplicationContext.Resources;
-
-
+            var res = ApplicationContext.Resources;
             var locale = new Java.Util.Locale("en");
-
             Java.Util.Locale.Default = locale;
 
             var config = new Configuration();
@@ -118,10 +111,6 @@ namespace Sunshine
         protected override void OnResume()
         {
             base.OnResume();
-
-#if !DEBUG
-			ConfigureStartMobileCenter();
-#endif
 
 			var location = Utility.GetPreferredLocation(this);
             var isMetric = Utility.IsMetric(this);
