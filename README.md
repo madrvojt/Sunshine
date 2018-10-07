@@ -5,6 +5,8 @@ Sunshine is the companion Android app inspirated by the Udacity course Developin
 * https://eu.udacity.com/course/new-android-fundamentals--ud851
 
 Develop system : Android 9 Pie
+Release - Not released yet
+
 
 ## About Xamarin.Android (Xamarin Native)  
 
